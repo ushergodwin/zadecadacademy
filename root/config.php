@@ -22,7 +22,7 @@ switch (DB_URL) {
 		defined("DB_NAME") or define("DB_NAME", "zadecada_sysdb");
 		defined("SITE_URL") or define("SITE_URL", BASE_URL . '/' . APP_DIR . '/');
 		break;
-	case '127.0.0.1:8002':
+	case '127.0.0.1:8080':
 		defined("DB_SERVER") or define("DB_SERVER", 'localhost');
 		defined("DB_USER") or define("DB_USER", "root");
 		defined("DB_PASS") or define("DB_PASS", "Trail#123");
