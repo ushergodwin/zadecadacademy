@@ -114,9 +114,9 @@
             </div>
             @endforeach
             <center>
-                <button onclick="window.location.href='{{ url('courses') }}'" class="btn btn-secondary py-3 px-5" style="background-color:#ff7900;color:#fff">
+                <!-- <button onclick="window.location.href='{{ url('courses') }}'" class="btn btn-secondary py-3 px-5" style="background-color:#ff7900;color:#fff">
                     <i class="fa fa-book"></i> ALL COURSES
-                </button>
+                </button> -->
             </center>
         </div>
     </div>
