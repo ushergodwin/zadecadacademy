@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\EnrollmentController;
@@ -70,6 +72,58 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 Route::post('/register', [UserController::class, 'register'])->name('register');
 
 Route::post('/login', [UserController::class, 'login'])->name('login');
+
+
+
+
+
+
+// ADMIN
+
+
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('auth.login');
+
+Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
+
+Route::get('/register', function () {
+    return view('auth.login');
+})->name('auth.register');
+
+Route::post('/register', [AuthController::class, 'register'])->name('auth.register');
+
+Route::get('/forgot', function () {
+    return view('auth.login');
+})->name('auth.forgot');
+
+Route::post('/forgot', [AuthController::class, 'forgot'])->name('auth.forgot');
+
+Route::get('/reset', function () {
+    return view('auth.login');
+})->name('auth.reset');
+
+Route::post('/reset', [AuthController::class, 'reset'])->name('auth.reset');
+
+Route::get('/dashboard', function () {
+    return view('admin.dashboard');
+})->name('dashboard');
+
+
+
+Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+
+Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
+
+Route::post('/update-profile', [AdminController::class, 'updateProfile'])->name('admin.update_profile');
+
+Route::post('/register-user', [AdminController::class, 'registerUser'])->name('admin.register');
+
+Route::post('/add-program', [AdminController::class, 'addProgram'])->name('admin.add_program');
+
+Route::post('/add-course', [AdminController::class, 'addCourse'])->name('admin.add_course');
+
+Route::post('/add-image', [AdminController::class, 'addImage'])->name('admin.add_image');
 
 
 
