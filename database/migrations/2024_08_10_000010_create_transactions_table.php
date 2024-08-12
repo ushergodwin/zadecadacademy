@@ -16,8 +16,8 @@ return new class extends Migration
             $table->integer('transaction_id');
             $table->float('amount');
             $table->string('currency');
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('course_id');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('course_id')->nullable();
             $table->string('flw_ref')->nullable();
             $table->string('status');
             $table->date('date_added');
