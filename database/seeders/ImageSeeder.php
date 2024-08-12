@@ -16,23 +16,8 @@ class ImageSeeder extends Seeder
         //
         Image::insert([
             [
-                'image' => 'image1.jpg',
+                'image' => '978963773.jpg',
                 'caption' => 'Caption 1',
-                'status' => 'active',
-            ],
-            [
-                'image' => 'image2.jpg',
-                'caption' => 'Caption 2',
-                'status' => 'active',
-            ],
-            [
-                'image' => 'image3.jpg',
-                'caption' => 'Caption 3',
-                'status' => 'inactive',
-            ],
-            [
-                'image' => 'image4.jpg',
-                'caption' => 'Caption 4',
                 'status' => 'active',
             ],
         ]);

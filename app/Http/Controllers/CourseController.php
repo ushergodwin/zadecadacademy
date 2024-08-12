@@ -11,7 +11,7 @@ class CourseController extends Controller
     //
     public function index()
     {
-        $courses = Program::orderBy('pid')->get();
+        $courses = Program::orderBy('id')->get();
         return view('courses', compact('courses'));
     }
 

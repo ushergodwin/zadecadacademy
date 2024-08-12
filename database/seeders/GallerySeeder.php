@@ -16,22 +16,37 @@ class GallerySeeder extends Seeder
         //
         Gallery::insert([
             [
-                'image' => 'gallery1.jpg',
+                'image' => '548421325.jpg',
                 'caption' => 'Caption 1',
                 'status' => 'active',
             ],
             [
-                'image' => 'gallery2.jpg',
+                'image' => '113218730.jpg',
                 'caption' => 'Caption 2',
                 'status' => 'active',
             ],
             [
-                'image' => 'gallery3.jpg',
+                'image' => '123100483.jpg',
                 'caption' => 'Caption 3',
                 'status' => 'inactive',
             ],
             [
-                'image' => 'gallery4.jpg',
+                'image' => '950136444.jpg',
+                'caption' => 'Caption 4',
+                'status' => 'active',
+            ],
+            [
+                'image' => '321570974.jpg',
+                'caption' => 'Caption 4',
+                'status' => 'active',
+            ],
+            [
+                'image' => '564804036.jpg',
+                'caption' => 'Caption 4',
+                'status' => 'active',
+            ],
+            [
+                'image' => '529401057.jpg',
                 'caption' => 'Caption 4',
                 'status' => 'active',
             ],

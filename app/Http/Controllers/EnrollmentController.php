@@ -12,9 +12,9 @@ class EnrollmentController extends Controller
     //
     public function show(Request $request)
     {
-        $pid = base64_decode($request->input('activate'));
-        $program = Program::findOrFail($pid);
-        $outline = Program::orderBy('pid')->get();
+        $id = base64_decode($request->input('activate'));
+        $program = Program::findOrFail($id);
+        $outline = Program::orderBy('id')->get();
         $countries = $this->getCountries();
 
         return view('enrol', compact('program', 'outline', 'countries'));

@@ -18,17 +18,17 @@ class VideoSeeder extends Seeder
             [
                 'course_id' => 1,
                 'title' => 'Video 1',
-                'link' => 'https://www.youtube.com/watch?v=fRNhkQpp0wU',
+                'link' => 'https://player.vimeo.com/video/682719578?h=4ac5b2fc9a',
             ],
             [
                 'course_id' => 1,
                 'title' => 'Video 2',
-                'link' => 'https://www.youtube.com/watch?v=fRNhkQpp0wU',
+                'link' => 'https://player.vimeo.com/video/682719578?h=4ac5b2fc9a',
             ],
             [
                 'course_id' => 3,
                 'title' => 'Video 3',
-                'link' => 'https://www.youtube.com/watch?v=fRNhkQpp0wU',
+                'link' => 'https://player.vimeo.com/video/682719578?h=4ac5b2fc9a',
             ],
             [
                 'course_id' => 4,

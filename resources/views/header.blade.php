@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>ZadeCAD Academy</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}" type="images/x-icon" />
+    <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}" type="image/x-icon" />
     <meta content="ZadeCAD Academy" name="keywords">
     <meta content="ZadeCAD Academy" name="description">
     <link href="{{ asset('img/favicon.html') }}" rel="icon">

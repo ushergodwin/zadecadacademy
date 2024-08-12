@@ -43,7 +43,7 @@ class AdminController extends Controller
         $user = Auth::user();
         if (Hash::check($request->oldpass, $user->password)) {
             $user->password = Hash::make($request->newpass);
-            $user->save();
+            // $user->save();
             return redirect()->route('admin.logout');
         } else {
             return redirect()->route('admin.profile')->with('error', 'Old password is incorrect.');

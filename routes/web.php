@@ -11,11 +11,6 @@ use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
 
 Route::get('/404', function () {
     return view('404');
@@ -65,7 +60,7 @@ Route::post('/enrol', [EnrollmentController::class, 'store'])->name('enrol.store
 
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('index');
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
