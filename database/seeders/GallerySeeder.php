@@ -18,37 +18,37 @@ class GallerySeeder extends Seeder
             [
                 'image' => '548421325.jpg',
                 'caption' => 'Caption 1',
-                'status' => 'active',
+                'status' => 'yes',
             ],
             [
                 'image' => '113218730.jpg',
                 'caption' => 'Caption 2',
-                'status' => 'active',
+                'status' => 'yes',
             ],
             [
                 'image' => '123100483.jpg',
                 'caption' => 'Caption 3',
-                'status' => 'inactive',
+                'status' => 'yes',
             ],
             [
                 'image' => '950136444.jpg',
                 'caption' => 'Caption 4',
-                'status' => 'active',
+                'status' => 'yes',
             ],
             [
                 'image' => '321570974.jpg',
                 'caption' => 'Caption 4',
-                'status' => 'active',
+                'status' => 'yes',
             ],
             [
                 'image' => '564804036.jpg',
                 'caption' => 'Caption 4',
-                'status' => 'active',
+                'status' => 'yes',
             ],
             [
                 'image' => '529401057.jpg',
                 'caption' => 'Caption 4',
-                'status' => 'active',
+                'status' => 'yes',
             ],
         ]);
     }

@@ -64,6 +64,18 @@ class UserSeeder extends Seeder
                 'active' => '1',
                 'plain_password' => 'password',
             ],
+            [
+                'first_name' => 'Ainamaani',
+                'last_name' => 'Isaac',
+                'email' => 'admin@zadecadacademy.com',
+                'email_verified_at' => now(),
+                'password' => Hash::make('admin@zadecadacademy.com'),
+                'contact' => '+256771234567',
+                'role' => 'admin',
+                'reset_code' => '45841',
+                'active' => '1',
+                'plain_password' => 'admin@zadecadacademy.com',
+            ],
         ]);
     }
 }

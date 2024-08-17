@@ -12,14 +12,15 @@
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="product-item">
                     <div class="position-relative">
-                        <a href="{{ route('course.details', ['id' => base64_encode($course->pid), 'content' => Str::slug($course->pg_name)]) }}" style="color:#ff7900;">
+                        <a href="{{ route('course.details', ['id' => $course->id]) }}" style="color:#ff7900;">
                             <img class="img-fluid" src="{{ asset('uploads/' . $course->pg_image) }}" style="width: 100%;height: 300px" alt="">
                         </a>
                     </div>
                     <div class="text-center p-4">
                         <h6>{{ $course->pg_name }}</h6>
                         <p>{{ Str::limit($course->description, 150) }}</p>
-                        <a href="{{ route('course.details', ['id' => base64_encode($course->pid), 'content' => Str::slug($course->pg_name)]) }}" style="color:#ff7900;">Read More <i class="fa fa-angle-double-right"></i></a>
+                        <a href="{{ route('course.details', ['id' => $course->id]) }}" style="color:#ff7900;">Read More <i class="fa fa-angle-double-right"></i></a>
+    
                     </div>
                 </div>
             </div>

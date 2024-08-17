@@ -23,7 +23,7 @@
                 <h2 class="mb-4">Enrol for <b style="color:#ff7900;">{{ $program->pg_name }}</b></h2>
                 <form method="post" action="{{ route('enrol.store') }}" role="form">
                     @csrf
-                    <input type="hidden" name="program" value="{{ $program->pid }}">
+                    <input type="hidden" name="program" value="{{ $program->id }}">
                     <div class="row g-3">
                         <div class="col-md-12">
                             <div class="form-floating">

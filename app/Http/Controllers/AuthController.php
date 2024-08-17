@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
@@ -15,21 +17,33 @@ class AuthController extends Controller
             'email' => 'required|string|email|max:255',
             'password' => 'required|string|min:8',
         ]);
+    
+        // Fetch the user by email
+        $user = User::where('email', $request->email)->first();
+    
+        // Check if user exists and the password is correct
+        if ($user && Hash::check($request->password, $user->password)) {
+            // Store user details in the session
+            $names = $user->first_name . ' ' . $user->last_name;
 
-        $user = User::where('email', $request->email)
-                    ->where('password', md5($request->password))
-                    ->first();
-
-        if ($user) {
             Session::put('pwd', $user->password);
             Session::put('interface', $user->role);
             Session::put('email', $user->email);
             Session::put('first', $user->first_name);
             Session::put('last', $user->last_name);
             Session::put('userid', $user->id);
+            Session::put('names', $names);
 
-            return redirect()->route('dashboard')->with('success', "Welcome {$user->first_name} (Administrator), Click ok to continue!!");
+            
+            $role = $user->role;
+    
+        
+    
+            // Redirect to the dashboard with a success message
+            return redirect()->route('admin.dashboard')->with('success', "Welcome {$user->first_name} (Administrator), Click ok to continue!!")
+                                                    ->with('names' , $names);
         } else {
+            // Redirect back to the login page with an error message
             return redirect()->route('auth.login')->with('error', 'Username or password is incorrect. Try again');
         }
     }

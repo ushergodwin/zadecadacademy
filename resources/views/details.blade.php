@@ -16,7 +16,7 @@
                 <p style="line-height: 1em"><i class="fa fa-angle-right"></i> {{ $software }}</p>
             @endforeach
             <h2 style="font-weight: bold;">
-                <a href="{{ route('enrol', ['id' => base64_encode($program->pid), 'description' => base64_encode($program->pg_name)]) }}" class="btn btn-secondary py-3 px-5">
+                <a href="{{ route('program.enrol', ['id' => $program->id]) }}" class="btn btn-secondary py-3 px-5">
                     <i class="fa fa-pencil"></i> ENROL NOW
                 </a>
             </h2>
@@ -26,12 +26,12 @@
             <h4>Courses Outline</h4>
             @foreach($outline as $course)
                 <p style="line-height: 1em"><i class="fa fa-angle-right"></i>
-                    @if ($program->pid == $course->pid)
-                        <a href="{{ route('program.details', ['read-more' => base64_encode($course->pid), 'content' => Str::slug($course->pg_name)]) }}" style="color:#ff7900;">
+                    @if ($program->id == $course->id)
+                        <a href="{{ route('course.details', ['id' => $course->id]) }}" style="color:#ff7900;">
                             {{ $course->pg_name }}
                         </a>
                     @else
-                        <a href="{{ route('program.details', ['read-more' => base64_encode($course->pid), 'content' => Str::slug($course->pg_name)]) }}">
+                        <a href="{{ route('course.details', ['id' => $course->id]) }}">
                             {{ $course->pg_name }}
                         </a>
                     @endif

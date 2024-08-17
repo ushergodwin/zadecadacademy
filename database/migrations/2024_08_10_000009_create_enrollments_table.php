@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('whatsapp');
             $table->string('gender');
             $table->string('country');
-            $table->date('date_added');
+            $table->date('enrollment_date');
             $table->string('occupation');
             $table->string('field_of_study');
             $table->string('company');

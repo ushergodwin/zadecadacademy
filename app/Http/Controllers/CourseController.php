@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
-    //
     public function index()
     {
         $courses = Program::orderBy('id')->get();
@@ -19,5 +18,20 @@ class CourseController extends Controller
     {
         $courses = Course::orderBy('code')->get();
         return view('course-outlines', compact('courses'));
+    }
+
+    public function downloads()
+    {
+        $courses = Course::orderBy('code')->get();
+        return view('downloads', compact('courses'));
+    }
+
+    public function details($id)
+    {
+        // $id = base64_decode($request->input('read-more'));
+        $program = Program::findOrFail($id);
+        $outline = Program::orderBy('id')->get();
+
+        return view('details', compact('program', 'outline'));
     }
 }

@@ -79,8 +79,8 @@
                         <img class="img-fluid" src="{{ asset('uploads/' . $val->image) }}" style="width: 100%;height: 300px" alt="">
                     </div>
                     <div class="text-center p-4" style="border-bottom: 2px solid #ddd;">
-                        <h6> {{ $val->title }}</h6>
-                        <p> {{ $val->description }} </p>
+                        <h6>{{ $val->title }}</h6>
+                        <p>{{ $val->description }}</p>
                     </div>
                 </div>
             </div>
@@ -92,21 +92,21 @@
 <div class="container-xxl py-5" style="background-color: #fff;">
     <div class="container">
         <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-            <h3> Our Courses </h3>
+            <h3>Our Courses</h3>
         </div>
         <div class="row gy-5 gx-4">
             @foreach($courses as $row)
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="product-item">
                     <div class="position-relative">
-                        <a href="{{ url('details?read-more=' . base64_encode($row->pid) . '&content=' . Str::slug($row->pg_name)) }}" style="color:#ff7900;">
+                        <a href="{{ route('course.details', ['id' => $row->id]) }}" style="color:#ff7900;">
                             <img class="img-fluid" src="{{ asset('uploads/' . $row->pg_image) }}" style="width: 100%;height: 300px" alt="">
                         </a>
                     </div>
                     <div class="text-center p-4">
-                        <h6> {{ $row->pg_name }}</h6>
-                        <p> {{ Str::limit($row->description, 150) }} </p>
-                        <a href="{{ url('details?read-more=' . base64_encode($row->pid) . '&content=' . Str::slug($row->pg_name)) }}" style="color:#ff7900;">
+                        <h6>{{ $row->pg_name }}</h6>
+                        <p>{{ Str::limit($row->description, 150) }}</p>
+                        <a href="{{ route('course.details', ['id' => $row->id]) }}" style="color:#ff7900;">
                             Read More <i class="fa fa-angle-double-right"></i>
                         </a>
                     </div>
@@ -114,9 +114,9 @@
             </div>
             @endforeach
             <center>
-                <!-- <button onclick="window.location.href='{{ url('courses') }}'" class="btn btn-secondary py-3 px-5" style="background-color:#ff7900;color:#fff">
+                <button onclick="window.location.href='{{ route('courses.index') }}'" class="btn btn-secondary py-3 px-5" style="background-color:#ff7900;color:#fff">
                     <i class="fa fa-book"></i> ALL COURSES
-                </button> -->
+                </button>
             </center>
         </div>
     </div>

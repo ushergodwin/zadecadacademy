@@ -6,6 +6,7 @@ use App\Models\Enrollment;
 use App\Models\Program;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Log;
 
 class EnrollmentController extends Controller
 {
@@ -21,7 +22,9 @@ class EnrollmentController extends Controller
     }
 
     public function store(Request $request)
-    {
+    {   
+        Log::error('Entered the function');
+
         $request->validate([
             'program' => 'required',
             'firstname' => 'required',

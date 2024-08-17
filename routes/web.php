@@ -11,7 +11,6 @@ use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-
 Route::get('/404', function () {
     return view('404');
 });
@@ -24,6 +23,15 @@ Route::get('/clientele', function () {
     return view('clientele');
 });
 
+Route::get('/downloads', [CourseController::class, 'downloads'])->name('downloads');
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/deliverables', function () {
+    return view('deliverables');
+});
 
 Route::get('/contact', function () {
     return view('contact');
@@ -37,28 +45,25 @@ Route::get('/products', function () {
     return view('products');
 })->name('products');
 
-
 Route::get('/services', function () {
     return view('services');
 })->name('services');
 
-
-
 Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
 
-Route::get('/course/details', [CourseController::class, 'details'])->name('course.details');
+Route::get('/course/details/{id}', [CourseController::class, 'details'])->name('course.details');
 
-Route::get('/program/details', [ProgramController::class, 'show'])->name('program.details');
+Route::get('/program/details/{id}', [ProgramController::class, 'show'])->name('program.details');
 
-Route::get('/enrol', [ProgramController::class, 'enrol'])->name('enrol');
+Route::get('/program/enrol/{id}', [ProgramController::class, 'enrol'])->name('program.enrol');
 
-Route::get('/course-outlines', [CourseController::class, 'index'])->name('course.outlines');
+Route::get('/course-outlines', [CourseController::class, 'indexFunc'])->name('course.outlines');
 
-Route::get('/enrol', [EnrollmentController::class, 'show'])->name('enrol.show');
+Route::get('/enrol/{id}', [EnrollmentController::class, 'show'])->name('enrol.show');
 
 Route::post('/enrol', [EnrollmentController::class, 'store'])->name('enrol.store');
 
-Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
+Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
@@ -68,19 +73,16 @@ Route::post('/register', [UserController::class, 'register'])->name('register');
 
 Route::post('/login', [UserController::class, 'login'])->name('login');
 
-
-
-
-
-
 // ADMIN
 
-
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('auth.login');
+Route::get('/admin', function () {
+    return view('admin');
+})->name('admin');
 
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
+
+
+Route::post('/profile', [AdminController::class, 'dashboard'])->name('admin.profile');
 
 Route::get('/register', function () {
     return view('auth.login');
@@ -102,11 +104,9 @@ Route::post('/reset', [AuthController::class, 'reset'])->name('auth.reset');
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
-})->name('dashboard');
+})->name('admin.dashboard');
 
-
-
-Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+// Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 
 Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
 
@@ -116,10 +116,6 @@ Route::post('/register-user', [AdminController::class, 'registerUser'])->name('a
 
 Route::post('/add-program', [AdminController::class, 'addProgram'])->name('admin.add_program');
 
-Route::post('/add-course', [AdminController::class, 'addCourse'])->name('admin.add_course');
+Route::post('/add-course', [AdminController::class, 'addCourse'])->name('admin.addcourse');
 
 Route::post('/add-image', [AdminController::class, 'addImage'])->name('admin.add_image');
-
-
-
-

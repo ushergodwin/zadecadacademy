@@ -75,7 +75,7 @@
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i> 
-                        {{ $names }} ({{ session('interface') == 'admin' ? 'Administrator' : session('interface') }})  <i class="fa fa-caret-down"></i>
+                        {{ session('names') }} ({{ session('interface') == 'admin' ? 'Administrator' : session('interface') }})
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="{{ route('admin.profile') }}"><i class="fa fa-user fa-fw"></i> User Profile</a></li>

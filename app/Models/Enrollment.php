@@ -17,7 +17,7 @@ class Enrollment extends Model
         'whatsapp', 
         'gender', 
         'country', 
-        'date_added', 
+        'enrollment_date', 
         'occupation', 
         'field_of_study', 
         'company', 
