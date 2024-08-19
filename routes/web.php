@@ -81,6 +81,10 @@ Route::get('/admin', function () {
 
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 
+Route::get('/login', function () {
+    return view('admin'); // Make sure you have a view file at resources/views/auth/login.blade.php
+})->name('login');
+
 
 Route::post('/profile', [AdminController::class, 'dashboard'])->name('admin.profile');
 
@@ -102,9 +106,7 @@ Route::get('/reset', function () {
 
 Route::post('/reset', [AuthController::class, 'reset'])->name('auth.reset');
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->name('admin.dashboard');
+Route::get('/dashboard', [AdminController::class, 'dashboardData'])->name('admin.dashboard');
 
 // Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 
@@ -119,3 +121,52 @@ Route::post('/add-program', [AdminController::class, 'addProgram'])->name('admin
 Route::post('/add-course', [AdminController::class, 'addCourse'])->name('admin.addcourse');
 
 Route::post('/add-image', [AdminController::class, 'addImage'])->name('admin.add_image');
+
+Route::get('/update-profile', function () {
+    return view('update-profile');
+})->name('update-profile');
+
+
+
+
+
+
+// 
+
+Route::get('/slider-photos', [AdminController::class , 'sliderPhotos'])->name('slider-photos');
+
+Route::get('/slider/delete/{id}', [AdminController::class , 'sliderDelete'])->name('slider.delete');
+
+Route::get('/gallery-photos', [AdminController::class , 'galleryPhotos'])->name('gallery-photos');
+
+Route::get('/gallery/delete/{id}', [AdminController::class , 'galleryDelete'])->name('gallery.delete');
+
+Route::get('/why-choose-us', [AdminController::class , 'whyChooseUs'])->name('why-choose-us');
+
+// Route::get('/add-course', [AdminController::class , 'add-course'])->name('add-course');
+
+Route::get('/add-course', function () {
+    return view('admin.add_course');
+})->name('add-course');
+
+Route::get('/view-courses', [AdminController::class , 'viewCourses'])->name('view-courses');
+
+Route::get('/course/delete/{id}', [AdminController::class , 'courseDelete'])->name('course.delete');
+
+// Route::get('/new-attachment', [AdminController::class , 'newAttachment'])->name('new-attachment');
+
+Route::get('/new-attachment', function () {
+    return view('admin.new_attachment');
+})->name('new-attachment');
+
+Route::get('/view-attachments', [AdminController::class , 'viewAttachments'])->name('view-attachments');
+
+Route::get('/outline/delete/{id}', [AdminController::class , 'outlineDelete'])->name('outline.delete');
+
+Route::get('/contact-messages', [AdminController::class , 'contactMessages'])->name('contact-messages');
+
+Route::get('/message/delete/{id}', [AdminController::class , 'messageDelete'])->name('message.delete');
+
+Route::get('/enrolled-students', [AdminController::class , 'enrolledStudents'])->name('enrolled-students');
+
+

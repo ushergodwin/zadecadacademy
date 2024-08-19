@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('enrollments', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('program');
+            $table->unsignedBigInteger('program_id');
             $table->string('firstname');
             $table->string('lastname');
             $table->string('phone');
@@ -27,6 +27,9 @@ return new class extends Migration
             $table->string('mode_of_class');
             $table->string('time_for_class');
             $table->timestamps();
+
+            // define foreign key constraints
+            $table->foreign('program_id')->references('id')->on('programs')->onDelete('cascade');
         });
     }
 

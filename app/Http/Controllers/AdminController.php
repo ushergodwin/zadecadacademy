@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ChooseUs;
+use App\Models\Contact;
 use App\Models\Course;
+use App\Models\Enrollment;
 use App\Models\Gallery;
+use App\Models\Image;
 use App\Models\Program;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -128,5 +132,118 @@ class AdminController extends Controller
 
         return redirect()->route('admin.add.slider')->with('success', 'Image added successfully.');
     }
+
+
+
+
+
+    // 
+    public function dashboardData()
+        {
+            // $user = Auth::user();
+
+            // if ($user && $user->role == 'admin') {
+                $enrollmentCount = Enrollment::count();
+                $contactCount = Contact::count(); // Assuming you have a Contact model
+                $programCount = Program::count();
+                $galleryCount = Gallery::count();
+                
+                return view('admin.dashboard', compact( 'enrollmentCount', 'contactCount', 'programCount', 'galleryCount'));
+            // }
+        
+            // Redirect to login or an error page if the user is not authenticated or not an admin
+            // return redirect()->route('auth.login')->with('error', 'Please login to access the dashboard.');
+        }
+
+    public function sliderPhotos(){
+        $slider_photos = Gallery::all();
+
+        return view('admin.slider_photos', compact('slider_photos'));
+    }
+
+    public function sliderDelete($id){
+        $slider_photo = Gallery::findOrFail($id);
+
+        $slider_photo->delete();
+
+        return redirect()->route('slider-photos')->with('success', 'Image deleted successfully.');
+    }
+
+    public function galleryPhotos(){
+        $gallery_photos = Image::all();
+
+        return view('admin.gallery_photos', compact('gallery_photos'));
+    }
+
+    public function galleryDelete($id){
+        $gallery_photo = Image::findOrFail($id);
+
+        $gallery_photo->delete();
+
+        return redirect()->route('gallery-photos')->with('success', 'Image deleted successfully.');
+    }
+
+    public function whyChooseUs(){
+        $why_choose_us = ChooseUs::all();
+
+        return view('admin.why_choose_us', compact('why_choose_us'));
+    }
+
+    public function contactMessages(){
+        $contact_messages = Contact::all();
+
+        return view('admin.contact_messages', compact('contact_messages'));
+    }
+
+    public function messageDelete($id){
+        $message = Contact::findOrFail($id);
+
+        $message->delete();
+
+        return redirect()->route('contact-messages')->with('success', 'Message deleted successfully.');
+    }
+
+    public function enrolledStudents()
+        {
+            // Fetch all enrolled students with their associated program names in descending order by id
+            $enrolled_students = Enrollment::with('program')->orderBy('id', 'desc')->get();
+
+            return view('admin.enrolled_students', compact('enrolled_students'));
+        }
+
+
+    public function viewCourses()
+        {
+            // Fetch all enrolled students with their associated program names in descending order by id
+            $courses = Program::orderBy('pg_name', 'asc')->get();
+
+            return view('admin.view_courses', compact('courses'));
+        }
+
+        public function courseDelete($id){
+            $course = Program::findOrFail($id);
+    
+            $course->delete();
+    
+            return redirect()->route('view-courses')->with('success', 'Message deleted successfully.');
+        }
+
+        public function viewAttachments()
+        {
+            // Fetch all enrolled students with their associated program names in descending order by id
+            $outlines = Course::orderBy('cs_name', 'asc')->get();
+
+            return view('admin.view_attachments', compact('outlines'));
+        }
+
+        public function outlineDelete($id){
+            $outline = Course::findOrFail($id);
+    
+            $outline->delete();
+    
+            return redirect()->route('view-attachments')->with('success', 'Message deleted successfully.');
+        }
+
+
 
 }

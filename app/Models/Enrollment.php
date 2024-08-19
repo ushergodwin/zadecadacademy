@@ -10,7 +10,7 @@ class Enrollment extends Model
     use HasFactory;
 
     protected $fillable = [
-        'program', 
+        'program_id', 
         'firstname', 
         'lastname', 
         'phone', 
@@ -24,4 +24,8 @@ class Enrollment extends Model
         'mode_of_class', 
         'time_for_class'
     ];
+
+    public function program(){
+        return $this->belongsTo(Program::class , 'program_id' , 'id');
+    }
 }

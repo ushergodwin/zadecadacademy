@@ -16,7 +16,7 @@ class EnrollmentSeeder extends Seeder
         //
         Enrollment::insert([
             [
-                'program' => 1,
+                'program_id' => 1,
                 'firstname' => 'John',
                 'lastname' => 'Doe',
                 'phone' => '1234567890',
@@ -31,7 +31,7 @@ class EnrollmentSeeder extends Seeder
                 'time_for_class' => 'Morning',
             ],
             [
-                'program' => 2,
+                'program_id' => 2,
                 'firstname' => 'Jane',
                 'lastname' => 'Doe',
                 'phone' => '0987654321',
@@ -46,7 +46,7 @@ class EnrollmentSeeder extends Seeder
                 'time_for_class' => 'Afternoon',
             ],
             [
-                'program' => 3,
+                'program_id' => 3,
                 'firstname' => 'Mike',
                 'lastname' => 'Smith',
                 'phone' => '1122334455',
@@ -61,7 +61,7 @@ class EnrollmentSeeder extends Seeder
                 'time_for_class' => 'Evening',
             ],
             [
-                'program' => 4,
+                'program_id' => 4,
                 'firstname' => 'Sara',
                 'lastname' => 'Johnson',
                 'phone' => '5566778899',

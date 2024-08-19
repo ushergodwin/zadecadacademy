@@ -1,12 +1,12 @@
-<a href="#ref{{ $prt->pid }}" data-toggle="modal"> 
+<a href="#ref{{ $prt->id }}" data-toggle="modal"> 
     <img src="{{ asset('uploads/' . $prt->pg_image) }}" style="width:80px" /> 
 </a>
-<div class="modal fade" id="ref{{ $prt->pid }}" role="dialog">
+<div class="modal fade" id="ref{{ $prt->id }}" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <form method="post" action="" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" name="reference" value="{{ $prt->pid }}">
+                <input type="hidden" name="reference" value="{{ $prt->id }}">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
                     <h4 class="modal-title">Preview Image</h4>

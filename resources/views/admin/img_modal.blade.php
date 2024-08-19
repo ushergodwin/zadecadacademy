@@ -1,7 +1,7 @@
-<a href="#ref{{ $prt->s_id }}" data-toggle="modal"> 
+<a href="#ref{{ $prt->id }}" data-toggle="modal"> 
     <img src="{{ asset('uploads/' . $prt->image) }}" style="width:80px" /> 
 </a>
-<div class="modal fade" id="ref{{ $prt->s_id }}" role="dialog">
+<div class="modal fade" id="ref{{ $prt->id }}" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
