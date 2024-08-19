@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Contact;
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,6 +15,7 @@ class ContactSeeder extends Seeder
     public function run(): void
     {
         //
+
         Contact::insert([
             [
                 'name' => 'John Doe',
@@ -21,6 +23,7 @@ class ContactSeeder extends Seeder
                 'subject' => 'Test Subject 1',
                 'message' => 'This is a test message 1.',
                 'date_time' => now(),
+                'created_at' => Carbon::now()
             ],
             [
                 'name' => 'Jane Doe',
@@ -28,6 +31,7 @@ class ContactSeeder extends Seeder
                 'subject' => 'Test Subject 2',
                 'message' => 'This is a test message 2.',
                 'date_time' => now(),
+                'created_at' => Carbon::now()
             ],
             [
                 'name' => 'Mike Smith',
@@ -35,6 +39,7 @@ class ContactSeeder extends Seeder
                 'subject' => 'Test Subject 3',
                 'message' => 'This is a test message 3.',
                 'date_time' => now(),
+                'created_at' => Carbon::now()
             ],
             [
                 'name' => 'Sara Johnson',
@@ -42,6 +47,7 @@ class ContactSeeder extends Seeder
                 'subject' => 'Test Subject 4',
                 'message' => 'This is a test message 4.',
                 'date_time' => now(),
+                'created_at' => Carbon::now()
             ],
         ]);
     }

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -27,6 +28,7 @@ class UserSeeder extends Seeder
                 'reset_code' => '123456',
                 'active' => '1',
                 'plain_password' => 'password',
+                'created_at' => Carbon::now()
             ],
             [
                 'first_name' => 'Jane',
@@ -39,6 +41,7 @@ class UserSeeder extends Seeder
                 'reset_code' => '654321',
                 'active' => '1',
                 'plain_password' => 'password',
+                'created_at' => Carbon::now()
             ],
             [
                 'first_name' => 'Mike',
@@ -51,6 +54,7 @@ class UserSeeder extends Seeder
                 'reset_code' => '112233',
                 'active' => '1',
                 'plain_password' => 'password',
+                'created_at' => Carbon::now()
             ],
             [
                 'first_name' => 'Sara',
@@ -63,6 +67,7 @@ class UserSeeder extends Seeder
                 'reset_code' => '332211',
                 'active' => '1',
                 'plain_password' => 'password',
+                'created_at' => Carbon::now()
             ],
             [
                 'first_name' => 'Ainamaani',
@@ -75,6 +80,7 @@ class UserSeeder extends Seeder
                 'reset_code' => '45841',
                 'active' => '1',
                 'plain_password' => 'admin@zadecadacademy.com',
+                'created_at' => Carbon::now()
             ],
         ]);
     }

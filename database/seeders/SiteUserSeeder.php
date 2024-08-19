@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\SiteUser;
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -15,6 +16,7 @@ class SiteUserSeeder extends Seeder
     public function run(): void
     {
         //
+
         SiteUser::insert([
             [
                 'username' => 'johndoe',
@@ -25,6 +27,7 @@ class SiteUserSeeder extends Seeder
                 'phone' => '1234567890',
                 'names' => 'John Doe',
                 'male' => 'Male',
+                'created_at' => Carbon::now()
             ],
             [
                 'username' => 'janedoe',
@@ -35,6 +38,7 @@ class SiteUserSeeder extends Seeder
                 'phone' => '0987654321',
                 'names' => 'Jane Doe',
                 'male' => 'Female',
+                'created_at' => Carbon::now()
             ],
             [
                 'username' => 'mikesmith',
@@ -45,6 +49,7 @@ class SiteUserSeeder extends Seeder
                 'phone' => '1122334455',
                 'names' => 'Mike Smith',
                 'male' => 'Male',
+                'created_at' => Carbon::now()
             ],
             [
                 'username' => 'sarajohnson',
@@ -55,6 +60,7 @@ class SiteUserSeeder extends Seeder
                 'phone' => '5566778899',
                 'names' => 'Sara Johnson',
                 'male' => 'Female',
+                'created_at' => Carbon::now()
             ],
         ]);
     }
