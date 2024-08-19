@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">Gallery Photos</h1>
-        <form role="form" method="post" action="" enctype="multipart/form-data">
+        <form role="form" method="post" action="{{ route('add-gallery-photo') }}" enctype="multipart/form-data">
             @csrf
             <div class="col-md-4">
                 <div class="form-group">
@@ -60,7 +60,7 @@
                             <td>{{ $prt->caption }}</td>
                             <td>
                                 <a href="{{ route('gallery.delete', ['id' => $prt->id]) }}" onclick="return confirm('Are you sure you want to delete this image?');" class="btn btn-danger btn-xs">
-                                    <i class="fa fa-remove"> Delete </i>
+                                    <i class="fa fa-remove"></i> Delete
                                 </a>
                             </td>
                         </tr>

@@ -9,30 +9,31 @@
                 <i class="fa fa-camera"></i> 
                 <b> Add Slider Photos </b></h3>
             </div>
-        <form role="form" method="post" action="" enctype="multipart/form-data">
-            @csrf
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label>Image:</label>
-                    <input class="form-control" name="imgfile" type="file" accept="image/*" required />
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label>Caption:</label>
-                    <input class="form-control" name="caption" type="text" />
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <br/>
-                    <label> &nbsp; </label>
-                    <button type="submit" name="next_image" class="btn btn-primary">
-                        <i class="fa fa-save"></i> Submit 
-                    </button>
-                </div>
-            </div>
-        </form>
+            <form role="form" method="post" action="{{ route('add-slider-photo') }}" enctype="multipart/form-data">
+    @csrf
+    <div class="col-md-4">
+        <div class="form-group">
+            <label>Image:</label>
+            <input class="form-control" name="imgfile" type="file" accept="image/*" required />
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label>Caption:</label>
+            <input class="form-control" name="caption" type="text" />
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <br/>
+            <label> &nbsp; </label>
+            <button type="submit" class="btn btn-primary">
+                <i class="fa fa-save"></i> Submit 
+            </button>
+        </div>
+    </div>
+</form>
+
 </div>
         <!-- Add code to display existing slider photos -->
         <div class="col-lg-12">

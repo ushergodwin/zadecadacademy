@@ -82,7 +82,7 @@ Route::get('/admin', function () {
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 
 Route::get('/login', function () {
-    return view('admin'); // Make sure you have a view file at resources/views/auth/login.blade.php
+    return view('admin'); 
 })->name('login');
 
 
@@ -135,13 +135,20 @@ Route::get('/update-profile', function () {
 
 Route::get('/slider-photos', [AdminController::class , 'sliderPhotos'])->name('slider-photos');
 
+Route::post('/add-slider-photo', [AdminController::class, 'addSliderPhoto'])->name('add-slider-photo');
+
 Route::get('/slider/delete/{id}', [AdminController::class , 'sliderDelete'])->name('slider.delete');
 
 Route::get('/gallery-photos', [AdminController::class , 'galleryPhotos'])->name('gallery-photos');
 
+Route::post('/add-gallery-photo', [AdminController::class, 'addGalleryPhoto'])->name('add-gallery-photo');
+
 Route::get('/gallery/delete/{id}', [AdminController::class , 'galleryDelete'])->name('gallery.delete');
 
 Route::get('/why-choose-us', [AdminController::class , 'whyChooseUs'])->name('why-choose-us');
+
+Route::post('/add-why-choose-us', [AdminController::class, 'addWhyChooseUs'])->name('add-why-choose-us');
+
 
 // Route::get('/add-course', [AdminController::class , 'add-course'])->name('add-course');
 
