@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">Why Choose Us</h1>
-        <form role="form" method="post" action="" enctype="multipart/form-data">
+        <form role="form" method="post" action="{{ route('add-why-choose-us') }}" enctype="multipart/form-data">
             @csrf
             <div class="col-md-6">
                 <div class="form-group">

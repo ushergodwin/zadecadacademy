@@ -161,6 +161,32 @@ class AdminController extends Controller
         return view('admin.slider_photos', compact('slider_photos'));
     }
 
+    public function addSliderPhoto(Request $request)
+{
+    // Validate the incoming request
+    $request->validate([
+        'imgfile' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'caption' => 'nullable|string|max:255',
+    ]);
+
+    // Handle the file upload
+    if ($request->hasFile('imgfile')) {
+        $filename = time() . '.' . $request->imgfile->getClientOriginalExtension();
+        $request->imgfile->move(public_path('uploads'), $filename);
+
+        // Create a new record in the database
+        Gallery::create([
+            'image' => $filename,
+            'caption' => $request->caption,
+            'status' => 'yes', // Set a default status or make this dynamic
+        ]);
+
+        return redirect()->route('slider-photos')->with('success', 'Slider photo added successfully.');
+    }
+
+    return redirect()->route('slider-photos')->with('error', 'Failed to upload image.');
+}
+
     public function sliderDelete($id){
         $slider_photo = Gallery::findOrFail($id);
 
@@ -175,6 +201,33 @@ class AdminController extends Controller
         return view('admin.gallery_photos', compact('gallery_photos'));
     }
 
+    public function addGalleryPhoto(Request $request)
+{
+    // Validate the incoming request
+    $request->validate([
+        'imgfile' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'caption' => 'nullable|string|max:255',
+        'status' => 'required|string|max:3', // Validating status field
+    ]);
+
+    // Handle the file upload
+    if ($request->hasFile('imgfile')) {
+        $filename = time() . '.' . $request->imgfile->getClientOriginalExtension();
+        $request->imgfile->move(public_path('uploads'), $filename);
+
+        // Create a new record in the database
+        Image::create([
+            'image' => $filename,
+            'caption' => $request->caption,
+            'status' => $request->status, // Set status as provided in the form
+        ]);
+
+        return redirect()->route('gallery-photos')->with('success', 'Gallery photo added successfully.');
+    }
+
+    return redirect()->route('gallery-photos')->with('error', 'Failed to upload image.');
+}
+
     public function galleryDelete($id){
         $gallery_photo = Image::findOrFail($id);
 
@@ -188,6 +241,33 @@ class AdminController extends Controller
 
         return view('admin.why_choose_us', compact('why_choose_us'));
     }
+
+    public function addWhyChooseUs(Request $request)
+{
+    // Validate the incoming request
+    $request->validate([
+        'imgfile' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'title' => 'required|string|max:255',
+        'description' => 'required|string',
+    ]);
+
+    // Handle the file upload
+    if ($request->hasFile('imgfile')) {
+        $filename = time() . '.' . $request->imgfile->getClientOriginalExtension();
+        $request->imgfile->move(public_path('uploads'), $filename);
+
+        // Create a new record in the database
+        ChooseUs::create([
+            'image' => $filename,
+            'title' => $request->title,
+            'description' => $request->description,
+        ]);
+
+        return redirect()->route('why-choose-us')->with('success', 'Item added to "Why Choose Us" section successfully.');
+    }
+
+    return redirect()->route('why-choose-us')->with('error', 'Failed to upload image.');
+}
 
     public function contactMessages(){
         $contact_messages = Contact::all();
