@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Enrollment;
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -29,6 +30,7 @@ class EnrollmentSeeder extends Seeder
                 'company' => 'Company 1',
                 'mode_of_class' => 'Online',
                 'time_for_class' => 'Morning',
+                'created_at' => Carbon::now()
             ],
             [
                 'program_id' => 2,
@@ -44,6 +46,7 @@ class EnrollmentSeeder extends Seeder
                 'company' => 'Company 2',
                 'mode_of_class' => 'Offline',
                 'time_for_class' => 'Afternoon',
+                'created_at' => Carbon::now()
             ],
             [
                 'program_id' => 3,
@@ -59,6 +62,7 @@ class EnrollmentSeeder extends Seeder
                 'company' => 'Company 3',
                 'mode_of_class' => 'Online',
                 'time_for_class' => 'Evening',
+                'created_at' => Carbon::now()
             ],
             [
                 'program_id' => 4,
@@ -74,6 +78,7 @@ class EnrollmentSeeder extends Seeder
                 'company' => 'Company 4',
                 'mode_of_class' => 'Offline',
                 'time_for_class' => 'Night',
+                'created_at' => Carbon::now()
             ],
         ]);
     }

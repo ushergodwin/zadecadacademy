@@ -645,3 +645,19 @@ function getSize($bytes) // function to compute the size of the file
 	return $bytes;
 }
 
+if (!function_exists('isActivePage')) {
+	/**
+	 * Check if the current URL matches the provided URL segment.
+	 *
+	 * @param string $urlSegment
+	 * @return string
+	 */
+	function isActivePage($urlSegment)
+	{
+		// Get the current URL path
+		$currentPath = request()->path();
+
+		// Check if the current path contains the URL segment
+		return strpos($currentPath, $urlSegment) !== false ? 'active' : '';
+	}
+}

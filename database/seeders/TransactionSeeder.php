@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Transaction;
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,6 +15,7 @@ class TransactionSeeder extends Seeder
     public function run(): void
     {
         //
+
         Transaction::insert([
             [
                 'transaction_id' => 123456,
@@ -24,6 +26,7 @@ class TransactionSeeder extends Seeder
                 'flw_ref' => 'FLW123456',
                 'status' => 'completed',
                 'date_added' => now(),
+                'created_at' => Carbon::now()
             ],
             [
                 'transaction_id' => 654321,
@@ -34,6 +37,7 @@ class TransactionSeeder extends Seeder
                 'flw_ref' => 'FLW654321',
                 'status' => 'completed',
                 'date_added' => now(),
+                'created_at' => Carbon::now()
             ],
             [
                 'transaction_id' => 112233,
@@ -44,6 +48,7 @@ class TransactionSeeder extends Seeder
                 'flw_ref' => 'FLW112233',
                 'status' => 'completed',
                 'date_added' => now(),
+                'created_at' => Carbon::now()
             ],
             [
                 'transaction_id' => 332211,
@@ -54,6 +59,7 @@ class TransactionSeeder extends Seeder
                 'flw_ref' => 'FLW332211',
                 'status' => 'completed',
                 'date_added' => now(),
+                'created_at' => Carbon::now()
             ],
         ]);
     }

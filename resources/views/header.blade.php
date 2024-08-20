@@ -55,19 +55,19 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="{{ url('/') }}" class="nav-item nav-link active">Home</a>
+                <a href="{{ url('/') }}" class="nav-item nav-link {{ isActivePage('home')}}">Home</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">About Us</a>
+                    <a href="#" class="nav-link dropdown-toggle {{ isActivePage('about')}}" data-bs-toggle="dropdown">About Us</a>
                     <div class="dropdown-menu bg-light m-0">
                         <a href="{{ url('about') }}" class="dropdown-item">ZadeCAD Profile</a>
                         <a href="{{ url('clientele') }}" class="dropdown-item">Clientele</a>
                         <a href="{{ url('deliverables') }}" class="dropdown-item">Deliverables</a>
                     </div>
                 </div>
-                <a href="{{ url('courses') }}" class="nav-item nav-link">Courses</a>
-                <a href="{{ url('downloads') }}" class="nav-item nav-link">Downloads</a>
-                <a href="{{ url('gallery') }}" class="nav-item nav-link">Gallery</a>
-                <a href="{{ url('contact') }}" class="nav-item nav-link">Contact</a>
+                <a href="{{ url('courses') }}" class="nav-item nav-link {{ isActivePage('courses')}}">Courses</a>
+                <a href="{{ url('downloads') }}" class="nav-item nav-link {{ isActivePage('downloads')}}">Downloads</a>
+                <a href="{{ url('gallery') }}" class="nav-item nav-link {{ isActivePage('gallery')}}">Gallery</a>
+                <a href="{{ url('contact') }}" class="nav-item nav-link {{ isActivePage('contact')}}">Contact</a>
             </div>
         </div>
     </nav>
