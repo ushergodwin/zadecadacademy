@@ -13,6 +13,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
@@ -35,23 +37,6 @@ class AdminController extends Controller
     {
         Auth::logout();
         return redirect()->route('auth.login');
-    }
-
-    public function updateProfile(Request $request)
-    {
-        $request->validate([
-            'oldpass' => 'required|string',
-            'newpass' => 'required|string|confirmed',
-        ]);
-
-        $user = Auth::user();
-        if (Hash::check($request->oldpass, $user->password)) {
-            $user->password = Hash::make($request->newpass);
-            // $user->save();
-            return redirect()->route('admin.logout');
-        } else {
-            return redirect()->route('admin.profile')->with('error', 'Old password is incorrect.');
-        }
     }
 
     public function registerUser(Request $request)
@@ -96,42 +81,38 @@ class AdminController extends Controller
     }
 
     public function addCourse(Request $request)
-    {
-        $request->validate([
-            'cs_name' => 'required|string|max:255',
-            'imgfile' => 'required|mimes:pdf|max:2048',
-        ]);
+{
+    // Validate the incoming request
+    $request->validate([
+        'pg_name' => 'required|string|max:255',
+        'imgfile' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'software' => 'required|string|max:255',
+        'editor' => 'required|string',
+    ]);
 
-        $filename = time() . '.' . $request->imgfile->extension();
+    // Handle the file upload
+    if ($request->hasFile('imgfile')) {
+        $filename = time() . '.' . $request->imgfile->getClientOriginalExtension();
         $request->imgfile->move(public_path('uploads'), $filename);
 
-        Course::create([
-            'cs_name' => $request->cs_name,
-            'attachment' => $filename,
+        // Remove all HTML tags from the description
+        $description = strip_tags($request->editor);
+
+        // Create a new record in the database
+        Program::create([
+            'pg_name' => $request->pg_name,
+            'pg_image' => $filename,
+            'description' => $description,
+            'software' => $request->software,
         ]);
 
-        return redirect()->route('admin.view.courses')->with('success', 'Course added successfully.');
+        return redirect()->route('view-courses')->with('success', 'Course added successfully.');
     }
 
-    public function addImage(Request $request)
-    {
-        $request->validate([
-            'imgfile' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            'caption' => 'nullable|string|max:255',
-            'status' => 'required|string|max:10',
-        ]);
+    return redirect()->route('add-course')->with('error', 'Failed to upload image.');
+}
 
-        $filename = time() . '.' . $request->imgfile->extension();
-        $request->imgfile->move(public_path('uploads'), $filename);
-
-        Gallery::create([
-            'image' => $filename,
-            'caption' => $request->caption,
-            'status' => $request->status,
-        ]);
-
-        return redirect()->route('admin.add.slider')->with('success', 'Image added successfully.');
-    }
+    
 
 
 
@@ -316,6 +297,31 @@ class AdminController extends Controller
             return view('admin.view_attachments', compact('outlines'));
         }
 
+        public function addCourseOutline(Request $request)
+{
+    // Validate the incoming request
+    $request->validate([
+        'cs_name' => 'required|string|max:255',
+        'imgfile' => 'required|mimes:pdf|max:2048',
+    ]);
+
+    // Handle the file upload
+    if ($request->hasFile('imgfile')) {
+        $filename = time() . '.' . $request->imgfile->getClientOriginalExtension();
+        $request->imgfile->move(public_path('uploads'), $filename);
+
+        // Create a new record in the database
+        Course::create([
+            'cs_name' => $request->cs_name,
+            'attachment' => $filename,
+        ]);
+
+        return redirect()->route('view-attachments')->with('success', 'Course outline added successfully.');
+    }
+
+    return redirect()->route('new-attachment')->with('error', 'Failed to upload file.');
+}
+
         public function outlineDelete($id){
             $outline = Course::findOrFail($id);
     
@@ -323,6 +329,46 @@ class AdminController extends Controller
     
             return redirect()->route('view-attachments')->with('success', 'Message deleted successfully.');
         }
+
+
+
+        public function updateProfile(Request $request)
+        {   
+            // Validate the incoming request
+            $request->validate([
+                'user_id' => 'required|exists:users,id',
+                'new_email' => 'required|string|email|max:255|unique:users,email,' . $request->user_id,
+                'oldpass' => 'required|string',
+                'newpass' => 'required|string|min:8',
+            ]);
+
+            
+        
+            // Retrieve the user by ID
+            $user = User::findOrFail($request->user_id);
+
+            
+        
+            // Check if the old password is correct
+            if (Hash::check($request->oldpass, $user->password)) {
+                // Update the user's email and password
+                $user->email = $request->new_email;
+                $user->password = Hash::make($request->newpass);
+                $user->save();
+        
+                // Update session with new email if it was changed
+                if (Session::get('email') !== $user->email) {
+                    Session::put('email', $user->email);
+                }
+
+                
+        
+                return redirect()->route('update-profile')->with('success', 'Profile updated successfully.');
+            } else {
+                return redirect()->route('update-profile')->with('error', 'Old password is incorrect.');
+            }
+        }
+        
 
 
 

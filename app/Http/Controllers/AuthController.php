@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Session;
 class AuthController extends Controller
 {
     //
+
     public function login(Request $request)
     {
         $request->validate([
@@ -18,35 +19,26 @@ class AuthController extends Controller
             'password' => 'required|string|min:8',
         ]);
     
-        // Fetch the user by email
-        $user = User::where('email', $request->email)->first();
-    
-        // Check if user exists and the password is correct
-        if ($user && Hash::check($request->password, $user->password)) {
-            // Store user details in the session
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            Session::regenerate();
+            // Authentication passed, redirect to the dashboard
+            $user = Auth::user();
             $names = $user->first_name . ' ' . $user->last_name;
-
-            Session::put('pwd', $user->password);
+    
             Session::put('interface', $user->role);
+            Session::put('names', $names);
             Session::put('email', $user->email);
             Session::put('first', $user->first_name);
             Session::put('last', $user->last_name);
             Session::put('userid', $user->id);
-            Session::put('names', $names);
-
-            
-            $role = $user->role;
     
-        
-    
-            // Redirect to the dashboard with a success message
-            return redirect()->route('admin.dashboard')->with('success', "Welcome {$user->first_name} (Administrator), Click ok to continue!!")
-                                                    ->with('names' , $names);
+            return redirect()->route('admin.dashboard')->with('success', "Welcome {$user->first_name} (Administrator), Click ok to continue!!");
         } else {
-            // Redirect back to the login page with an error message
+            // Authentication failed, redirect back to login with an error
             return redirect()->route('auth.login')->with('error', 'Username or password is incorrect. Try again');
         }
     }
+    
 
     public function register(Request $request)
     {

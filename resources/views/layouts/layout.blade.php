@@ -26,6 +26,13 @@
     <!-- Angular JS for validation -->
     <script src="{{ asset('dist/js/angular.min.js') }}"></script>
     <script src="{{ asset('dist/js/jquery.min.js') }}"></script>
+    <!-- Custom Styles -->
+    <style>
+        /* Add padding to the top of the page-wrapper to create space from the navbar */
+        #page-wrapper {
+            padding-top: 20px; /* Adjust the value as needed */
+        }
+    </style>
 </head>
 <body>
     <div id="wrapper" ng-app="myApp" ng-controller="ctrl">

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 
 @section('content')
 <div class="row">
@@ -10,8 +10,34 @@
                     <h4 class="page-title">Update Profile</h4>
                 </div>
                 <div class="panel-body">
-                    <form role="form" method="post" action="">
+                    {{-- Display validation errors --}}
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    {{-- Display success message --}}
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    {{-- Display error message --}}
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+
+                    <form role="form" method="post" action="{{ route('admin.update_profile') }}">
                         @csrf
+                        <input type="hidden" name="user_id" value="{{ Session::get('userid') }}">
                         <div class="form-group">
                             <label>First Name:</label>
                             <input class="form-control" name="first" type="text" value="{{ Session::get('first') }}" readonly />
