@@ -39,37 +39,45 @@
         </div>
     </div>
 
-    <!-- Add code to display existing slider photos -->
+    <!-- Display slider photos or a message if none are available -->
     <div class="col-lg-12">
         <div class="panel panel-info">
             <div class="panel-heading">
                 <h4 class="page-title">Slider Photos</h4>
             </div>
             <div class="panel-body">
-                <table width="100%" class="table table-striped table-bordered table-hover" id="examples">
-                    <thead>
-                        <tr>
-                            <th>Image</th>
-                            <th>Caption</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($slider_photos as $prt)
-                            <tr class="odd gradeX">
-                                <td>@include('admin.img_modal', ['prt' => $prt])</td>
-                                <td>{{ $prt->caption }}</td>
-                                <td>{{ $prt->status }}</td>
-                                <td>
-                                    <a href="{{ route('slider.delete', ['id' => $prt->id]) }}" onclick="return confirm('Are you sure you want to delete this image?');" class="btn btn-danger btn-xs">
-                                        <i class="fa fa-remove"> Delete </i>
-                                    </a>
-                                </td>
+                @if($slider_photos->isEmpty())
+                    <div class="alert alert-info text-center">
+                        <i class="fa fa-info-circle fa-2x"></i>
+                        <h4>No images to display</h4>
+                        <p>There are currently no slider images available. Please add new images to display them here.</p>
+                    </div>
+                @else
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="examples">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Caption</th>
+                                <th>Status</th>
+                                <th>Action</th>
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach($slider_photos as $prt)
+                                <tr class="odd gradeX">
+                                    <td>@include('admin.img_modal', ['prt' => $prt])</td>
+                                    <td>{{ $prt->caption }}</td>
+                                    <td>{{ $prt->status }}</td>
+                                    <td>
+                                        <a href="{{ route('slider.delete', ['id' => $prt->id]) }}" onclick="return confirm('Are you sure you want to delete this image?');" class="btn btn-danger btn-xs">
+                                            <i class="fa fa-remove"> Delete </i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                @endif
             </div>
         </div>
     </div>

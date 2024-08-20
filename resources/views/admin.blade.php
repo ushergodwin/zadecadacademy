@@ -26,6 +26,11 @@
                             </center>
                         </div>
                         <div class="panel-body">
+                            @if(session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
                             <form role="form" method="post" action="{{ route('auth.register') }}">
                                 @csrf
                                 <fieldset>
@@ -63,6 +68,11 @@
                             </center>
                         </div>
                         <div class="panel-body">
+                            @if(session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
                             <form role="form" method="post" action="{{ route('auth.forgot') }}">
                                 @csrf
                                 <fieldset>
@@ -88,6 +98,11 @@
                             </center>
                         </div>
                         <div class="panel-body">
+                            @if(session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
                             <form role="form" method="post" action="{{ route('auth.reset') }}">
                                 @csrf
                                 <input type="hidden" name="email" value="{{ base64_decode(request()->get('user')) }}" />
@@ -119,6 +134,11 @@
                         </div>
                         <div class="panel-body">
                             <center> <img src="{{ asset('img/logo.jpg') }}" style="width:50%" /> </center>
+                            @if(session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
                             <form role="form" method="post" action="{{ route('auth.login') }}">
                                 @csrf
                                 <fieldset>

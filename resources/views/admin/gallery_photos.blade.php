@@ -7,7 +7,7 @@
             <div class="panel-heading">
                 <h3 class="panel-title">
                     <i class="fa fa-camera"></i> 
-                    <b> Add Slider Photos </b>
+                    <b> Add Gallery Photos </b>
                 </h3>
             </div>
             <div class="panel-body">
@@ -49,35 +49,43 @@
         </div>
     </div>
 
-    <!-- Add code to display existing gallery photos -->
+    <!-- Display gallery photos or a message if none are available -->
     <div class="col-lg-12">
         <div class="panel panel-info">
             <div class="panel-heading">
                 <h4 class="page-title">Gallery Photos</h4>
             </div>
             <div class="panel-body">
-                <table width="100%" class="table table-striped table-bordered table-hover" id="examples">
-                    <thead>
-                        <tr>
-                            <th>Image</th>
-                            <th>Caption</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($gallery_photos as $prt)
-                            <tr class="odd gradeX">
-                                <td>@include('admin.img_modal', ['prt' => $prt])</td>
-                                <td>{{ $prt->caption }}</td>
-                                <td>
-                                    <a href="{{ route('gallery.delete', ['id' => $prt->id]) }}" onclick="return confirm('Are you sure you want to delete this image?');" class="btn btn-danger btn-xs">
-                                        <i class="fa fa-remove"></i> Delete
-                                    </a>
-                                </td>
+                @if($gallery_photos->isEmpty())
+                    <div class="alert alert-info text-center">
+                        <i class="fa fa-info-circle fa-2x"></i>
+                        <h4>No images to display</h4>
+                        <p>There are currently no gallery images available. Please add new images to display them here.</p>
+                    </div>
+                @else
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="examples">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Caption</th>
+                                <th>Action</th>
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach($gallery_photos as $prt)
+                                <tr class="odd gradeX">
+                                    <td>@include('admin.img_modal', ['prt' => $prt])</td>
+                                    <td>{{ $prt->caption }}</td>
+                                    <td>
+                                        <a href="{{ route('gallery.delete', ['id' => $prt->id]) }}" onclick="return confirm('Are you sure you want to delete this image?');" class="btn btn-danger btn-xs">
+                                            <i class="fa fa-remove"></i> Delete
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                @endif
             </div>
         </div>
     </div>

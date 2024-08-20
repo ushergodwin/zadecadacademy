@@ -5,16 +5,21 @@
         <h3 class="text-white mb-4 animated slideInDown">Contact Us</h3>
     </div>
 </div>
+
 <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-            <!--  <p class="section-title bg-white text-center text-primary px-3">Contact Us</p>
-                <h1 class="mb-5">If You Have Any Query, Please Contact Us</h1> -->
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
         </div>
         <div class="row g-5">
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                 <p class="mb-4">Fill the form below so we can get to know you..</p>
-                <form method="post" action="" role="form">
+                <form method="post" action="{{ route('contact.store') }}" role="form">
+                    @csrf
                     <div class="row g-3">
                         <div class="col-md-6">
                             <div class="form-floating">
@@ -37,12 +42,12 @@
                         <div class="col-12">
                             <div class="form-floating">
                                 <textarea class="form-control" placeholder="Leave a message here" name="message"
-                                    style="height: 250px"></textarea>
+                                    style="height: 250px" required></textarea>
                                 <label for="message">Message</label>
                             </div>
                         </div>
                         <div class="col-12">
-                            <button type="submit" name="submit" class="btn btn-secondary py-3 px-5">
+                            <button type="submit" class="btn btn-secondary py-3 px-5">
                                 Send Message</button>
                         </div>
                     </div>

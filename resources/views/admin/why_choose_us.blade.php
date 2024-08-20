@@ -55,7 +55,7 @@
                     <table width="100%" class="table table-striped table-bordered table-hover" id="examples">
                         <thead>
                             <tr>
-                                <th>Image <i>(Hover to update info)</i></th>
+                                <th>Image <i>(Click to update info)</i></th>
                                 <th>Title</th>
                                 <th>Description</th>
                             </tr>
@@ -71,6 +71,14 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+        </div>
+    @else
+        <div class="col-lg-12">
+            <div class="alert alert-info text-center">
+                <i class="fa fa-info-circle fa-2x"></i>
+                <h4>No "Why Choose Us" items to display</h4>
+                <p>There are currently no items available in the "Why Choose Us" section. Please add new items to display here.</p>
             </div>
         </div>
     @endif

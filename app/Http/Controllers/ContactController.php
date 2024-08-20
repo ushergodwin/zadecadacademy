@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
@@ -23,6 +24,7 @@ class ContactController extends Controller
             'email' => $request->email,
             'subject' => $request->subject,
             'message' => $request->message,
+            'date_time' => Carbon::now()->format('Y-m-d H:i:s'),
             'created_at' => now(),
         ]);
 

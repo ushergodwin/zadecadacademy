@@ -69,8 +69,6 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
-Route::post('/register', [UserController::class, 'register'])->name('register');
-
 Route::post('/login', [UserController::class, 'login'])->name('login');
 
 // ADMIN
@@ -135,8 +133,7 @@ Route::middleware(['auth'])->group(function (){
 
     Route::post('/add-why-choose-us', [AdminController::class, 'addWhyChooseUs'])->name('add-why-choose-us');
 
-
-    // Route::get('/add-course', [AdminController::class , 'add-course'])->name('add-course');
+    Route::post('/why-choose-us/update/{id}', [AdminController::class, 'updateWhyChooseUs'])->name('why-choose-us.update');
 
     Route::get('/add-course', function () {
         return view('admin.add_course');

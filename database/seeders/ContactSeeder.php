@@ -22,7 +22,7 @@ class ContactSeeder extends Seeder
                 'email' => 'john@example.com',
                 'subject' => 'Test Subject 1',
                 'message' => 'This is a test message 1.',
-                'date_time' => now(),
+                'date_time' => Carbon::now()->format('Y-m-d H:i:s'),
                 'created_at' => Carbon::now()
             ],
             [
@@ -30,7 +30,7 @@ class ContactSeeder extends Seeder
                 'email' => 'jane@example.com',
                 'subject' => 'Test Subject 2',
                 'message' => 'This is a test message 2.',
-                'date_time' => now(),
+                'date_time' => Carbon::now()->format('Y-m-d H:i:s'),
                 'created_at' => Carbon::now()
             ],
             [
@@ -38,7 +38,7 @@ class ContactSeeder extends Seeder
                 'email' => 'mike@example.com',
                 'subject' => 'Test Subject 3',
                 'message' => 'This is a test message 3.',
-                'date_time' => now(),
+                'date_time' => Carbon::now()->format('Y-m-d H:i:s'),
                 'created_at' => Carbon::now()
             ],
             [
@@ -46,7 +46,7 @@ class ContactSeeder extends Seeder
                 'email' => 'sara@example.com',
                 'subject' => 'Test Subject 4',
                 'message' => 'This is a test message 4.',
-                'date_time' => now(),
+                'date_time' => Carbon::now()->format('Y-m-d H:i:s'),
                 'created_at' => Carbon::now()
             ],
         ]);

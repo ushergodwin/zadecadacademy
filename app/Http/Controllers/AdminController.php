@@ -368,6 +368,41 @@ class AdminController extends Controller
                 return redirect()->route('update-profile')->with('error', 'Old password is incorrect.');
             }
         }
+
+
+        public function updateWhyChooseUs(Request $request, $id)
+{
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'description' => 'required|string',
+        'imgfile' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+    ]);
+
+    $chooseUs = ChooseUs::findOrFail($id);
+
+    if ($request->hasFile('imgfile')) {
+        // Handle the file upload
+        $filename = time() . '.' . $request->imgfile->getClientOriginalExtension();
+        $request->imgfile->move(public_path('uploads'), $filename);
+
+        // Delete the old image if it exists
+        if ($chooseUs->image) {
+            $oldImage = public_path('uploads/' . $chooseUs->image);
+            if (file_exists($oldImage)) {
+                unlink($oldImage);
+            }
+        }
+
+        $chooseUs->image = $filename;
+    }
+
+    $chooseUs->title = $request->title;
+    $chooseUs->description = $request->description;
+    $chooseUs->save();
+
+    return redirect()->route('why-choose-us')->with('success', 'Item updated successfully.');
+}
+
         
 
 

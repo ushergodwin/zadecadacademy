@@ -32,7 +32,7 @@ class AuthController extends Controller
             Session::put('last', $user->last_name);
             Session::put('userid', $user->id);
     
-            return redirect()->route('admin.dashboard')->with('success', "Welcome {$user->first_name} (Administrator), Click ok to continue!!");
+            return redirect()->route('admin.dashboard')->with('success', "Welcome {$user->first_name} (Administrator)!!");
         } else {
             // Authentication failed, redirect back to login with an error
             return redirect()->route('auth.login')->with('error', 'Username or password is incorrect. Try again');

@@ -3,7 +3,6 @@
 @section('content')
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Update Profile</h1>
         <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -56,7 +55,7 @@
                         </div>
                         <div class="form-group">
                             <label>New Password:</label>
-                            <input class="form-control" name="newpass" type="password" required />
+                            <input class="form-control" name="newpass" type="password" placeholder="Your password" required />
                         </div>
                         <button type="submit" name="update_profile" class="btn btn-primary">Update</button>
                     </form>

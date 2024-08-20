@@ -4,7 +4,7 @@
 <div class="modal fade" id="ref{{ $prt->id }}" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form method="post" action="" enctype="multipart/form-data">
+            <form method="post" action="{{ route('why-choose-us.update', ['id' => $prt->id]) }}" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="reference" value="{{ $prt->id }}">
                 <div class="modal-header">
