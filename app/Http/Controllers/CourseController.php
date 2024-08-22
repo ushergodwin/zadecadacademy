@@ -16,13 +16,13 @@ class CourseController extends Controller
 
     public function indexFunc()
     {
-        $courses = Course::orderBy('code')->get();
+        $courses = Course::orderBy('id')->get();
         return view('course-outlines', compact('courses'));
     }
 
     public function downloads()
     {
-        $courses = Course::orderBy('code')->get();
+        $courses = Course::orderBy('id')->get();
         return view('downloads', compact('courses'));
     }
 
