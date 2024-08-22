@@ -8,24 +8,29 @@
 
 <div class="container-xxl py-5" style="background-color: #fff;">
     <div class="container">
-        <div class="row g-5">
+        <div class="row g-4">
             @foreach($courses as $course)
             <div class="col-lg-4 col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title"><?= $course->cs_name; ?></h5>
+                <div class="card shadow-sm h-100">
+                    <div class="card-header text-white text-center" style="padding: 10px 15px; height: 60px;">
+                        <h5 class="card-title mb-0">{{ $course->cs_name }}</h5>
                     </div>
                     <div class="card-body">
-                        <iframe src="uploads/<?= $course->attachment; ?>" width="100%" height="200px"
-                            style="border: none;"></iframe>
+                        <div class="document-preview" style="height: 200px; overflow: hidden;">
+                            <iframe src="{{ asset('uploads/' . $course->attachment) }}" width="100%" height="100%" style="border: none;"></iframe>
+                        </div>
                     </div>
                     <div class="card-footer text-center">
-                        <a href="uploads/<?= $course->attachment; ?>" target="_blank" class="btn btn-primary">Download</a>
-                        <p class="mt-2">Size: <?= getSize(filesize("uploads/" . $course->attachment)); ?></p>
+                        <a href="{{ asset('uploads/' . $course->attachment) }}" target="_blank" class="btn btn-secondary">
+                            <i class="fa fa-download"></i> Download
+                        </a>
+                        <p class="mt-2">Size: {{ getSize(filesize(public_path('uploads/' . $course->attachment))) }}</p>
                     </div>
                 </div>
             </div>
             @endforeach
+        </div>
     </div>
 </div>
+
 @include('footer')
