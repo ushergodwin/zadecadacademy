@@ -17,13 +17,13 @@
             @endforeach
             <h2 style="font-weight: bold;">
                 <a href="{{ route('program.enrol', ['id' => $program->id]) }}" class="btn btn-secondary py-3 px-5">
-                    <i class="fa fa-pencil"></i> ENROL NOW
+                    <i class="fa fa-pencil"></i> APPLY NOW
                 </a>
             </h2>
         </div>
         <div class="col-md-4">
             <br>
-            <h4>Courses Outline</h4>
+            <h4>Other Courses</h4>
             @foreach($outline as $course)
                 <p style="line-height: 1em"><i class="fa fa-angle-right"></i>
                     @if ($program->id == $course->id)

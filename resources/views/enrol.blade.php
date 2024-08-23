@@ -15,41 +15,41 @@
                 <img src="{{ asset('uploads/' . $program->pg_image) }}" style="width: 80%;" />
                 <p style="text-align: justify;">{{ $program->description }}</p>
                 <b>Software used:</b><br/>
-                @foreach(explode('#', $program->software) as $software)
+                @foreach($program->program_software as $software)
                     <p style="line-height: 1em"><i class="fa fa-angle-right"></i> {{ $software }}</p>
                 @endforeach
             </div>
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                <h2 class="mb-4">Enrol for <b style="color:#ff7900;">{{ $program->pg_name }}</b></h2>
+                <h2 class="mb-4">Apply for <b style="color:#ff7900;">{{ $program->pg_name }}</b></h2>
                 <form method="post" action="{{ route('enrol.store') }}" role="form">
                     @csrf
                     <input type="hidden" name="program" value="{{ $program->id }}">
                     <div class="row g-3">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" class="form-control" name="firstname" placeholder="Your Name" required>
-                                <label for="firstname">First Name</label>
+                                <input type="text" class="form-control" name="full_name" placeholder="Your Full Name" required>
+                                <label for="firstname">Full Name</label>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" class="form-control" name="lastname" placeholder="Your Name" required>
-                                <label for="lastname">Last Name</label>
+                                <input type="text" class="form-control" name="email" placeholder="Your Email Address" required>
+                                <label for="email">Email</label>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" class="form-control" name="phone" placeholder="Your Contact Number" required>
-                                <label for="phone">Contact Number</label>
+                                <input type="text" class="form-control" name="phone" placeholder="Your Mobile Number" required>
+                                <label for="phone">Phone Number</label>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-floating">
                                 <input type="text" class="form-control" name="whatsapp" placeholder="Your Whatsapp Number">
-                                <label for="whatsapp">Whatsapp Number</label>
+                                <label for="whatsapp">WhatsApp Number</label>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-floating">
                                 <select name="gender" class="form-control" required>
                                     <option value="">--- Gender ---</option>
@@ -59,7 +59,7 @@
                                 <label for="gender">Your Gender</label>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-floating">
                                 <select name="country" class="form-control" required>
                                     <option value="">--- Nationality ---</option>
@@ -70,13 +70,13 @@
                                 <label for="country">Your Nationality</label>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-floating">
                                 <input type="text" class="form-control" name="occupation" placeholder="Your Occupation">
                                 <label for="occupation">Occupation</label>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-floating">
                                 <input type="text" class="form-control" name="field_of_study" placeholder="Field of Study">
                                 <label for="field_of_study">Field of Study</label>
@@ -88,7 +88,7 @@
                                 <label for="company">Company / University (State year of study if student)</label>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-floating">
                                 <select name="mode_of_class" class="form-control" required>
                                     <option value="">--- Select ---</option>
@@ -98,7 +98,7 @@
                                 <label for="mode_of_class">Mode of Class</label>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-floating">
                                 <select name="time_for_class" class="form-control" required>
                                     <option value="">--- Select ---</option>
@@ -108,8 +108,47 @@
                                 <label for="time_for_class">Time for Class</label>
                             </div>
                         </div>
+                        <div class="col-md-12">
+                            <label>Select Software(s)</label>
+                            <input  name="total_fee" type="number" hidden value="0" id="total_fee"/>
+                            @if($program->soft->count())
+                                <div class="row">
+                                    <table class="table">
+                                        <thead>
+                                            <th></th>
+                                            <th>Software Name</th>
+                                            <th>No of sessions</th>
+                                            <th>Fee (ugx)</th>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($program->soft as $item)
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" value="{{ $item->software_name }}" class="form-check-input" name="program_software[]"
+                                                            id="customCheck{{$item->id}}" onchange="setEnrolmentFee(this, {{ $item->fee }})">
+                                                            <label class="form-check-label" for="customCheck{{$item->id}}"> </label>
+                                                        </div>
+                                                    </td>
+                                                    <td>{{ $item->software_name }}</td>
+                                                    <td>{{ $item->no_of_sessions }}</td>
+                                                    <td>{{ number_format($item->fee) }}</td>
+                                                </tr>
+                                            @endforeach
+                                            <tr>
+                                                <td>
+                                                    Total Fee: <span id="total_fee_span">0</span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            @else 
+                                <div class="alert alert-warning">Program softwares not yet added. Please check again later!</div>
+                            @endif 
+                        </div>
                         <div class="col-12">
-                            <button type="submit" name="confirm" class="btn btn-secondary py-3 px-5">Submit</button>
+                            <button type="submit" name="confirm" class="btn btn-secondary py-3 px-5" {{ $program->soft->count() ? '' : 'disabled'}}>Apply Now</button>
                         </div>
                     </div>
                 </form>
