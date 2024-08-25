@@ -19,6 +19,7 @@
     <!-- Custom CSS -->
     <link href="{{ asset('dist/css/sb-admin-2.css') }}" rel="stylesheet">
     <link href="{{ asset('dist/css/toastr.css') }}" rel="stylesheet">
+     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Morris Charts CSS -->
     <link href="{{ asset('vendor/morrisjs/morris.css') }}" rel="stylesheet">
     <!-- Custom Fonts -->
@@ -68,6 +69,15 @@
                                 <li><a href="{{ route('view-courses') }}"><i class="fa fa-arrow-right fa-fw"></i> View Courses </a></li>
                             </ul>
                         </li>
+
+                         <li>
+                            <a href="#"><i class="fa fa-laptop fa-fw"></i> Software Management<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="{{ route('software.create') }}"><i class="fa fa-arrow-right fa-fw"></i> Add Program Software </a></li>
+                                <li><a href="{{ route('software.index') }}"><i class="fa fa-arrow-right fa-fw"></i> View All </a></li>
+                            </ul>
+                        </li>
+
                         <li>
                             <a href="#"><i class="fa fa-download fa-fw"></i> Course Outlines<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">

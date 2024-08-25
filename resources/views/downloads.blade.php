@@ -30,6 +30,34 @@
             </div>
             @endforeach
         </div>
+
+        <!-- Manually created pagination links -->
+        <div class="d-flex justify-content-center mt-4">
+            <ul class="pagination">
+                <!-- Previous Page Link -->
+                @if ($courses->onFirstPage())
+                    <li class="page-item disabled"><span class="page-link">&laquo; Previous</span></li>
+                @else
+                    <li class="page-item"><a class="page-link" href="{{ $courses->previousPageUrl() }}" rel="prev">&laquo; Previous</a></li>
+                @endif
+
+                <!-- Pagination Elements -->
+                @foreach(range(1, $courses->lastPage()) as $page)
+                    @if ($page == $courses->currentPage())
+                        <li class="page-item active"><span class="page-link">{{ $page }}</span></li>
+                    @else
+                        <li class="page-item"><a class="page-link" href="{{ $courses->url($page) }}">{{ $page }}</a></li>
+                    @endif
+                @endforeach
+
+                <!-- Next Page Link -->
+                @if ($courses->hasMorePages())
+                    <li class="page-item"><a class="page-link" href="{{ $courses->nextPageUrl() }}" rel="next">Next &raquo;</a></li>
+                @else
+                    <li class="page-item disabled"><span class="page-link">Next &raquo;</span></li>
+                @endif
+            </ul>
+        </div>
     </div>
 </div>
 

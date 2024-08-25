@@ -70,6 +70,7 @@
     <i class="bi bi-arrow-up"></i>
 </a>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{{ asset('lib/wow/wow.min.js') }}"></script>
 <script src="{{ asset('lib/easing/easing.min.js') }}"></script>
@@ -86,6 +87,24 @@
     });
 </script>
 <script src="{{ asset('js/main.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- Custom script to handle alerts -->
+<script>
+        @if(session('swalError'))
+            Swal.fire({
+                text: "{{ session('swalError') }}",
+                icon: "error",
+            });
+        @endif
+        
+        @if(session('swalSuccess'))
+            Swal.fire({
+                text: "{{ session('swalSuccess') }}",
+                icon: "success",
+            });
+        @endif
+</script>
 <script>
     $(document).ready(function(){
         if($('.bbb_viewed_slider').length) {
