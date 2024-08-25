@@ -5,6 +5,7 @@
         <h3 class="text-white mb-4 animated slideInDown">ZadeCAD Academy Profile</h3>
     </div>
 </div>
+
 <div class="container-xxl py-5" style="background-color: #fff;">
     <div class="container">
         <div class="row g-5 align-items-end">
@@ -26,6 +27,24 @@
                 <p><i class="fa fa-check-circle"></i> Design and implement suitable career guidance solutions to supplement and complement institutions of learning and families.</p>
                 <p><i class="fa fa-check-circle"></i> Conduct research for up-to-date innovative solutions for the development of the engineering profession in the country together with the competent authorities.</p>
                 <p><i class="fa fa-check-circle"></i> Offer consultations for job-related challenges faced by property developers & managers, contractors, manufacturers, and providers of various construction-related goods and services.</p>
+                
+                <hr class="my-5">
+                
+                <h4>Payment Options</h4>
+                <p><b>Account Details:</b></p>
+                <p>Account Number: <b>3100092562</b></p>
+                <p>Account Name: <b>ZadeCAD LTD</b></p>
+                <p>Bank Name: <b>CENTENARY BANK, NTINDA BRANCH</b></p>
+                <p>Reference: <b>Student name - Name of course</b></p>
+
+                <h5 class="mt-4">Airtel Money</h5>
+                <p>1. Dial *165# and follow prompts as follows:</p>
+                <p>2. Airtel Money pay</p>
+                <p>3. Enter Merchant Code – <b>4302532</b></p>
+                <p>4. Enter Amount</p>
+                <p>5. Reference: <Student name - Name of course></p>
+                <p>6. Enter your PIN</p>
+                <p>7. Send</p>
             </div>
         </div>
     </div>

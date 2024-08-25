@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-xs-12">
-                <h5 class="text-white mb-4">Bank and Agent Banking</h5>
+                <h5 class="text-white mb-4">Payment options</h5>
                 <p>Account Number: <b>3100092562</b></p>
                 <p>Account Name: <b>ZadeCAD LTD</b></p>
                 <p>Bank Name: <b>CENTENARY BANK, NTINDA BRANCH</b></p>

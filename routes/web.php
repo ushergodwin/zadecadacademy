@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\EnrollmentController;
@@ -65,6 +66,12 @@ Route::post('/enrol', [EnrollmentController::class, 'store'])->name('enrol.store
 
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
 
+Route::get('/blog-list', [BlogController::class, 'fetchBlogs'])->name('blogs-list');
+
+Route::get('/{id}/blog', [BlogController::class, 'show'])->name('blog.show');
+
+Route::post('blogs/{id}/comment', [BlogController::class, 'comment'])->name('blogs.comment');
+
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
@@ -104,8 +111,14 @@ Route::get('/reset', function () {
 
 Route::post('/reset', [AuthController::class, 'reset'])->name('auth.reset');
 
-
 Route::post('/register-user', [AdminController::class, 'registerUser'])->name('admin.register');
+
+
+Route::get('blogs', [BlogController::class, 'index'])->name('blogs.index');
+
+
+
+
 
 
 
@@ -169,6 +182,18 @@ Route::middleware(['auth'])->group(function (){
     })->name('update-profile');
 
     Route::post('/update-profile', [AdminController::class, 'updateProfile'])->name('admin.update_profile');
+
+    Route::get('blogs', [BlogController::class , 'index'])->name('admin.blogs');
+
+    Route::post('blogs', [BlogController::class , 'store'])->name('admin.blogs.store');
+
+    Route::post('blogs/{id}', [BlogController::class , 'update'])->name('admin.blogs.edit');
+
+    Route::get('blogs/{id}', [BlogController::class , 'destroy'])->name('admin.blogs.destroy');
+
+    Route::get('blogs/{id}/comments', [BlogController::class, 'showComments'])->name('admin.blogs.comments');
+
+    Route::get('blogs/comments/delete/{id}', [BlogController::class, 'deleteComment'])->name('admin.comment.delete');
 
     Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
 

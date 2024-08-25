@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('enrollments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('program_id');
-            $table->string('firstname');
-            $table->string('lastname');
+            $table->string('fullname');
+            $table->string('email');
             $table->string('phone');
             $table->string('whatsapp');
             $table->string('gender');

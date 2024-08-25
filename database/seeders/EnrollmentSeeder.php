@@ -18,8 +18,8 @@ class EnrollmentSeeder extends Seeder
         Enrollment::insert([
             [
                 'program_id' => 1,
-                'firstname' => 'John',
-                'lastname' => 'Doe',
+                'fullname' => 'John Doe',
+                'email' => 'doe@gmail.com',
                 'phone' => '1234567890',
                 'whatsapp' => '1234567890',
                 'gender' => 'Male',
@@ -34,8 +34,8 @@ class EnrollmentSeeder extends Seeder
             ],
             [
                 'program_id' => 2,
-                'firstname' => 'Jane',
-                'lastname' => 'Doe',
+                'fullname' => 'Jane Doe',
+                'email' => 'jane@gmail.com',
                 'phone' => '0987654321',
                 'whatsapp' => '0987654321',
                 'gender' => 'Female',
@@ -47,39 +47,7 @@ class EnrollmentSeeder extends Seeder
                 'mode_of_class' => 'Offline',
                 'time_for_class' => 'Afternoon',
                 'created_at' => Carbon::now()
-            ],
-            [
-                'program_id' => 3,
-                'firstname' => 'Mike',
-                'lastname' => 'Smith',
-                'phone' => '1122334455',
-                'whatsapp' => '1122334455',
-                'gender' => 'Male',
-                'country' => 'Country 3',
-                'enrollment_date' => now(),
-                'occupation' => 'Occupation 3',
-                'field_of_study' => 'Field of Study 3',
-                'company' => 'Company 3',
-                'mode_of_class' => 'Online',
-                'time_for_class' => 'Evening',
-                'created_at' => Carbon::now()
-            ],
-            [
-                'program_id' => 4,
-                'firstname' => 'Sara',
-                'lastname' => 'Johnson',
-                'phone' => '5566778899',
-                'whatsapp' => '5566778899',
-                'gender' => 'Female',
-                'country' => 'Country 4',
-                'enrollment_date' => now(),
-                'occupation' => 'Occupation 4',
-                'field_of_study' => 'Field of Study 4',
-                'company' => 'Company 4',
-                'mode_of_class' => 'Offline',
-                'time_for_class' => 'Night',
-                'created_at' => Carbon::now()
-            ],
+            ]       
         ]);
     }
 }

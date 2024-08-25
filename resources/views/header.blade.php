@@ -68,6 +68,7 @@
                 <a href="{{ url('downloads') }}" class="nav-item nav-link {{ isActivePage('downloads')}}">Downloads</a>
                 <a href="{{ url('gallery') }}" class="nav-item nav-link {{ isActivePage('gallery')}}">Gallery</a>
                 <a href="{{ url('contact') }}" class="nav-item nav-link {{ isActivePage('contact')}}">Contact</a>
+                <a href="{{ route('blogs-list') }}" class="nav-item nav-link {{ isActivePage('blogs')}}">Blogs</a>
             </div>
         </div>
     </nav>
