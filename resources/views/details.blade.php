@@ -23,7 +23,7 @@
         </div>
         <div class="col-md-4">
             <br>
-            <h4>Courses Outline</h4>
+            <h4>Other Courses</h4>
             @foreach($outline as $course)
                 <p style="line-height: 1em"><i class="fa fa-angle-right"></i>
                     @if ($program->id == $course->id)

@@ -14,7 +14,7 @@ class EnrollmentController extends Controller
     public function show(Request $request)
     {
         $id = base64_decode($request->input('activate'));
-        $program = Program::findOrFail($id);
+        $program = Program::with('soft')->where('id', $id)->first();
         $outline = Program::orderBy('id')->get();
         $countries = $this->getCountries();
 
@@ -68,7 +68,7 @@ class EnrollmentController extends Controller
 
             return redirect()->back()->with('success', 'Hello ' . $request->firstname . ', you have successfully enrolled for this course');
         } else {
-            return redirect()->back()->with('error', 'Hello ' . $request->firstname . ', you have already enrolled for this course');
+            return redirect()->back()->with('swalError', 'Hello ' . $request->full_name . ', you have already applied for this course');
         }
     }
 

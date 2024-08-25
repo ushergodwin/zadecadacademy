@@ -22,9 +22,10 @@ class CourseController extends Controller
 
     public function downloads()
     {
-        $courses = Course::orderBy('id')->get();
+        $courses = Course::orderBy('id')->paginate(6); // Paginate with 6 items per page
         return view('downloads', compact('courses'));
     }
+
 
     public function details($id)
     {

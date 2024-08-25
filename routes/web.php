@@ -9,6 +9,7 @@ use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\ProgramSoftwareController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -87,7 +88,7 @@ Route::get('/admin', function () {
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 
 Route::get('/login', function () {
-    return view('admin'); 
+    return view('admin');
 })->name('login');
 
 
@@ -126,23 +127,23 @@ Route::get('blogs', [BlogController::class, 'index'])->name('blogs.index');
 
 
 
-Route::middleware(['auth'])->group(function (){
+Route::middleware(['auth'])->group(function () {
 
     Route::get('/dashboard', [AdminController::class, 'dashboardData'])->name('admin.dashboard');
     // 
-    Route::get('/slider-photos', [AdminController::class , 'sliderPhotos'])->name('slider-photos');
+    Route::get('/slider-photos', [AdminController::class, 'sliderPhotos'])->name('slider-photos');
 
     Route::post('/add-slider-photo', [AdminController::class, 'addSliderPhoto'])->name('add-slider-photo');
 
-    Route::get('/slider/delete/{id}', [AdminController::class , 'sliderDelete'])->name('slider.delete');
+    Route::get('/slider/delete/{id}', [AdminController::class, 'sliderDelete'])->name('slider.delete');
 
-    Route::get('/gallery-photos', [AdminController::class , 'galleryPhotos'])->name('gallery-photos');
+    Route::get('/gallery-photos', [AdminController::class, 'galleryPhotos'])->name('gallery-photos');
 
     Route::post('/add-gallery-photo', [AdminController::class, 'addGalleryPhoto'])->name('add-gallery-photo');
 
-    Route::get('/gallery/delete/{id}', [AdminController::class , 'galleryDelete'])->name('gallery.delete');
+    Route::get('/gallery/delete/{id}', [AdminController::class, 'galleryDelete'])->name('gallery.delete');
 
-    Route::get('/why-choose-us', [AdminController::class , 'whyChooseUs'])->name('why-choose-us');
+    Route::get('/why-choose-us', [AdminController::class, 'whyChooseUs'])->name('why-choose-us');
 
     Route::post('/add-why-choose-us', [AdminController::class, 'addWhyChooseUs'])->name('add-why-choose-us');
 
@@ -154,9 +155,9 @@ Route::middleware(['auth'])->group(function (){
 
     Route::post('/add-course', [AdminController::class, 'addCourse'])->name('admin.add_course');
 
-    Route::get('/view-courses', [AdminController::class , 'viewCourses'])->name('view-courses');
+    Route::get('/view-courses', [AdminController::class, 'viewCourses'])->name('view-courses');
 
-    Route::get('/course/delete/{id}', [AdminController::class , 'courseDelete'])->name('course.delete');
+    Route::get('/course/delete/{id}', [AdminController::class, 'courseDelete'])->name('course.delete');
 
     // Route::get('/new-attachment', [AdminController::class , 'newAttachment'])->name('new-attachment');
 
@@ -164,17 +165,17 @@ Route::middleware(['auth'])->group(function (){
         return view('admin.new_attachment');
     })->name('new-attachment');
 
-    Route::get('/view-attachments', [AdminController::class , 'viewAttachments'])->name('view-attachments');
+    Route::get('/view-attachments', [AdminController::class, 'viewAttachments'])->name('view-attachments');
 
     Route::post('/add-outline', [AdminController::class, 'addCourseOutline'])->name('admin.add_outline');
 
-    Route::get('/outline/delete/{id}', [AdminController::class , 'outlineDelete'])->name('outline.delete');
+    Route::get('/outline/delete/{id}', [AdminController::class, 'outlineDelete'])->name('outline.delete');
 
-    Route::get('/contact-messages', [AdminController::class , 'contactMessages'])->name('contact-messages');
+    Route::get('/contact-messages', [AdminController::class, 'contactMessages'])->name('contact-messages');
 
-    Route::get('/message/delete/{id}', [AdminController::class , 'messageDelete'])->name('message.delete');
+    Route::get('/message/delete/{id}', [AdminController::class, 'messageDelete'])->name('message.delete');
 
-    Route::get('/enrolled-students', [AdminController::class , 'enrolledStudents'])->name('enrolled-students');
+    Route::get('/enrolled-students', [AdminController::class, 'enrolledStudents'])->name('enrolled-students');
 
 
     Route::get('/update-profile', function () {
@@ -196,8 +197,5 @@ Route::middleware(['auth'])->group(function (){
     Route::get('blogs/comments/delete/{id}', [BlogController::class, 'deleteComment'])->name('admin.comment.delete');
 
     Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
-
+    Route::resource('software', ProgramSoftwareController::class);
 });
-
-
-
