@@ -21,7 +21,6 @@
             </div>
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                 <h2 class="mb-4">Apply for <b style="color:#ff7900;">{{ $program->pg_name }}</b></h2>
-<<<<<<< HEAD
 
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -40,53 +39,32 @@
                 @endif
 
 
-=======
->>>>>>> 9180c644c3b9b234dcbc53e165e7c34fdc5ab240
                 <form method="post" action="{{ route('enrol.store') }}" role="form">
                     @csrf
                     <input type="hidden" name="program" value="{{ $program->id }}">
                     <div class="row g-3">
                         <div class="col-md-6">
                             <div class="form-floating">
-<<<<<<< HEAD
                                 <input type="text" class="form-control" name="fullname" placeholder="Your Full Name" value="{{ old('fullname') }}" required>
                                 <label for="fullname">Full Name</label>
-=======
-                                <input type="text" class="form-control" name="full_name" placeholder="Your Full Name" required>
-                                <label for="firstname">Full Name</label>
->>>>>>> 9180c644c3b9b234dcbc53e165e7c34fdc5ab240
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
-<<<<<<< HEAD
                                 <input type="email" class="form-control" name="email" placeholder="Your Email" value="{{ old('email') }}" required>
-=======
-                                <input type="text" class="form-control" name="email" placeholder="Your Email Address" required>
->>>>>>> 9180c644c3b9b234dcbc53e165e7c34fdc5ab240
                                 <label for="email">Email</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
-<<<<<<< HEAD
-                                <input type="text" class="form-control" name="phone" placeholder="Your Contact Number" value="{{ old('phone') }}" required>
-                                <label for="phone">Contact Number</label>
-=======
                                 <input type="text" class="form-control" name="phone" placeholder="Your Mobile Number" required>
                                 <label for="phone">Phone Number</label>
->>>>>>> 9180c644c3b9b234dcbc53e165e7c34fdc5ab240
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
-<<<<<<< HEAD
-                                <input type="text" class="form-control" name="whatsapp" placeholder="Your Whatsapp Number" value="{{ old('whatsapp') }}">
-                                <label for="whatsapp">Whatsapp Number</label>
-=======
                                 <input type="text" class="form-control" name="whatsapp" placeholder="Your Whatsapp Number">
                                 <label for="whatsapp">WhatsApp Number</label>
->>>>>>> 9180c644c3b9b234dcbc53e165e7c34fdc5ab240
                             </div>
                         </div>
                         <div class="col-md-6">

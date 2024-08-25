@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::table('enrollments', function (Blueprint $table) {
             $table->string('program_software')->nullable()->after('program_id');
-            $table->string('email', 60)->nullable()->after('lastname')->index();
         });
     }
 
@@ -23,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('enrollments', function (Blueprint $table) {
-            $table->dropColumn(['program_software', 'email']);
+            $table->dropColumn(['program_software']);
         });
     }
 };

@@ -23,8 +23,6 @@ class EnrollmentController extends Controller
 
     public function store(Request $request)
     {   
-        
-            // return response()->json($request);
 
            $request->validate([
             'program' => 'required',
@@ -39,6 +37,7 @@ class EnrollmentController extends Controller
             'company' => 'required|string|max:255',
             'mode_of_class' => 'required|string|in:Virtual,Physical,Hybrid',
             'time_for_class' => 'required|string|in:Week days,Weekends',
+            'program_software' => 'required'
         ]);
 
 
@@ -62,6 +61,7 @@ class EnrollmentController extends Controller
             $enrollment->company = $request->company;
             $enrollment->mode_of_class = $request->mode_of_class;
             $enrollment->time_for_class = $request->time_for_class;
+            $enrollment->program_software = implode(",", $request->program_software);
 
             // Save the instance to the database
             $enrollment->save();
