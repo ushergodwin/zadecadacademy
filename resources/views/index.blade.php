@@ -1,5 +1,29 @@
 @include('header')
 
+<style>
+.partner-logo img {
+    max-height: 80px; /* Ensures all logos have the same maximum height */
+    object-fit: contain; /* Makes sure the logos maintain their aspect ratio */
+    width: 100%; /* Makes sure the logos take the full width of their container */
+}
+
+.partner-logo {
+    padding: 20px; /* Adds padding around each logo */
+    background-color: #f8f9fa; /* Background color for the logo */
+    border-radius: 50%; /* Makes the background circular */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    display: flex; /* Centers the image within the circle */
+    justify-content: center; /* Centers the image within the circle */
+    align-items: center; /* Centers the image within the circle */
+}
+
+.row.gy-5.gx-4 {
+    row-gap: 30px; /* Adds space between rows */
+    column-gap: 30px; /* Adds space between columns */
+}
+</style>
+
+
 <div class="container-fluid px-0 mb-5">
     <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -31,6 +55,7 @@
     </div>
 </div>
 
+<!-- About Section -->
 <div class="container-xxl py-5">
     <div class="container">
         <div class="row g-5 align-items-end">
@@ -66,6 +91,27 @@
     </div>
 </div>
 
+<!-- Testimonial Video Section -->
+<div class="container-xxl py-5 bg-light">
+    <div class="container">
+        <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h3>What Our Students Say</h3>
+            <p>Hear from our students about their experiences at ZadeCAD Academy.</p>
+        </div>
+        <div class="row g-5">
+            <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="position-relative h-100">
+                    <video id="testimonial-video" width="100%" height="500" controls muted>
+                        <source src="{{ asset('videos/August Alsina - Benediction ft. Rick Ross (Official Music Video).mp4') }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Why Choose Us Section -->
 <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
@@ -89,6 +135,7 @@
     </div>
 </div>
 
+<!-- Courses Section -->
 <div class="container-xxl py-5" style="background-color: #fff;">
     <div class="container">
         <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
@@ -122,4 +169,94 @@
     </div>
 </div>
 
+
+<!-- Partners Section -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+            <h3>Our Partners</h3>
+            <p>We are proud to collaborate with these esteemed organizations.</p>
+        </div>
+        <div class="row gy-5 gx-4 d-flex justify-content-center">
+            <!-- Replace the foreach loop with direct HTML if logos are static -->
+            <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="partner-logo text-center rounded-bg">
+                    <img src="{{ asset('logos/nbs logo.jfif') }}" class="img-fluid" alt="Partner 1">
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="partner-logo text-center rounded-bg">
+                    <img src="{{ asset('logos/airtel logo.png') }}" class="img-fluid" alt="Partner 2">
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="partner-logo text-center">
+                    <img src="{{ asset('logos/mak logo.jfif') }}" class="img-fluid" alt="Partner 3">
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="partner-logo text-center">
+                    <img src="{{ asset('logos/mtn logo.png') }}" class="img-fluid" alt="Partner 4">
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="partner-logo text-center">
+                    <img src="{{ asset('logos/ntv logo.png') }}" class="img-fluid" alt="Partner 5">
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="partner-logo text-center">
+                    <img src="{{ asset('logos/amazon.jfif') }}" class="img-fluid" alt="Partner 5">
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="partner-logo text-center">
+                    <img src="{{ asset('logos/dfcu logo.jfif') }}" class="img-fluid" alt="Partner 5">
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="partner-logo text-center">
+                    <img src="{{ asset('logos/guvnor logo.png') }}" class="img-fluid" alt="Partner 5">
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="partner-logo text-center">
+                    <img src="{{ asset('logos/johnnie walker logo.png') }}" class="img-fluid" alt="Partner 5">
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="partner-logo text-center">
+                    <img src="{{ asset('logos/serena logo.png') }}" class="img-fluid" alt="Partner 5">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 @include('footer')
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5 // 0.5 means the video starts playing when 50% of it is in view
+        };
+
+        let observer = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(entry => {
+                let video = entry.target;
+                if (entry.isIntersecting) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        }, options);
+
+        let video = document.getElementById('testimonial-video');
+        observer.observe(video);
+    });
+</script>
