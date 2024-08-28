@@ -178,7 +178,6 @@
             <p>We are proud to collaborate with these esteemed organizations.</p>
         </div>
         <div class="row gy-5 gx-4 d-flex justify-content-center">
-            <!-- Replace the foreach loop with direct HTML if logos are static -->
             <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="partner-logo text-center rounded-bg">
                     <img src="{{ asset('logos/nbs logo.jfif') }}" class="img-fluid" alt="Partner 1">
