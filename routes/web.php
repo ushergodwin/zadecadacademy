@@ -10,6 +10,7 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ProgramSoftwareController;
+use App\Http\Controllers\TrainingCalenderController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -118,6 +119,11 @@ Route::post('/register-user', [AdminController::class, 'registerUser'])->name('a
 Route::get('blogs', [BlogController::class, 'index'])->name('blogs.index');
 
 
+// Public route for viewing the training calendar
+Route::get('/training-calendar', [TrainingCalenderController::class, 'fetchCalendars'])->name('view-training-calendar');
+
+
+
 
 
 
@@ -197,5 +203,20 @@ Route::middleware(['auth'])->group(function () {
     Route::get('blogs/comments/delete/{id}', [BlogController::class, 'deleteComment'])->name('admin.comment.delete');
 
     Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
+
     Route::resource('software', ProgramSoftwareController::class);
+
+
+    // Training calender
+
+
+    Route::get('/admin/training-calendar', [TrainingCalenderController::class, 'index'])->name('admin.training_calendar.index');
+
+    Route::post('admin/training-calendar', [TrainingCalenderController::class, 'store'])->name('admin.training_calendar.store');
+
+    Route::get('/admin/training-calendar/{id}/edit', [TrainingCalenderController::class, 'edit'])->name('admin.training_calendar.edit');
+
+    Route::post('/admin/training-calendar/{id}', [TrainingCalenderController::class, 'update'])->name('admin.training_calendar.update');
+
+    Route::get('/admin/training-calendar/{id}/destroy', [TrainingCalenderController::class, 'destroy'])->name('admin.training_calendar.destroy');
 });

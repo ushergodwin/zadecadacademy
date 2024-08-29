@@ -88,6 +88,7 @@
                         <li><a href="{{ route('contact-messages') }}"><i class="fa fa-commenting fa-fw"></i> Contact Messages </a></li>
                         <li><a href="{{ route('enrolled-students') }}"><i class="fa fa-users fa-fw"></i> Enrolled Students </a></li>
                         <li><a href="{{ route('admin.blogs') }}"><i class="fa fa-book fa-fw"></i>Blogs</a></li>
+                        <li><a href="{{ route('training-calendar') }}"><i class="fa fa-book fa-fw"></i>Calendar</a></li>
                     </ul>
                 </div>
             </div>

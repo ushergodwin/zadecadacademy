@@ -20,6 +20,17 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <!-- for light gallery -->
     <link rel="stylesheet" href="{{ asset('css/lightgallery.min.css') }}">
+
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css" rel="stylesheet">
+
+    <!-- Custom Styles (optional) -->
+    <style>
+        .fc-event {
+            background-color: #ff7900; /* Custom background color for events */
+            border: none;
+        }
+    </style>
 </head>
 <body style="background-color:#F3F9FD">
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -69,7 +80,9 @@
                 <a href="{{ url('gallery') }}" class="nav-item nav-link {{ isActivePage('gallery')}}">Gallery</a>
                 <a href="{{ url('contact') }}" class="nav-item nav-link {{ isActivePage('contact')}}">Contact</a>
                 <a href="{{ route('blogs-list') }}" class="nav-item nav-link {{ isActivePage('blogs')}}">Blogs</a>
+                <a href="{{ route('view-training-calendar') }}" class="nav-item nav-link {{ isActivePage('training_calendar')}}">Calendar</a>
             </div>
         </div>
     </nav>
 <!-- Navbar End -->
+
