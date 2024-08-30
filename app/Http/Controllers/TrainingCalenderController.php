@@ -40,7 +40,7 @@ class TrainingCalenderController extends Controller
 
         TrainingCalendar::create($request->all());
 
-        return redirect()->route('training-calendar')->with('success', 'Training calendar entry added successfully.');
+        return redirect()->route('admin.training_calendar.index')->with('success', 'Training calendar entry added successfully.');
     }
 
 
@@ -71,7 +71,7 @@ class TrainingCalenderController extends Controller
         $calendar = TrainingCalendar::findOrFail($id);
         $calendar->delete();
 
-        return redirect()->route('training-calendar')->with('success', 'Training calendar entry deleted successfully.');
+        return redirect()->route('admin.training_calendar.index')->with('success', 'Training calendar entry deleted successfully.');
     }
 
 }

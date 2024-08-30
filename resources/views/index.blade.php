@@ -115,11 +115,11 @@
 <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-            <h3> Why Choose Us ? </h3>
+            <h3>Why Choose Us?</h3>
         </div>
         <div class="row gy-5 gx-4">
             @foreach($chzn as $val)
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="col-lg-4 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="product-item">
                     <div class="position-relative">
                         <img class="img-fluid" src="{{ asset('uploads/' . $val->image) }}" style="width: 100%;height: 300px" alt="">
@@ -135,6 +135,7 @@
     </div>
 </div>
 
+
 <!-- Courses Section -->
 <div class="container-xxl py-5" style="background-color: #fff;">
     <div class="container">
@@ -143,7 +144,7 @@
         </div>
         <div class="row gy-5 gx-4">
             @foreach($courses as $row)
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="col-lg-4 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="product-item">
                     <div class="position-relative">
                         <a href="{{ route('course.details', ['id' => $row->id]) }}" style="color:#ff7900;">

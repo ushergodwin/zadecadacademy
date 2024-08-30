@@ -27,7 +27,7 @@
                             @foreach($enrolled_students as $prt)
                                 <tr class="odd gradeX">
                                     <td>
-                                    <span> <b> Name: </b> {{ $prt->firstname }} {{ $prt->lastname }}</span><br/>
+                                    <span> <b> Name: </b> {{ $prt->fullname }} </span><br/>
                                     <span><b>Mobile:</b> {{ $prt->phone }}</span><br/>
                                     <span><b>WhatsApp:</b> {{ $prt->whatsapp }}</span><br/>
                                     <span><b>Application Date:</b> {{ $prt->enrollment_date }}</span><br/>
