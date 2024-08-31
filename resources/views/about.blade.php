@@ -30,21 +30,28 @@
                 
                 <hr class="my-5">
                 
-                <h4>Payment Options</h4>
-                <p><b>Account Details:</b></p>
-                <p>Account Number: <b>3100092562</b></p>
-                <p>Account Name: <b>ZadeCAD LTD</b></p>
-                <p>Bank Name: <b>CENTENARY BANK, NTINDA BRANCH</b></p>
-                <p>Reference: <b>Student name - Name of course</b></p>
-
-                <h5 class="mt-4">Airtel Money</h5>
-                <p>1. Dial *165# and follow prompts as follows:</p>
-                <p>2. Airtel Money pay</p>
-                <p>3. Enter Merchant Code – <b>4302532</b></p>
-                <p>4. Enter Amount</p>
-                <p>5. Reference: <Student name - Name of course></p>
-                <p>6. Enter your PIN</p>
-                <p>7. Send</p>
+                <h4 class="text-center">Payment Options</h4>
+                <div class="row">
+                    <!-- First Column: Account Details -->
+                    <div class="col-md-6">
+                        <h5><b>Account Details:</b></h5>
+                        <p>Account Number: <b>3100092562</b></p>
+                        <p>Account Name: <b>ZadeCAD LTD</b></p>
+                        <p>Bank Name: <b>CENTENARY BANK, NTINDA BRANCH</b></p>
+                        <p>Reference: <b>Student name - Name of course</b></p>
+                    </div>
+                    <!-- Second Column: Airtel Money -->
+                    <div class="col-md-6">
+                        <h5>Airtel Money</h5>
+                        <p>1. Dial *165# and follow prompts as follows:</p>
+                        <p>2. Airtel Money pay</p>
+                        <p>3. Enter Merchant Code – <b>4302532</b></p>
+                        <p>4. Enter Amount</p>
+                        <p>5. Reference: <Student name - Name of course></p>
+                        <p>6. Enter your PIN</p>
+                        <p>7. Send</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -38,6 +38,18 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
+                            <label>Start Time:</label>
+                            <input class="form-control" name="start_time" type="time" required /> 
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>End Time:</label>
+                            <input class="form-control" name="end_time" type="time" required /> 
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
                             <label>Location:</label>
                             <input class="form-control" name="location" type="text" required />
                         </div>
@@ -68,6 +80,8 @@
                             <tr>
                                 <th>Course</th>
                                 <th>Start Date</th>
+                                <th>Start Time</th>
+                                <th>End Time</th>
                                 <th>End Date</th>
                                 <th>Location</th>
                                 <th>Actions</th>
@@ -78,6 +92,8 @@
                                 <tr class="odd gradeX">
                                     <td>{{ $calendar->course->cs_name }}</td>
                                     <td>{{ $calendar->start_date }}</td>
+                                    <td>{{ $calendar->start_time }}</td>
+                                    <td>{{ $calendar->end_time }}</td>
                                     <td>{{ $calendar->end_date }}</td>
                                     <td>{{ $calendar->location }}</td>
                                     <td>

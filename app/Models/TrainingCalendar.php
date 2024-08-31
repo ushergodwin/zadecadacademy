@@ -12,6 +12,8 @@ class TrainingCalendar extends Model
     protected $fillable = [
         'course_id',
         'start_date',
+        'start_time',
+        'end_time',
         'end_date',
         'location'
     ];

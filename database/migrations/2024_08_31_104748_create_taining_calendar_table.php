@@ -16,6 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('course_id');
             $table->date('start_date');
             $table->date('end_date');
+            $table->time('start_time');
+            $table->time('end_time');
             $table->string('location');
             $table->timestamps();
 

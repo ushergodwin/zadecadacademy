@@ -12,7 +12,7 @@ class BlogController extends Controller
     public function index()
     {
         $blogs = Blog::all();
-        return view('admin.blogs', compact('blogs'));
+        return view('admin.blog_mgt', compact('blogs'));
     }
 
     public function show($id)

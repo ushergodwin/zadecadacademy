@@ -8,6 +8,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ProgramSoftwareController;
 use App\Http\Controllers\TrainingCalenderController;
@@ -219,4 +220,14 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/admin/training-calendar/{id}', [TrainingCalenderController::class, 'update'])->name('admin.training_calendar.update');
 
     Route::get('/admin/training-calendar/{id}/destroy', [TrainingCalenderController::class, 'destroy'])->name('admin.training_calendar.destroy');
+
+
+    // PARTNERS
+
+    
+    Route::get('/admin/partners', [PartnerController::class, 'index'])->name('admin.partners');
+
+    Route::post('admin/partners/add', [PartnerController::class, 'store'])->name('admin.partners.store');
+
+    Route::get('/admin/partner/{id}/destroy', [PartnerController::class, 'partnerDelete'])->name('admin.partners.delete');
 });

@@ -91,25 +91,6 @@
     </div>
 </div>
 
-<!-- Testimonial Video Section -->
-<div class="container-xxl py-5 bg-light">
-    <div class="container">
-        <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-            <h3>What Our Students Say</h3>
-            <p>Hear from our students about their experiences at ZadeCAD Academy.</p>
-        </div>
-        <div class="row g-5">
-            <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="position-relative h-100">
-                    <video id="testimonial-video" width="100%" height="500" controls muted>
-                        <source src="{{ asset('videos/August Alsina - Benediction ft. Rick Ross (Official Music Video).mp4') }}" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- Why Choose Us Section -->
 <div class="container-xxl py-5">
@@ -134,6 +115,7 @@
         </div>
     </div>
 </div>
+
 
 
 <!-- Courses Section -->
@@ -170,6 +152,36 @@
     </div>
 </div>
 
+<!-- Testimonial Video Section -->
+<div class="container-xxl py-5 bg-light">
+    <div class="container">
+        <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h3>What Our Students Say</h3>
+            <p>Hear from our students about their experiences at ZadeCAD Academy.</p>
+        </div>
+        <div class="row g-5 align-items-center">
+            <!-- Text Section -->
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <h4>About Our Academy</h4>
+                <p>ZadeCAD Academy has been at the forefront of CAD training in Uganda, offering comprehensive courses tailored to industry needs. Our commitment to excellence has helped shape the careers of over 300 professionals in various fields such as engineering, architecture, and surveying.</p>
+                <p>Our students come from diverse backgrounds and have gone on to work in key positions in both local and international companies. We believe in providing hands-on training that equips our students with the skills they need to succeed in a competitive job market.</p>
+                <p>Join us at ZadeCAD Academy and be part of a community that values learning, growth, and professional development.</p>
+            </div>
+            <!-- Video Section -->
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="position-relative h-100">
+                    <video id="testimonial-video" width="100%" height="400" controls muted>
+                        <source src="{{ asset('videos/August Alsina - Benediction ft. Rick Ross (Official Music Video).mp4') }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 <!-- Partners Section -->
 <div class="container-xxl py-5">
@@ -179,57 +191,13 @@
             <p>We are proud to collaborate with these esteemed organizations.</p>
         </div>
         <div class="row gy-5 gx-4 d-flex justify-content-center">
+            @foreach($partners as $partner)
             <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="partner-logo text-center rounded-bg">
-                    <img src="{{ asset('logos/nbs logo.jfif') }}" class="img-fluid" alt="Partner 1">
+                    <img src="{{ asset('uploads/' . $partner->logo) }}" class="img-fluid" alt="{{ $partner->name }}">
                 </div>
             </div>
-            <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.2s">
-                <div class="partner-logo text-center rounded-bg">
-                    <img src="{{ asset('logos/airtel logo.png') }}" class="img-fluid" alt="Partner 2">
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="partner-logo text-center">
-                    <img src="{{ asset('logos/mak logo.jfif') }}" class="img-fluid" alt="Partner 3">
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.4s">
-                <div class="partner-logo text-center">
-                    <img src="{{ asset('logos/mtn logo.png') }}" class="img-fluid" alt="Partner 4">
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.4s">
-                <div class="partner-logo text-center">
-                    <img src="{{ asset('logos/ntv logo.png') }}" class="img-fluid" alt="Partner 5">
-                </div>
-            </div>
-
-            <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.4s">
-                <div class="partner-logo text-center">
-                    <img src="{{ asset('logos/amazon.jfif') }}" class="img-fluid" alt="Partner 5">
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.4s">
-                <div class="partner-logo text-center">
-                    <img src="{{ asset('logos/dfcu logo.jfif') }}" class="img-fluid" alt="Partner 5">
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.4s">
-                <div class="partner-logo text-center">
-                    <img src="{{ asset('logos/guvnor logo.png') }}" class="img-fluid" alt="Partner 5">
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.4s">
-                <div class="partner-logo text-center">
-                    <img src="{{ asset('logos/johnnie walker logo.png') }}" class="img-fluid" alt="Partner 5">
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.4s">
-                <div class="partner-logo text-center">
-                    <img src="{{ asset('logos/serena logo.png') }}" class="img-fluid" alt="Partner 5">
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ChooseUs;
 use App\Models\Gallery;
+use App\Models\Partner;
 use App\Models\Program;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,8 @@ class HomeController extends Controller
         $gallery = Gallery::where('status', 'yes')->get();
         $abt = Gallery::where('status', 'yes')->limit(3)->get();
         $chzn = ChooseUs::orderBy('id')->get();
+        $partners = Partner::all();
 
-        return view('index', compact('courses', 'gallery', 'abt', 'chzn'));
+        return view('index', compact('courses', 'gallery', 'abt', 'chzn', 'partners'));
     }
 }

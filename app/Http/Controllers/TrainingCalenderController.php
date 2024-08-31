@@ -17,10 +17,13 @@ class TrainingCalenderController extends Controller
 
     }
 
-    public function fetchCalendars(){
+    public function fetchCalendars()
+    {
+        // Fetch all training calendar entries with associated course data
         $calendars = TrainingCalendar::with('course')->get();
-        $courses = Course::all(); 
-        return view('view_training_calendar', compact('calendars', 'courses'));
+
+        // Pass the data to the view
+        return view('view_training_calendar', compact('calendars'));
     }
 
     public function create()
@@ -35,6 +38,8 @@ class TrainingCalenderController extends Controller
             'course_id' => 'required|exists:courses,id',
             'start_date' => 'required|date',
             'end_date' => 'required|date|after_or_equal:start_date',
+            'start_time' => 'required',
+            'end_time' => 'required',
             'location' => 'required|string|max:255',
         ]);
 
@@ -57,6 +62,8 @@ class TrainingCalenderController extends Controller
             'course_id' => 'required|exists:courses,id',
             'start_date' => 'required|date',
             'end_date' => 'required|date|after_or_equal:start_date',
+            'start_time' => 'required',
+            'end_time' => 'required',
             'location' => 'required|string|max:255',
         ]);
 
