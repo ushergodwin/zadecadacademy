@@ -661,3 +661,16 @@ if (!function_exists('isActivePage')) {
 		return strpos($currentPath, $urlSegment) !== false ? 'active' : '';
 	}
 }
+
+if (!function_exists('format_date')) {
+	function format_date($date, $format = 'd M y')
+	{
+		return date($format, strtotime($date));
+	}
+}
+if (!function_exists('format_time')) {
+	function format_time($date, $format = 'H:ia')
+	{
+		return date($format, strtotime($date));
+	}
+}
