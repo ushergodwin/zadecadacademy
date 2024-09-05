@@ -11,6 +11,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ProgramSoftwareController;
+use App\Http\Controllers\SoftwareDocumentController;
 use App\Http\Controllers\TrainingCalenderController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -124,6 +125,9 @@ Route::get('blogs', [BlogController::class, 'index'])->name('blogs.index');
 Route::get('/training-calendar', [TrainingCalenderController::class, 'fetchCalendars'])->name('view-training-calendar');
 
 
+Route::get('/software/{id}/documents', [SoftwareDocumentController::class, 'showDocuments'])->name('software.documents');
+
+
 
 
 
@@ -230,4 +234,15 @@ Route::middleware(['auth'])->group(function () {
     Route::post('admin/partners/add', [PartnerController::class, 'store'])->name('admin.partners.store');
 
     Route::get('/admin/partner/{id}/destroy', [PartnerController::class, 'partnerDelete'])->name('admin.partners.delete');
+
+
+    // Software documents
+
+    Route::get('software-documents', [SoftwareDocumentController::class , 'index'])->name('admin.software_documents.index');
+
+    Route::post('software-documents/add', [SoftwareDocumentController::class , 'store'])->name('admin.software_documents.store');
+
+    Route::get('software-documents/delete', [SoftwareDocumentController::class , 'destroy'])->name('admin.software_documents.destroy');
+
+    Route::get('get-softwares-by-program/{program}', [SoftwareDocumentController::class, 'getSoftwaresByProgram'])->name('software_documents.get_softwares_by_program');
 });

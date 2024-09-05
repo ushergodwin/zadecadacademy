@@ -12,9 +12,26 @@
             <p><img src="{{ asset('uploads/' . $program->pg_image) }}" title="{{ $program->pg_name }}" style="width:100%" /></p>
             <p style="text-align: justify;">{{ $program->description }}</p>
             <b>Software used:</b><br/>
-            @foreach(explode('#', $program->software) as $software)
-                <p style="line-height: 1em"><i class="fa fa-angle-right"></i> {{ $software }}</p>
-            @endforeach
+            @if($program->soft->isEmpty())
+                <div class="alert alert-info" role="alert" style="margin-top: 20px;">
+                    <strong>No software listed yet.</strong> This course currently has no software associated with it.
+                </div>
+            @else
+                <div style="margin-top: 20px;">
+                    @foreach($program->soft as $software)
+                        <p style="line-height: 1em; margin-bottom: 10px;">
+                            <i class="fa fa-angle-right"></i>
+                            <a href="{{ route('software.documents', $software->id) }}" 
+                            style="color: #007bff; text-decoration: none; font-weight: bold; transition: color 0.3s ease;"
+                            onmouseover="this.style.color='#0056b3'; this.style.textDecoration='underline';" 
+                            onmouseout="this.style.color='#007bff'; this.style.textDecoration='none';">
+                            {{ $software->software_name }}
+                            </a>
+                        </p>
+                    @endforeach
+                </div>
+            @endif
+
             <h2 style="font-weight: bold;">
                 <a href="{{ route('program.enrol', ['id' => $program->id]) }}" class="btn btn-secondary py-3 px-5">
                     <i class="fa fa-pencil"></i> APPLY NOW

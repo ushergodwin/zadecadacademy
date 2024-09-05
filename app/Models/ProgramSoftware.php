@@ -17,4 +17,10 @@ class ProgramSoftware extends Model
         'add_by',
         'software_name'
     ];
+
+
+    public function documents()
+    {
+        return $this->hasMany(SoftwareDocument::class, 'program_software_id', 'id');
+    }
 }
