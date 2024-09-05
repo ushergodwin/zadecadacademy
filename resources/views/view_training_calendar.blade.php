@@ -31,8 +31,8 @@
                         <div class="card shadow-sm h-100">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $calendar->course->cs_name }}</h5>
-                                <p class="card-text"><strong>Start Date:</strong> {{ $calendar->start_date }} at {{ $calendar->start_time }}</p>
-                                <p class="card-text"><strong>End Date:</strong> {{ $calendar->end_date }} at {{ $calendar->end_time }}</p> 
+                                <p class="card-text"><strong>Start Date:</strong> {{ format_date($calendar->start_date) }} at {{ format_time($calendar->start_time) }}</p>
+                                <p class="card-text"><strong>End Date:</strong> {{ format_date($calendar->end_date) }} at {{ format_time($calendar->end_time) }}</p> 
                                 <p class="card-text"><strong>Location:</strong> {{ $calendar->location }}</p>
                             </div>
                         </div>
