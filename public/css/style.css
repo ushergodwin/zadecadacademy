@@ -1,5 +1,6 @@
 /********** Template CSS **********/
 
+
 /* ===================================== Import Less ================================== */
 
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400,600,700);
@@ -43,6 +44,7 @@ h6 {
     font-weight: 500 !important;
 }
 
+
 /*** Spinner ***/
 
 #spinner {
@@ -57,6 +59,7 @@ h6 {
     visibility: visible;
     opacity: 1;
 }
+
 
 /*** Button ***/
 
@@ -99,6 +102,7 @@ h6 {
     justify-content: center;
     font-weight: normal;
 }
+
 
 /*** Navbar ***/
 
@@ -158,6 +162,7 @@ h6 {
     }
 }
 
+
 /*** Header ***/
 
 .carousel-caption {
@@ -204,7 +209,7 @@ h6 {
     background-size: cover;
 }
 
-.page-header .breadcrumb-item + .breadcrumb-item::before {
+.page-header .breadcrumb-item+.breadcrumb-item::before {
     color: var(--light);
 }
 
@@ -213,6 +218,7 @@ h6 {
     font-size: 18px;
     color: var(--light);
 }
+
 
 /*** Section Title ***/
 
@@ -255,6 +261,7 @@ h6 {
     left: 0;
 }
 
+
 /*** About ***/
 
 .about-experience {
@@ -268,6 +275,7 @@ h6 {
     align-items: center;
     justify-content: center;
 }
+
 
 /*** Service ***/
 
@@ -360,6 +368,7 @@ h6 {
     background: var(--secondary);
 }
 
+
 /*** Product ***/
 
 .product-item {
@@ -389,6 +398,7 @@ h6 {
     padding-top: 0;
 }
 
+
 /*** Team ***/
 
 .team-item {
@@ -402,6 +412,7 @@ h6 {
     border-color: transparent;
     box-shadow: 0 0 45px rgba(0, 0, 0, 0.2);
 }
+
 
 /*** Testimonial ***/
 
@@ -485,6 +496,7 @@ h6 {
     background: var(--secondary);
     color: var(--dark);
 }
+
 
 /*** Footer ***/
 
@@ -737,4 +749,129 @@ body {
     background-color: #007bff;
     color: #fff;
     border-color: #007bff;
+}
+
+.text-orange {
+    color: #ff7900;
+}
+
+
+/* Background styling */
+
+.bg-orange,
+.card,
+.main-body {
+    background: rgb(2, 0, 36);
+    background: -moz-radial-gradient( circle, rgba(2, 0, 36, 1) 0%, rgba(255, 121, 0, 1) 35%, rgba(2, 0, 36, 1) 100%);
+    background: -webkit-radial-gradient( circle, rgba(2, 0, 36, 1) 0%, rgba(255, 121, 0, 1) 35%, rgba(2, 0, 36, 1) 100%);
+    background: radial-gradient( circle, rgba(2, 0, 36, 1) 0%, rgba(255, 121, 0, 1) 35%, rgba(2, 0, 36, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#020024", endColorstr="#020024", GradientType=1);
+    color: #ffffff;
+    /* Set the default text color to white for visibility */
+    font-family: Arial, sans-serif;
+}
+
+
+/* Headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #fff;
+}
+
+
+/* Paragraphs */
+
+p {
+    color: #f1f1f1;
+}
+
+
+/* Links */
+
+a {
+    color: #ffd700;
+    /* Use a golden yellow for links to contrast well with the background */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ff4500;
+    /* Darker orange for hover effect */
+}
+
+
+/* Buttons */
+
+button,
+.btn {
+    background-color: #ff7a00;
+    /* Bright orange for buttons */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover,
+.btn:hover {
+    background-color: #cc6300;
+    /* Darker shade on hover */
+}
+
+
+/* Form Inputs */
+
+input,
+textarea,
+select {
+    background-color: #f1f1f1;
+    /* Light background for inputs */
+    color: #000;
+    /* Dark text inside form elements */
+    border: 1px solid #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #ff7a00;
+}
+
+
+/* Navigation */
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Semi-transparent dark background */
+    color: #ffffff;
+}
+
+.navbar a {
+    color: #ffffff;
+}
+
+
+/* Footer */
+
+footer {
+    background-color: rgba(2, 0, 36, 0.8);
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer a {
+    color: #ff7a00;
 }

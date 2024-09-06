@@ -56,153 +56,164 @@
 </div>
 
 <!-- About Section -->
-<div class="container-xxl py-5">
-    <div class="container">
-        <div class="row g-5 align-items-end">
-            <div class="col-lg-6">
-                <div class="row g-2">
-                    <div class="col-6 position-relative wow fadeIn" data-wow-delay="0.7s">
-                        <div class="about-experience bg-secondary rounded">
-                            <span style="float:left;color:#fff"><b>#5 Star CADD Solutions </b></span>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="row g-5 align-items-end">
+                <div class="col-lg-6">
+                    <div class="row g-2">
+                        <div class="col-6 position-relative wow fadeIn" data-wow-delay="0.7s">
+                            <div class="about-experience bg-secondary rounded">
+                                <span style="float:left;color:#fff"><b>#5 Star CADD Solutions </b></span>
+                            </div>
+                        </div>
+                        <div class="col-6 wow fadeIn" data-wow-delay="0.1s">
+                            <img class="img-fluid rounded" src="{{ asset('img/abt1.jpg') }}">
+                        </div>
+                        <div class="col-6 wow fadeIn" data-wow-delay="0.3s">
+                            <img class="img-fluid rounded" src="{{ asset('img/abt2.jpg') }}">
+                        </div>
+                        <div class="col-6 wow fadeIn" data-wow-delay="0.5s">
+                            <img class="img-fluid rounded" src="{{ asset('img/abt3.jpg') }}">
                         </div>
                     </div>
-                    <div class="col-6 wow fadeIn" data-wow-delay="0.1s">
-                        <img class="img-fluid rounded" src="{{ asset('img/abt1.jpg') }}">
+                </div>
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    <h2>About ZadeCAD Academy</h2>
+                    <p class="mb-4">
+                        <blockquote style="color:#000">
+                            ZadeCAD Limited is registered as a limited liability company with shares. It was established in 2020 to impart quality industry-specific Computer-Aided Design (CAD) skills training. Since its inception, ZadeCAD Ltd through its initiative ZadeCAD Academy, continues to expand and focus on providing critical professional and technical skills training in engineering and project management.
+                            <br/><br/>
+                            To date, we have trained over 300+ professionals from different backgrounds. Our trained students are now employed in key positions in large and small companies both locally and internationally.
+                        </blockquote>
+                    </p>
+                </div>
+            </div>
+
+    <!-- Why Choose Us Section -->
+            <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <h3>Why Choose Us?</h3>
+            </div>
+            <div class="row" style="display: flex; flex-wrap: wrap; gap: 30px; margin-left: -15px; margin-right: -15px;">
+                @foreach($chzn as $val)
+                <div class="wow fadeInUp" data-wow-delay="0.1s" style="flex: 0 1 calc(33.3333% - 30px); box-sizing: border-box; padding-left: 15px; padding-right: 15px;">
+                    <div class="product-item" style="display: flex; flex-direction: column; height: 100%;">
+                        <div class="position-relative" style="flex-grow: 1;">
+                            <img class="img-fluid" src="{{ asset('uploads/' . $val->image) }}" style="width: 100%; height: 100px; object-fit: cover;" alt="">
+                        </div>
+                        <div class="text-center p-4" style="padding: 20px; border-bottom: 2px solid #ddd;">
+                            <h6>{{ $val->title }}</h6>
+                            <p>{{ Str::limit($val->description, 150) }}</p>
+                        </div>
                     </div>
-                    <div class="col-6 wow fadeIn" data-wow-delay="0.3s">
-                        <img class="img-fluid rounded" src="{{ asset('img/abt2.jpg') }}">
+                </div>
+                @endforeach
+            </div>
+
+    <!-- Courses Section -->
+
+            <div class="text-center mx-auto pb-4 wow fadeInUp mt-3" data-wow-delay="0.1s" style="max-width: 500px;">
+                <h3>Our Courses</h3>
+            </div>
+            <div class="row" style="display: flex; flex-wrap: wrap; gap: 30px; margin-left: -15px; margin-right: -15px;">
+                @foreach($courses as $row)
+                <div class="wow fadeInUp" data-wow-delay="0.1s" style="flex: 0 1 calc(33.3333% - 30px); box-sizing: border-box; padding-left: 15px; padding-right: 15px;">
+                    <div class="product-item" style="display: flex; flex-direction: column; height: 100%;">
+                        <div class="position-relative" style="flex-grow: 1;">
+                            <a href="{{ route('course.details', ['id' => $row->id]) }}" style="color:#ff7900;">
+                                <img class="img-fluid" src="{{ asset('uploads/' . $row->pg_image) }}" style="width: 100%; height: 300px; object-fit: cover;" alt="">
+                            </a>
+                        </div>
+                        <div class="text-center p-4" style="padding: 20px; border-bottom: 2px solid #ddd;">
+                            <h6>{{ $row->pg_name }}</h6>
+                            <p>{{ Str::limit($row->description, 150) }}</p>
+                            <a href="{{ route('course.details', ['id' => $row->id]) }}" style="color:#ff7900;">
+                                Read More <i class="fa fa-angle-double-right"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="col-6 wow fadeIn" data-wow-delay="0.5s">
-                        <img class="img-fluid rounded" src="{{ asset('img/abt3.jpg') }}">
+                </div>
+                @endforeach
+                <div style="width: 100%; text-align: center;" class="d-flex justify-content-end">
+                    <button onclick="window.location.href='{{ route('courses.index') }}'" class="btn btn-secondary btn-sm" style="background-color:#ff7900;color:#fff">
+                        <i class="fa fa-book"></i> VIEW ALL COURSES
+                    </button>
+                </div>
+            </div>
+
+
+
+    <!-- Testimonial Video Section -->
+
+            <div class="text-center mx-auto pb-4 wow fadeInUp mt-3" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h3>What Our Students Say</h3>
+                <p>Hear from our students about their experiences at ZadeCAD Academy.</p>
+            </div>
+            <div class="row g-5 align-items-center">
+                <!-- Text Section -->
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <h4>About Our Academy</h4>
+                    <p>ZadeCAD Academy has been at the forefront of CAD training in Uganda, offering comprehensive courses tailored to industry needs. Our commitment to excellence has helped shape the careers of over 300 professionals in various fields such as engineering, architecture, and surveying.</p>
+                    <p>Our students come from diverse backgrounds and have gone on to work in key positions in both local and international companies. We believe in providing hands-on training that equips our students with the skills they need to succeed in a competitive job market.</p>
+                    <p>Join us at ZadeCAD Academy and be part of a community that values learning, growth, and professional development.</p>
+                </div>
+                <!-- Video Section -->
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="position-relative h-100">
+                        <video id="testimonial-video" width="100%" height="400" controls muted>
+                            <source src="{{ asset('videos/August Alsina - Benediction ft. Rick Ross (Official Music Video).mp4') }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                <h2>About ZadeCAD Academy</h2>
-                <p class="mb-4">
-                    <blockquote style="color:#000">
-                        ZadeCAD Limited is registered as a limited liability company with shares. It was established in 2020 to impart quality industry-specific Computer-Aided Design (CAD) skills training. Since its inception, ZadeCAD Ltd through its initiative ZadeCAD Academy, continues to expand and focus on providing critical professional and technical skills training in engineering and project management.
-                        <br/><br/>
-                        To date, we have trained over 300+ professionals from different backgrounds. Our trained students are now employed in key positions in large and small companies both locally and internationally.
-                    </blockquote>
-                </p>
+
+    <!-- Partners Section -->
+            <div class="text-center mx-auto pb-4 wow fadeInUp mt-3" data-wow-delay="0.1s" style="max-width: 500px;">
+                <h3>Our Partners</h3>
+                <p>We are proud to collaborate with these esteemed organizations.</p>
             </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- Why Choose Us Section -->
-<div class="container-xxl py-5">
-    <div class="container">
-        <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-            <h3>Why Choose Us?</h3>
-        </div>
-        <div class="row" style="display: flex; flex-wrap: wrap; gap: 30px; margin-left: -15px; margin-right: -15px;">
-            @foreach($chzn as $val)
-            <div class="wow fadeInUp" data-wow-delay="0.1s" style="flex: 0 1 calc(33.3333% - 30px); box-sizing: border-box; padding-left: 15px; padding-right: 15px;">
-                <div class="product-item" style="display: flex; flex-direction: column; height: 100%;">
-                    <div class="position-relative" style="flex-grow: 1;">
-                        <img class="img-fluid" src="{{ asset('uploads/' . $val->image) }}" style="width: 100%; height: 300px; object-fit: cover;" alt="">
-                    </div>
-                    <div class="text-center p-4" style="padding: 20px; border-bottom: 2px solid #ddd;">
-                        <h6>{{ $val->title }}</h6>
-                        <p>{{ Str::limit($val->description, 150) }}</p>
+            <div class="row gy-5 gx-4 d-flex justify-content-center">
+                @foreach($partners as $partner)
+                <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="text-center">
+                        <img src="{{ asset('uploads/' . $partner->logo) }}" class="img-fluid rounded" alt="{{ $partner->name }}">
                     </div>
                 </div>
+                @endforeach
             </div>
-            @endforeach
         </div>
-    </div>
-</div>
-
-
-
-
-
-
-
-<!-- Courses Section -->
-<div class="container-xxl py-5" style="background-color: #fff;">
-    <div class="container">
-        <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-            <h3>Our Courses</h3>
-        </div>
-        <div class="row" style="display: flex; flex-wrap: wrap; gap: 30px; margin-left: -15px; margin-right: -15px;">
-            @foreach($courses as $row)
-            <div class="wow fadeInUp" data-wow-delay="0.1s" style="flex: 0 1 calc(33.3333% - 30px); box-sizing: border-box; padding-left: 15px; padding-right: 15px;">
-                <div class="product-item" style="display: flex; flex-direction: column; height: 100%;">
-                    <div class="position-relative" style="flex-grow: 1;">
-                        <a href="{{ route('course.details', ['id' => $row->id]) }}" style="color:#ff7900;">
-                            <img class="img-fluid" src="{{ asset('uploads/' . $row->pg_image) }}" style="width: 100%; height: 300px; object-fit: cover;" alt="">
-                        </a>
+        <div class="col-md-3">
+            <div class="text-center mx-auto pb-4 wow fadeInUp mt-3" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h4><u>Recent Articles</u></h4>
+                @if($blogs->isNotEmpty())
+                    <div class="row">
+                        @foreach($blogs as $blog)
+                        <div class="col-lg-12 mb-4">
+                            <div class="shadow-sm rounded bg-orange">
+                                <div class="row g-0 flex-grow-1">
+                                    <div class="col-md-6">
+                                        <a href="{{ route('blog.show', $blog->id) }}" class="stretched-link">
+                                            <img src="{{ asset('uploads/' . $blog->image) }}" class="img-fluid rounded-start" alt="{{ $blog->title }}">
+                                        </a>
+                                    </div>
+                                    <div class="col-md-6 d-flex flex-column">
+                                        <div class="card-body flex-grow-1">
+                                            <a href="{{ route('blog.show', $blog->id) }}" class="text-light">{{ $blog->title }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
                     </div>
-                    <div class="text-center p-4" style="padding: 20px; border-bottom: 2px solid #ddd;">
-                        <h6>{{ $row->pg_name }}</h6>
-                        <p>{{ Str::limit($row->description, 150) }}</p>
-                        <a href="{{ route('course.details', ['id' => $row->id]) }}" style="color:#ff7900;">
-                            Read More <i class="fa fa-angle-double-right"></i>
-                        </a>
+                @else
+                    <div class="alert alert-info text-center">
+                        <i class="fa fa-info-circle fa-3x"></i>
+                        <p>There are currently no blogs posted. Please check back later.</p>
                     </div>
-                </div>
+                @endif
             </div>
-            @endforeach
-            <div style="width: 100%; text-align: center;">
-                <button onclick="window.location.href='{{ route('courses.index') }}'" class="btn btn-secondary py-3 px-5" style="background-color:#ff7900;color:#fff">
-                    <i class="fa fa-book"></i> ALL COURSES
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- Testimonial Video Section -->
-<div class="container-xxl py-5 bg-light">
-    <div class="container">
-        <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-            <h3>What Our Students Say</h3>
-            <p>Hear from our students about their experiences at ZadeCAD Academy.</p>
-        </div>
-        <div class="row g-5 align-items-center">
-            <!-- Text Section -->
-            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                <h4>About Our Academy</h4>
-                <p>ZadeCAD Academy has been at the forefront of CAD training in Uganda, offering comprehensive courses tailored to industry needs. Our commitment to excellence has helped shape the careers of over 300 professionals in various fields such as engineering, architecture, and surveying.</p>
-                <p>Our students come from diverse backgrounds and have gone on to work in key positions in both local and international companies. We believe in providing hands-on training that equips our students with the skills they need to succeed in a competitive job market.</p>
-                <p>Join us at ZadeCAD Academy and be part of a community that values learning, growth, and professional development.</p>
-            </div>
-            <!-- Video Section -->
-            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="position-relative h-100">
-                    <video id="testimonial-video" width="100%" height="400" controls muted>
-                        <source src="{{ asset('videos/August Alsina - Benediction ft. Rick Ross (Official Music Video).mp4') }}" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-<!-- Partners Section -->
-<div class="container-xxl py-5">
-    <div class="container">
-        <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-            <h3>Our Partners</h3>
-            <p>We are proud to collaborate with these esteemed organizations.</p>
-        </div>
-        <div class="row gy-5 gx-4 d-flex justify-content-center">
-            @foreach($partners as $partner)
-            <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="partner-logo text-center rounded-bg">
-                    <img src="{{ asset('uploads/' . $partner->logo) }}" class="img-fluid" alt="{{ $partner->name }}">
-                </div>
-            </div>
-            @endforeach
         </div>
     </div>
 </div>

@@ -32,30 +32,9 @@
         }
     </style>
 </head>
-<body style="background-color:#F3F9FD">
+<body class="main-body">
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
-    </div>
-    <div class="container-fluid bg-dark px-0">
-        <div class="row g-0 d-none d-lg-flex">
-            <div class="col-lg-6 ps-5 text-start">
-                <div class="h-100 d-inline-flex align-items-center text-light">
-                    <span></span>
-                    <a class="btn btn-link text-light" href="https://www.facebook.com/ZadeCADAcademy" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-link text-light" href="https://www.twitter.com/ZadeCAD" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-link text-light" href="https://www.linkedin.com/in/zadecad-academy-81292322a/"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-link text-light" href="https://www.instagram.com/ZadeCAD" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a class="btn btn-link text-light" href="https://www.youtube.com/channel/UCEi1ik2oIXsxqIBgW-eVO_w" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a class="btn btn-link text-light" href="https://chat.whatsapp.com/G1I3wmQ2TF4GwgXMRhiaC4" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-6 text-end">
-                <div class="h-100 bg-secondary d-inline-flex align-items-center text-dark py-2 px-4">
-                    <span class="me-2 fw-semi-bold"><i class="fa fa-phone-alt me-2"></i>Call:</span>
-                    <span>+256-705-233-210 / +256-785-941-415</span>
-                </div>
-            </div>
-        </div>
     </div>
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5">
         <a href="{{ url('/') }}" class="link" id="imglogo">
@@ -69,7 +48,7 @@
                 <a href="{{ url('/') }}" class="nav-item nav-link {{ isActivePage('home')}}">Home</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle {{ isActivePage('about')}}" data-bs-toggle="dropdown">About Us</a>
-                    <div class="dropdown-menu bg-light m-0">
+                    <div class="dropdown-menu bg-light text-dark m-0">
                         <a href="{{ url('about') }}" class="dropdown-item">ZadeCAD Profile</a>
                         <a href="{{ url('clientele') }}" class="dropdown-item">Clientele</a>
                         <a href="{{ url('deliverables') }}" class="dropdown-item">Deliverables</a>

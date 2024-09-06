@@ -6,7 +6,7 @@
     </div>
 </div>
 
-<div class="container-xxl py-5" style="background-color: #fff;">
+<div class="container-xxl py-5">
     <div class="container">
         <div class="row g-4">
             @foreach($documents as $document)

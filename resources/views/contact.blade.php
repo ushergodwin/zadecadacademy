@@ -1,13 +1,13 @@
 @include('header')
 
-<div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
-    <div class="container text-center py-5">
+<div class="container-fluid page-header py-1 mb-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container text-center py-2">
         <h3 class="text-white mb-4 animated slideInDown">Contact Us</h3>
     </div>
 </div>
 
-<div class="container-xxl py-5">
-    <div class="container">
+<div class="container-xxl py-5 card">
+    <div class="container card-body">
         <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
             @if(session('success'))
                 <div class="alert alert-success">
@@ -18,7 +18,7 @@
         <div class="row g-5">
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                 <p class="mb-4">Fill the form below so we can get to know you..</p>
-                <form method="post" action="{{ route('contact.store') }}" role="form">
+                <form method="post" action="{{ route('contact.store') }}" role="form" class="text-orange">
                     @csrf
                     <div class="row g-3">
                         <div class="col-md-6">

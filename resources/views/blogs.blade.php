@@ -17,8 +17,8 @@
                                 <p class="card-text">{{ Str::limit($blog->content, 100) }}</p>
                             </div>
                             <div class="card-footer bg-white border-0 d-flex justify-content-between align-items-center mt-auto">
-                                <a href="{{ route('blog.show', $blog->id) }}" class="btn btn-link p-0">Read More</a>
-                                <span><i class="fa fa-comments"></i> {{ $blog->comments->count() }} comments</span>
+                                <a href="{{ route('blog.show', $blog->id) }}" class="btn-link p-0">Read More</a>
+                                <span class="text-orange"><i class="fa fa-comments"></i> {{ $blog->comments->count() }} comments</span>
                             </div>
                         </div>
                     </div>

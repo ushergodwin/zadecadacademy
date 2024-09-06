@@ -1,26 +1,26 @@
 @include('header')
 
-<div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
-    <div class="container text-center py-5">
+<div class="container-fluid page-header py-1 mb-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container text-center py-2">
         <h3 class="text-white mb-4 animated slideInDown">{{ $program->pg_name }}</h3>
     </div>
 </div>
-<div class="container-xxl py-5" style="background-color:#fff">
+<div class="container-xxl py-5">
     <div class="container">
         <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
             <!-- Additional content can be added here -->
         </div>
         <div class="row g-5">
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-                <img src="{{ asset('uploads/' . $program->pg_image) }}" style="width: 80%;" />
+                <img src="{{ asset('uploads/' . $program->pg_image) }}"  class="img-fluid rounded" />
                 <p style="text-align: justify;">{{ $program->description }}</p>
                 <b>Software used:</b><br/>
-                @foreach($program->program_software as $software)
-                    <p style="line-height: 1em"><i class="fa fa-angle-right"></i> {{ $software }}</p>
+                @foreach($program->soft as $software)
+                    <p style="line-height: 1em"><i class="fa fa-angle-right"></i> {{ $software->software_name }}</p>
                 @endforeach
             </div>
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                <h2 class="mb-4">Apply for <b style="color:#ff7900;">{{ $program->pg_name }}</b></h2>
+                <h3 class="mb-4">Apply for{{ $program->pg_name }}</b></h2>
 
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -39,7 +39,7 @@
                 @endif
 
 
-                <form method="post" action="{{ route('enrol.store') }}" role="form">
+                <form method="post" action="{{ route('enrol.store') }}" role="form" class="text-orange">
                     @csrf
                     <input type="hidden" name="program" value="{{ $program->id }}">
                     <div class="row g-3">
@@ -132,7 +132,7 @@
                             <input  name="total_fee" type="number" hidden value="0" id="total_fee"/>
                             @if($program->soft->count())
                                 <div class="row">
-                                    <table class="table">
+                                    <table class="table table-light">
                                         <thead>
                                             <th></th>
                                             <th>Software Name</th>
@@ -155,7 +155,7 @@
                                                 </tr>
                                             @endforeach
                                             <tr>
-                                                <td>
+                                                <td colspan="4">
                                                     Total Fee: <span id="total_fee_span">0</span>
                                                 </td>
                                             </tr>

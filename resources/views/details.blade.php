@@ -1,11 +1,11 @@
 @include('header')
 
-<div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
-    <div class="container text-center py-5">
+<div class="container-fluid page-header py-1 mb-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container text-center py-2">
         <h2 class="text-white mb-4 animated slideInDown">{{ $program->pg_name }}</h2>
     </div>
 </div>
-<div class="container-xxl py-8" style="background-color: #fff;">
+<div class="container-xxl py-8">
     <div class="row">
         <div class="col-md-8">
             <br>
