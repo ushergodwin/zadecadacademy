@@ -8,7 +8,7 @@
 
 <div class="container-xxl py-5">
     <div class="container card">
-        <div class="card-boy row g-5 align-items-end">
+        <div class="card-body row g-5 align-items-end">
             <div class="col-lg-12">
                 <h4>Background</h4>
                 <p>ZadeCAD Limited is registered as a limited liability company with shares. It was established in 2020 to impart quality industry-specific Computer-Aided Design (CAD) skills training. Since its inception, ZadeCAD Ltd through its initiative ZadeCAD Academy, continues to expand and focus on providing critical professional and technical skills training in engineering and project management. <br><br>
@@ -33,21 +33,32 @@
                 <h4 class="text-center">Payment Options</h4>
                 <div class="row">
                     <!-- First Column: Account Details -->
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <h5><b>Account Details:</b></h5>
                         <p>Account Number: <b>3100092562</b></p>
                         <p>Account Name: <b>ZadeCAD LTD</b></p>
-                        <p>Bank Name: <b>CENTENARY BANK, NTINDA BRANCH</b></p>
+                        <p>Bank Name: <b>Centenary Bank, Ntinda Branch</b></p>
                         <p>Reference: <b>Student name - Name of course</b></p>
                     </div>
                     <!-- Second Column: Airtel Money -->
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <h5>Airtel Money</h5>
-                        <p>1. Dial *165# and follow prompts as follows:</p>
+                        <p>1. Dial *185*9# and follow prompts as follows:</p>
                         <p>2. Airtel Money pay</p>
                         <p>3. Enter Merchant Code – <b>4302532</b></p>
                         <p>4. Enter Amount</p>
                         <p>5. Reference: <Student name - Name of course></p>
+                        <p>6. Enter your PIN</p>
+                        <p>7. Send</p>
+                    </div>
+                    <!-- Third Column: MTN Mobile Money -->
+                    <div class="col-md-4">
+                        <h5>MTN Mobile Money</h5>
+                        <p>1. Dial *165*3#</p>
+                        <p>2. Enter Merchant Code: <b>707531</b></p>
+                        <p>3. Enter Amount</p>
+                        <p>4. Reference/Reason: <Student name - Name of course></p>
+                        <p>5. Account Name: <b>ZADECAD LIMITED</b></p>
                         <p>6. Enter your PIN</p>
                         <p>7. Send</p>
                     </div>
