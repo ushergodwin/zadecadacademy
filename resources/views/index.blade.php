@@ -81,7 +81,7 @@
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <h2>About ZadeCAD Academy</h2>
                     <p class="mb-4">
-                        <blockquote style="color:#000">
+                        <blockquote>
                             ZadeCAD Limited is registered as a limited liability company with shares. It was established in 2020 to impart quality industry-specific Computer-Aided Design (CAD) skills training. Since its inception, ZadeCAD Ltd through its initiative ZadeCAD Academy, continues to expand and focus on providing critical professional and technical skills training in engineering and project management.
                             <br/><br/>
                             To date, we have trained over 300+ professionals from different backgrounds. Our trained students are now employed in key positions in large and small companies both locally and internationally.
@@ -94,11 +94,11 @@
             <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
                 <h3>Why Choose Us?</h3>
             </div>
-            <div class="row" style="display: flex; flex-wrap: wrap; gap: 30px; margin-left: -15px; margin-right: -15px;">
+            <div class="row">
                 @foreach($chzn as $val)
-                <div class="wow fadeInUp" data-wow-delay="0.1s" style="flex: 0 1 calc(33.3333% - 30px); box-sizing: border-box; padding-left: 15px; padding-right: 15px;">
-                    <div class="product-item" style="display: flex; flex-direction: column; height: 100%;">
-                        <div class="position-relative" style="flex-grow: 1;">
+                <div class="col-md-3 wow fadeInUp mt-2 " data-wow-delay="0.1s">
+                    <div class="product-item card h-100">
+                        <div class="position-relative">
                             <img class="img-fluid" src="{{ asset('uploads/' . $val->image) }}" style="width: 100%; height: 100px; object-fit: cover;" alt="">
                         </div>
                         <div class="text-center p-4" style="padding: 20px; border-bottom: 2px solid #ddd;">
@@ -115,26 +115,26 @@
             <div class="text-center mx-auto pb-4 wow fadeInUp mt-3" data-wow-delay="0.1s" style="max-width: 500px;">
                 <h3>Our Courses</h3>
             </div>
-            <div class="row" style="display: flex; flex-wrap: wrap; gap: 30px; margin-left: -15px; margin-right: -15px;">
+            <div class="row">
                 @foreach($courses as $row)
-                <div class="wow fadeInUp" data-wow-delay="0.1s" style="flex: 0 1 calc(33.3333% - 30px); box-sizing: border-box; padding-left: 15px; padding-right: 15px;">
-                    <div class="product-item" style="display: flex; flex-direction: column; height: 100%;">
+                <div class="col-md-4 wow fadeInUp mt-2" data-wow-delay="0.1s">
+                    <div class="product-item card h-100">
                         <div class="position-relative" style="flex-grow: 1;">
-                            <a href="{{ route('course.details', ['id' => $row->id]) }}" style="color:#ff7900;">
+                            <a href="{{ route('course.details', ['id' => $row->id]) }}">
                                 <img class="img-fluid" src="{{ asset('uploads/' . $row->pg_image) }}" style="width: 100%; height: 300px; object-fit: cover;" alt="">
                             </a>
                         </div>
                         <div class="text-center p-4" style="padding: 20px; border-bottom: 2px solid #ddd;">
                             <h6>{{ $row->pg_name }}</h6>
                             <p>{{ Str::limit($row->description, 150) }}</p>
-                            <a href="{{ route('course.details', ['id' => $row->id]) }}" style="color:#ff7900;">
+                            <a href="{{ route('course.details', ['id' => $row->id]) }}">
                                 Read More <i class="fa fa-angle-double-right"></i>
                             </a>
                         </div>
                     </div>
                 </div>
                 @endforeach
-                <div style="width: 100%; text-align: center;" class="d-flex justify-content-end">
+                <div style="width: 100%; text-align: center;" class="d-flex justify-content-end mt-2">
                     <button onclick="window.location.href='{{ route('courses.index') }}'" class="btn btn-secondary btn-sm" style="background-color:#ff7900;color:#fff">
                         <i class="fa fa-book"></i> VIEW ALL COURSES
                     </button>
@@ -161,7 +161,7 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="position-relative h-100">
                         <video id="testimonial-video" width="100%" height="400" controls muted>
-                            <source src="{{ asset('videos/August Alsina - Benediction ft. Rick Ross (Official Music Video).mp4') }}" type="video/mp4">
+                            <source src="{{ asset('videos/August Alsina - Benediction ft. Rick Ross (Official Music Video).mp4') }}" class="rounded" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -208,7 +208,7 @@
                         @endforeach
                     </div>
                 @else
-                    <div class="alert alert-info text-center">
+                    <div class="card text-center">
                         <i class="fa fa-info-circle fa-3x"></i>
                         <p>There are currently no blogs posted. Please check back later.</p>
                     </div>
