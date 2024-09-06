@@ -77,7 +77,7 @@
                                 <li><a href="{{ route('software.index') }}"><i class="fa fa-arrow-right fa-fw"></i> View All </a></li>
                             </ul>
                         </li>
-                        <li><a href="{{ route('admin.software_documents.index') }}"><i class="fa fa-download fa-fw" style="margin-right: 5px;"></i>Software documents</a></li>
+                        <li><a href="{{ route('admin.software_documents.index') }}"><i class="fa fa-file fa-fw" style="margin-right: 5px;"></i>Software documents</a></li>
 
                         <li>
                             <a href="#"><i class="fa fa-download fa-fw"></i> Course Outlines<span class="fa arrow"></span></a>
