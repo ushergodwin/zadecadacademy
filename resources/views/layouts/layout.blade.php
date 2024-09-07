@@ -91,6 +91,7 @@
                         <li><a href="{{ route('admin.blogs') }}"><i class="fa fa-book fa-fw" style="margin-right: 5px;"></i>Blogs</a></li>
                         <li><a href="{{ route('admin.training_calendar.index') }}"><i class="fa fa-calendar fa-fw" style="margin-right: 5px;"></i>Calendar</a></li>
                         <li><a href="{{ route('admin.partners') }}"><i class="fa fa-users fa-fw" style="margin-right: 5px;"></i>Partners</a></li>
+                        <li><a href="{{ route('admin.system.operations') }}"><i class="fa fa-database fa-fw" style="margin-right: 5px;"></i>System operations</a></li>
 
                     </ul>
                 </div>

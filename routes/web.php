@@ -12,6 +12,7 @@ use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ProgramSoftwareController;
 use App\Http\Controllers\SoftwareDocumentController;
+use App\Http\Controllers\SystemController;
 use App\Http\Controllers\TrainingCalenderController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -245,4 +246,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('software-documents/delete', [SoftwareDocumentController::class , 'destroy'])->name('admin.software_documents.destroy');
 
     Route::get('get-softwares-by-program/{program}', [SoftwareDocumentController::class, 'getSoftwaresByProgram'])->name('software_documents.get_softwares_by_program');
+
+
+    // SYSTEM ROUTES
+    Route::get('/admin/system-task/{task}', [SystemController::class, 'handleSystemTask'])->name('admin.system-task');
+
+    Route::get('/system/operations', function () {
+        return view('admin.systems');
+    })->name('admin.system.operations');
+
 });
