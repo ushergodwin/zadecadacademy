@@ -30,10 +30,10 @@ class SoftwareDocumentController extends Controller
         'document' => 'required|file|mimes:pdf,doc,docx|max:2048'
     ]);
 
-    // Generate a unique filename based on the current timestamp and file extension
+    
     $filename = time() . '.' . $request->document->extension();
 
-    // Move the file to the 'uploads' directory in the public path
+    
     $request->document->move(public_path('uploads'), $filename);
 
     // Store the document information in the database
@@ -49,12 +49,20 @@ class SoftwareDocumentController extends Controller
 
     public function destroy($id)
     {
-        $document = SoftwareDocument::findOrFail($id);
-        unlink(storage_path('app/' . $document->document_path));
+        $document = SoftwareDocument::findOrFail($id); 
+
+        if ($document->document) {
+            $documentPath = public_path('uploads/' . $document->document);
+            if (file_exists($documentPath)) {
+                unlink($documentPath); 
+            }
+        }
+
+        // Delete the document from the database
         $document->delete();
 
-        return redirect()->route('admin.software_documents.index')
-            ->with('success', 'Software document deleted successfully');
+        // Redirect with success message
+        return redirect()->back()->with('success', 'Software document deleted successfully.');
     }
 
     public function getSoftwaresByProgram(Program $program)
@@ -63,13 +71,13 @@ class SoftwareDocumentController extends Controller
     }
 
     public function showDocuments($id)
-{
-    // Fetch the software by ID and paginate its documents
-    $software = ProgramSoftware::findOrFail($id);
-    $documents = $software->documents()->paginate(6); // Paginate with 6 items per page, adjust as needed
+    {
+        // Fetch the software by ID and paginate its documents
+        $software = ProgramSoftware::findOrFail($id);
+        $documents = $software->documents()->paginate(6); 
 
-    // Pass the software and its paginated documents to the view
-    return view('admin.software.documents', compact('software', 'documents'));
-}
+        // Pass the software and its paginated documents to the view
+        return view('admin.software.documents', compact('software', 'documents'));
+    }
 
 }

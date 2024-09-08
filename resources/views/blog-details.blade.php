@@ -1,5 +1,27 @@
 @include('header')
 
+<style>
+    .comment-item {
+        background-color: #f8f9fa; /* Light background for comments */
+        border: 1px solid #ddd; /* Border around each comment */
+        border-radius: 5px; /* Rounded corners */
+        padding: 15px; /* Padding inside each comment */
+        margin-bottom: 10px; /* Space between comments */
+    }
+
+    .comment-item strong {
+        color: #333; /* Darker color for commenter's name */
+    }
+
+    .comment-item p {
+        color: #555; /* Slightly darker color for comment text */
+    }
+
+    .comment-item .text-muted {
+        font-size: 0.9rem; /* Make the date a bit smaller */
+    }
+</style>
+
 <div class="container my-5">
     <div class="row">
         <div class="col-md-8 mx-auto">
@@ -13,7 +35,7 @@
             @if($blog->comments->isNotEmpty())
                 <ul class="list-group mb-4">
                     @foreach($blog->comments as $comment)
-                    <li class="list-group-item">
+                    <li class="list-group-item comment-item">
                         <div class="d-flex justify-content-between align-items-center mb-2">
                             <strong>{{ $comment->name }}</strong>
                             <span class="text-muted small">{{ $comment->created_at->format('M d, Y h:i A') }}</span>

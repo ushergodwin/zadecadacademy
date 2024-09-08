@@ -20,7 +20,7 @@
                 @endforeach
             </div>
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                <h3 class="mb-4">Apply for{{ $program->pg_name }}</b></h2>
+                <h3 class="mb-4">Apply for {{ $program->pg_name }}</b></h2>
 
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -128,7 +128,7 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <label>Select Software(s)</label>
+                            <label style="color: white;">Select Software(s)</label>
                             <input  name="total_fee" type="number" hidden value="0" id="total_fee"/>
                             @if($program->soft->count())
                                 <div class="row">

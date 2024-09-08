@@ -1,19 +1,33 @@
 @include('header')
 
 <style>
+    /* Card styling */
     .card {
         border: 1px solid #ddd;
         border-radius: 10px;
         overflow: hidden;
+        background-color: #ffffff; 
     }
+
 
     .card-title {
-        color: #ff7900;
+        color: #ff7900; 
         font-weight: bold;
+        font-size: 1.2rem; 
     }
 
-    .card-text {
-        font-size: 0.9rem;
+   
+    .card-body {
+        background-color: #333; 
+        color: #fff; 
+        padding: 20px; 
+        margin-bottom: 10px;
+    }
+
+ 
+    .card-text strong {
+        font-weight: bold;
+        color: #ff7900; 
     }
 
     .shadow-sm {

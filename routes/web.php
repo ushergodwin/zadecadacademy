@@ -243,7 +243,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('software-documents/add', [SoftwareDocumentController::class , 'store'])->name('admin.software_documents.store');
 
-    Route::get('software-documents/delete', [SoftwareDocumentController::class , 'destroy'])->name('admin.software_documents.destroy');
+    Route::get('software-documents/delete/{id}', [SoftwareDocumentController::class, 'destroy'])->name('admin.software_documents.destroy');
 
     Route::get('get-softwares-by-program/{program}', [SoftwareDocumentController::class, 'getSoftwaresByProgram'])->name('software_documents.get_softwares_by_program');
 

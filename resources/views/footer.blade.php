@@ -51,6 +51,9 @@
                 <!-- <a class="btn btn-link" href="{{ url('payments') }}">Payments</a> -->
                 <p><a  href="{{ url('gallery') }}">Gallery</a></p>
                 <p><a  href="{{ url('contact') }}">Contact</a></p>
+                <p><a href="{{ url('/blog-list') }}">Blogs</a></p>
+                <p><a href="{{ url('/training-calendar') }}">Training calendar</a></p>
+
             </div>
             <div class="col-lg-4 col-md-4 col-xs-12">
                 <div class="mapouter">

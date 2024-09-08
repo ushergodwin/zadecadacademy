@@ -30,6 +30,42 @@
             background-color: #ff7900; /* Custom background color for events */
             border: none;
         }
+
+        .dropdown-menu {
+        background-color: #ffffff; /* White background for better readability */
+        color: #333; /* Darker text color */
+        border: 1px solid #ddd; /* Light border around the dropdown */
+        display: none; /* Initially hidden */
+    }
+
+    /* Show the dropdown menu when hovering over the parent */
+    .nav-item.dropdown:hover .dropdown-menu {
+        display: block; /* Show dropdown */
+        margin-top: 0; /* Remove any top margin */
+    }
+
+    /* Style for the dropdown items */
+    .dropdown-item {
+        color: #333 !important; /* Darker text color */
+        padding: 10px 20px; /* Adjust padding */
+    }
+
+    /* Hover effect for the dropdown items */
+    .dropdown-item:hover {
+        background-color: #f8f9fa; /* Light background on hover */
+        color: #ff7900; /* Accent color for hover text */
+    }
+
+    /* Active state for the dropdown items */
+    .dropdown-item.active {
+        background-color: #ff7900; /* Highlight the active item */
+        color: #fff; /* White text for the active item */
+    }
+
+    /* Make sure the dropdown items are visible before hovering */
+    .dropdown:hover .dropdown-menu {
+        display: block; /* Make the dropdown visible */
+    }
     </style>
 </head>
 <body class="main-body">
@@ -58,8 +94,8 @@
                 <a href="{{ url('downloads') }}" class="nav-item nav-link {{ isActivePage('downloads')}}">Downloads</a>
                 <a href="{{ url('gallery') }}" class="nav-item nav-link {{ isActivePage('gallery')}}">Gallery</a>
                 <a href="{{ url('contact') }}" class="nav-item nav-link {{ isActivePage('contact')}}">Contact</a>
-                <a href="{{ route('blogs-list') }}" class="nav-item nav-link {{ isActivePage('blogs')}}">Blogs</a>
-                <a href="{{ route('view-training-calendar') }}" class="nav-item nav-link {{ isActivePage('training_calendar')}}">Calendar</a>
+                <a href="{{ url('/blog-list') }}" class="nav-item nav-link {{ isActivePage('blog-list')}}">Blogs</a>
+                <a href="{{ url('/training-calendar') }}" class="nav-item nav-link {{ isActivePage('training-calendar')}}">Calendar</a>
             </div>
         </div>
     </nav>

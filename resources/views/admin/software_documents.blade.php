@@ -88,10 +88,13 @@
                                                     <td>{{ $document->document_name }}</td>
                                                     <td><a href="{{ asset('uploads/' . $document->document) }}" target="_blank">Download</a></td>
                                                     <td>
-                                                        <a href="{{ route('admin.software_documents.destroy', $document->id) }}" onclick="return confirm('Are you sure you want to delete this document?');" class="btn btn-danger btn-xs">
+                                                        <a href="{{ route('admin.software_documents.destroy', $document->id) }}" 
+                                                        onclick="return confirm('Are you sure you want to delete this document?');" 
+                                                        class="btn btn-danger btn-xs">
                                                             <i class="fa fa-remove"></i> Delete
                                                         </a>
                                                     </td>
+
                                                 </tr>
                                             @endforeach
                                         @endif
