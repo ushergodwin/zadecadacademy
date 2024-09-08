@@ -2,23 +2,23 @@
 
 <style>
     .comment-item {
-        background-color: #f8f9fa; /* Light background for comments */
-        border: 1px solid #ddd; /* Border around each comment */
-        border-radius: 5px; /* Rounded corners */
-        padding: 15px; /* Padding inside each comment */
-        margin-bottom: 10px; /* Space between comments */
+        background-color: #f8f9fa; 
+        border: 1px solid #ddd; 
+        border-radius: 5px; 
+        padding: 15px; 
+        margin-bottom: 10px; 
     }
 
     .comment-item strong {
-        color: #333; /* Darker color for commenter's name */
+        color: #333; 
     }
 
     .comment-item p {
-        color: #555; /* Slightly darker color for comment text */
+        color: #555; 
     }
 
     .comment-item .text-muted {
-        font-size: 0.9rem; /* Make the date a bit smaller */
+        font-size: 0.9rem; 
     }
 </style>
 

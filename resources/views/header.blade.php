@@ -27,44 +27,41 @@
     <!-- Custom Styles (optional) -->
     <style>
         .fc-event {
-            background-color: #ff7900; /* Custom background color for events */
+            background-color: #ff7900; 
             border: none;
         }
 
         .dropdown-menu {
-        background-color: #ffffff; /* White background for better readability */
-        color: #333; /* Darker text color */
-        border: 1px solid #ddd; /* Light border around the dropdown */
-        display: none; /* Initially hidden */
+        background-color: #ffffff; 
+        color: #333; 
+        border: 1px solid #ddd; 
+        display: none; 
     }
 
-    /* Show the dropdown menu when hovering over the parent */
+
     .nav-item.dropdown:hover .dropdown-menu {
-        display: block; /* Show dropdown */
-        margin-top: 0; /* Remove any top margin */
+        display: block; 
+        margin-top: 0; 
     }
 
-    /* Style for the dropdown items */
+   
     .dropdown-item {
-        color: #333 !important; /* Darker text color */
-        padding: 10px 20px; /* Adjust padding */
+        color: #333 !important; 
+        padding: 10px 20px; 
     }
 
-    /* Hover effect for the dropdown items */
     .dropdown-item:hover {
-        background-color: #f8f9fa; /* Light background on hover */
-        color: #ff7900; /* Accent color for hover text */
+        background-color: #f8f9fa; 
+        color: #ff7900; 
     }
 
-    /* Active state for the dropdown items */
     .dropdown-item.active {
-        background-color: #ff7900; /* Highlight the active item */
-        color: #fff; /* White text for the active item */
+        background-color: #ff7900; 
+        color: #fff; 
     }
 
-    /* Make sure the dropdown items are visible before hovering */
     .dropdown:hover .dropdown-menu {
-        display: block; /* Make the dropdown visible */
+        display: block; 
     }
     </style>
 </head>

@@ -1,38 +1,38 @@
 @include('header')
 
 <style>
-.partner-logo img {
-    max-height: 80px; 
-    object-fit: contain; 
-    width: 100%; 
-}
+    .partner-logo img {
+        max-height: 80px; 
+        object-fit: contain; 
+        width: 100%; 
+    }
 
-.partner-logo {
-    padding: 20px; 
-    background-color: #f8f9fa; 
-    border-radius: 50%; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-}
+    .partner-logo {
+        padding: 20px; 
+        background-color: #f8f9fa; 
+        border-radius: 50%; 
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+    }
 
-.row.gy-5.gx-4 {
-    row-gap: 30px; 
-    column-gap: 30px; 
-}
+    .row.gy-5.gx-4 {
+        row-gap: 30px; 
+        column-gap: 30px; 
+    }
 
-.video-section {
-    display: flex;
-    align-items: center; 
-    margin-top: -30px; 
-}
+    .video-section {
+        display: flex;
+        align-items: center; 
+        margin-top: -30px; 
+    }
 
-.video-section video {
-    border-radius: 10px;
-}
+    .video-section video {
+        border-radius: 10px;
+    }
 
-.recent-articles-heading {
+    .recent-articles-heading {
         font-size: 1.75rem; 
         font-weight: bold;  
         color: #fff;     
@@ -43,7 +43,6 @@
         text-transform: uppercase; 
         padding-bottom: 10px;
     }
-
 
     .recent-articles-heading::after {
         content: '';
@@ -56,11 +55,9 @@
         background-color: #fff;
         border-radius: 2px;        
     }
-
-    
 </style>
 
-
+<!-- Carousel Header Section -->
 <div class="container-fluid px-0 mb-5">
     <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -92,12 +89,14 @@
     </div>
 </div>
 
-<!-- About Section -->
+<!-- Two-column layout (Main content and sidebar) starts here -->
 <div class="container">
     <div class="row">
+        <!-- Main content (2/3 of the width) -->
         <div class="col-md-9">
             <div class="row g-5 align-items-end">
                 <div class="col-lg-6">
+                    <!-- About Section -->
                     <div class="row g-2">
                         <div class="col-6 position-relative wow fadeIn" data-wow-delay="0.7s">
                             <div class="about-experience bg-secondary rounded">
@@ -127,7 +126,7 @@
                 </div>
             </div>
 
-    <!-- Why Choose Us Section -->
+            <!-- Why Choose Us Section -->
             <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
                 <h3>Why Choose Us?</h3>
             </div>
@@ -138,7 +137,7 @@
                         <div class="position-relative">
                             <img class="img-fluid" src="{{ asset('uploads/' . $val->image) }}" style="width: 100%; height: 100px; object-fit: cover;" alt="">
                         </div>
-                        <div class="text-center p-4"> <!-- Removed border-bottom here -->
+                        <div class="text-center p-4"> 
                             <h6>{{ $val->title }}</h6>
                             <p>{{ Str::limit($val->description, 150) }}</p>
                         </div>
@@ -147,9 +146,7 @@
                 @endforeach
             </div>
 
-
-    <!-- Courses Section -->
-
+            <!-- Courses Section -->
             <div class="text-center mx-auto pb-4 wow fadeInUp mt-3" data-wow-delay="0.1s" style="max-width: 500px;">
                 <h3>Our Courses</h3>
             </div>
@@ -172,58 +169,18 @@
                     </div>
                 </div>
                 @endforeach
-                <div style="width: 100%; text-align: center;" class="d-flex justify-content-end mt-2">
+                <div class="d-flex justify-content-center mt-4">
                     <button onclick="window.location.href='{{ route('courses.index') }}'" class="btn btn-secondary btn-sm" style="background-color:#ff7900;color:#fff">
                         <i class="fa fa-book"></i> VIEW ALL COURSES
                     </button>
                 </div>
             </div>
-
-
-
-    <!-- Testimonial Video Section -->
-    <div class="text-center mx-auto pb-4 wow fadeInUp mt-3" data-wow-delay="0.1s" style="max-width: 600px;">
-        <h3>What Our Students Say</h3>
-        <p>Hear from our students about their experiences at ZadeCAD Academy.</p>
-    </div>
-
-    <div class="row g-5 align-items-center video-section">
-        <!-- Text Section -->
-        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-            <h4>About Our Academy</h4>
-            <p>ZadeCAD Academy has been at the forefront of CAD training in Uganda, offering comprehensive courses tailored to industry needs. Our commitment to excellence has helped shape the careers of over 300 professionals in various fields such as engineering, architecture, and surveying.</p>
-            <p>Our students come from diverse backgrounds and have gone on to work in key positions in both local and international companies. We believe in providing hands-on training that equips our students with the skills they need to succeed in a competitive job market.</p>
-            <p>Join us at ZadeCAD Academy and be part of a community that values learning, growth, and professional development.</p>
         </div>
-        <!-- Video Section -->
-        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="position-relative h-100">
-                <video id="testimonial-video" width="100%" height="400" controls muted>
-                    <source src="{{ asset('videos/August Alsina - Benediction ft. Rick Ross (Official Music Video).mp4') }}" class="rounded" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </div>
-    </div>
 
-    <!-- Partners Section -->
-            <div class="text-center mx-auto pb-4 wow fadeInUp mt-3" data-wow-delay="0.1s" style="max-width: 500px;">
-                <h3>Our Partners</h3>
-                <p>We are proud to collaborate with these esteemed organizations.</p>
-            </div>
-            <div class="row gy-5 gx-4 d-flex justify-content-center">
-                @foreach($partners as $partner)
-                <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="text-center">
-                        <img src="{{ asset('uploads/' . $partner->logo) }}" class="img-fluid rounded" alt="{{ $partner->name }}">
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
+        <!-- Sidebar (Recent Articles) -->
         <div class="col-md-3">
             <div class="text-center mx-auto pb-4 wow fadeInUp mt-3" data-wow-delay="0.1s" style="max-width: 600px;">
-            <h4 class="recent-articles-heading">Recent Articles</h4>
+                <h4 class="recent-articles-heading">Recent Articles</h4>
                 @if($blogs->isNotEmpty())
                     <div class="row">
                         @foreach($blogs as $blog)
@@ -256,6 +213,48 @@
     </div>
 </div>
 
+<!-- Full-width content from here (no sidebar) -->
+<div class="container">
+    <!-- Testimonial Video Section -->
+    <div class="text-center mx-auto pb-4 wow fadeInUp mt-3" data-wow-delay="0.1s" style="max-width: 600px;">
+        <h3>What Our Students Say</h3>
+        <p>Hear from our students about their experiences at ZadeCAD Academy.</p>
+    </div>
+
+    <div class="row g-5 align-items-center video-section">
+        <!-- Text Section -->
+        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+            <h4>About Our Academy</h4>
+            <p>ZadeCAD Academy has been at the forefront of CAD training in Uganda, offering comprehensive courses tailored to industry needs. Our commitment to excellence has helped shape the careers of over 300 professionals in various fields such as engineering, architecture, and surveying.</p>
+            <p>Our students come from diverse backgrounds and have gone on to work in key positions in both local and international companies. We believe in providing hands-on training that equips our students with the skills they need to succeed in a competitive job market.</p>
+            <p>Join us at ZadeCAD Academy and be part of a community that values learning, growth, and professional development.</p>
+        </div>
+        <!-- Video Section -->
+        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="position-relative h-100">
+                <video id="testimonial-video" width="100%" height="400" controls muted>
+                    <source src="{{ asset('videos/August Alsina - Benediction ft. Rick Ross (Official Music Video).mp4') }}" class="rounded" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Partners Section -->
+    <div class="text-center mx-auto pb-4 wow fadeInUp mt-3" data-wow-delay="0.1s" style="max-width: 500px;">
+        <h3>Our Partners</h3>
+        <p>We are proud to collaborate with these esteemed organizations.</p>
+    </div>
+    <div class="row gy-5 gx-4 d-flex justify-content-center">
+        @foreach($partners as $partner)
+        <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="text-center">
+                <img src="{{ asset('uploads/' . $partner->logo) }}" class="img-fluid rounded" alt="{{ $partner->name }}">
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div>
 
 @include('footer')
 

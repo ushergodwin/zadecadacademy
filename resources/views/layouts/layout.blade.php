@@ -19,7 +19,7 @@
     <!-- Custom CSS -->
     <link href="{{ asset('dist/css/sb-admin-2.css') }}" rel="stylesheet">
     <link href="{{ asset('dist/css/toastr.css') }}" rel="stylesheet">
-     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Morris Charts CSS -->
     <link href="{{ asset('vendor/morrisjs/morris.css') }}" rel="stylesheet">
     <!-- Custom Fonts -->
@@ -27,6 +27,12 @@
     <!-- Angular JS for validation -->
     <script src="{{ asset('dist/js/angular.min.js') }}"></script>
     <script src="{{ asset('dist/js/jquery.min.js') }}"></script>
+
+    <style>
+        #page-wrapper {
+            padding-top: 20px; 
+        }
+    </style>
 </head>
 <body>
     <div id="wrapper" ng-app="myApp" ng-controller="ctrl">
