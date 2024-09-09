@@ -99,4 +99,13 @@
     .card-footer a:hover {
         text-decoration: underline;
     }
+
+    /* Styling for the alert when no blogs are available */
+    .alert-info h4, .alert-info p {
+        color: #333; /* Change the color to dark gray for readability */
+    }
+
+    .alert-info i {
+        color: #007bff; /* Optional: style the info icon */
+    }
 </style>
