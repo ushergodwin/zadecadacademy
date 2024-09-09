@@ -18,32 +18,35 @@
                     <table width="100%" class="table table-striped table-bordered table-hover" id="examples">
                         <thead>
                             <tr>
-                                <th># </th>
-                                <th>Program</th>
+                                <th>Name</th>
+                                <th>Mobile Number</th>
+                                <th>WhatsApp Number</th>
+                                <th>Application Date</th>
+                                <th>Gender</th>
+                                <th>Program Name</th>
+                                <th>Mode of Class</th>
+                                <th>Time for Class</th>
+                                <th>Fees (ugx)</th>
                                 <th>Software</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($enrolled_students as $prt)
                                 <tr class="odd gradeX">
-                                    <td>
-                                    <span> <b> Name: </b> {{ $prt->fullname }} </span><br/>
-                                    <span><b>Mobile:</b> {{ $prt->phone }}</span><br/>
-                                    <span><b>WhatsApp:</b> {{ $prt->whatsapp }}</span><br/>
-                                    <span><b>Application Date:</b> {{ $prt->enrollment_date }}</span><br/>
-                                    <span><b>Gender:</b> {{ $prt->gender }}</span><br/>
-                                    <span><b>Nationality:</b> {{ $prt->country }}</span><br/>
-                                </td>
-                                    <td>
-                                        <span> <b> Name: </b> {{ $prt->program->pg_name }}</span><br/>
-                                        <span> <b> Mode of Class : </b> {{ $prt->mode_of_class }}</span><br/>
-                                        <span> <b> Time for Class : </b> {{ $prt->time_for_class }}</span><br/>
-                                        <span> <b> Fees : </b> ugx {{ number_format($prt->program_fees) }}</span><br/>
-                                        
-                                    </td>
+                                    <td>{{ $prt->fullname }} </td>
+                                    <td{{ $prt->phone }}</td>
+                                    <td>{{ $prt->whatsapp }}</td>
+                                    <td>{{ $prt->enrollment_date }}</td>
+                                    <td>{{ $prt->gender }}</td>
+                                    <td>{{ $prt->country }}</td>
+
+                                    <td>{{ $prt->program->pg_name }}</td>
+                                    <td> {{ $prt->mode_of_class }}</td>
+                                    <td> {{ $prt->time_for_class }}</td>
+                                    <td> {{ number_format($prt->program_fees) }}</td>
                                     <td>
                                         @foreach ($prt->software as $item)
-                                            <i class="fa fa-chevron-right"></i> {{ $item}}<br/>
+                                            <i class="fa fa-chevron-right"></i> {{ $item}}
                                         @endforeach
                                     </td>
                                 </tr>
