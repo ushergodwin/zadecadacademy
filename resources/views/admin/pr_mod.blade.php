@@ -1,11 +1,18 @@
 <a href="#ref{{ $prt->id }}" data-toggle="modal"> 
     <img src="{{ asset('uploads/' . $prt->pg_image) }}" style="width:80px" /> 
 </a>
-<div class="modal fade" id="ref{{ $prt->id }}" role="dialog">
+<div class="modal fade {{ $errors->has('imgfile') && old('reference') == $prt->id ? 'show' : '' }}" 
+     id="ref{{ $prt->id }}" 
+     role="dialog" 
+     @if($errors->has('imgfile') && old('reference') == $prt->id) 
+         style="display:block;" 
+     @endif>
     <div class="modal-dialog">
         <div class="modal-content">
-            <form method="post" action="" enctype="multipart/form-data">
+            <!-- Update Course Image Form -->
+            <form method="post" action="{{ route('admin.update_course_image', $prt->id) }}" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 <input type="hidden" name="reference" value="{{ $prt->id }}">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
@@ -20,6 +27,10 @@
                         <div class="col-lg-12">
                             <label> Image </label>
                             <input type="file" class="form-control" style="width:100%" name="imgfile" accept="image/*" required>
+                            <!-- Display error for image upload -->
+                            @error('imgfile')
+                                <div class="alert alert-danger mt-2">{{ $message }}</div>
+                            @enderror
                         </div>
                     </fieldset>
                 </div>

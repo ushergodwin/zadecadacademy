@@ -171,6 +171,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/course/delete/{id}', [AdminController::class, 'courseDelete'])->name('course.delete');
 
+    route::put('/admin/update-course-image/{id}', [AdminController::class, 'updateCourseImage'])->name('admin.update_course_image');
+
     // Route::get('/new-attachment', [AdminController::class , 'newAttachment'])->name('new-attachment');
 
     Route::get('/new-attachment', function () {
