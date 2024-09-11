@@ -64,7 +64,7 @@ class AdminController extends Controller
             'pg_name' => 'required|string|max:255',
             'software' => 'required|string|max:255',
             'editor' => 'required|string',
-            'imgfile' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'imgfile' => 'required|image|mimes:jpeg,png,jpg|max:80000',
         ]);
 
         $filename = time() . '.' . $request->imgfile->extension();
@@ -85,7 +85,7 @@ class AdminController extends Controller
         // Validate the incoming request
         $request->validate([
             'pg_name' => 'required|string|max:255',
-            'imgfile' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'imgfile' => 'required|image|mimes:jpeg,png,jpg|max:80000',
             'software' => 'required|string|max:255',
             'editor' => 'required|string',
         ]);
@@ -125,7 +125,7 @@ class AdminController extends Controller
 
         // if ($user && $user->role == 'admin') {
         $enrollmentCount = Enrollment::count();
-        $contactCount = Contact::count(); // Assuming you have a Contact model
+        $contactCount = Contact::count(); 
         $programCount = Program::count();
         $galleryCount = Gallery::count();
 
@@ -147,7 +147,7 @@ class AdminController extends Controller
     {
         // Validate the incoming request
         $request->validate([
-            'imgfile' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'imgfile' => 'required|image|mimes:jpeg,png,jpg|max:80000',
             'caption' => 'nullable|string|max:255',
         ]);
 
@@ -189,7 +189,7 @@ class AdminController extends Controller
     {
         // Validate the incoming request
         $request->validate([
-            'imgfile' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'imgfile' => 'required|image|mimes:jpeg,png,jpg|max:80000',
             'caption' => 'nullable|string|max:255',
             'status' => 'required|string|max:3', // Validating status field
         ]);
@@ -232,7 +232,7 @@ class AdminController extends Controller
     {
         // Validate the incoming request
         $request->validate([
-            'imgfile' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'imgfile' => 'required|image|mimes:jpeg,png,jpg|max:80000',
             'title' => 'required|string|max:255',
             'description' => 'required|string',
         ]);
@@ -310,7 +310,7 @@ class AdminController extends Controller
         // Validate the incoming request
         $request->validate([
             'cs_name' => 'required|string|max:255',
-            'imgfile' => 'required|mimes:pdf|max:2048',
+            'imgfile' => 'required|mimes:pdf|max:80000',
         ]);
 
         // Handle the file upload
@@ -329,6 +329,64 @@ class AdminController extends Controller
 
         return redirect()->route('new-attachment')->with('error', 'Failed to upload file.');
     }
+
+
+    public function updateCourse(Request $request, $id)
+{
+    $course = Program::findOrFail($id);
+
+    $request->validate([
+        'pg_name' => 'required|string|max:255',
+        'software' => 'required|string|max:255',
+        'editor' => 'required|string',
+        'imgfile' => 'nullable|image|mimes:jpeg,png,jpg|max:80000',
+    ]);
+
+    // Update course details
+    $course->pg_name = $request->pg_name;
+    $course->software = $request->software;
+    $course->description = $request->editor;
+
+    // Handle file upload
+    if ($request->hasFile('imgfile')) {
+        $filename = time() . '.' . $request->imgfile->extension();
+        $request->imgfile->move(public_path('uploads'), $filename);
+        $course->pg_image = $filename;
+    }
+
+    $course->save();
+
+    return redirect()->back()->with('success', 'Course updated successfully.');
+}
+
+public function updateCourseImage(Request $request, $id)
+{
+    $course = Program::findOrFail($id);
+
+    $request->validate([
+        'imgfile' => 'required|image|mimes:jpeg,png,jpg|max:80000',
+    ]);
+
+    // Handle file upload
+    if ($request->hasFile('imgfile')) {
+        // Delete the old image if it exists
+        if ($course->pg_image && file_exists(public_path('uploads/' . $course->pg_image))) {
+            unlink(public_path('uploads/' . $course->pg_image));
+        }
+
+        // Store the new image
+        $filename = time() . '.' . $request->imgfile->extension();
+        $request->imgfile->move(public_path('uploads'), $filename);
+
+        // Update the course image
+        $course->pg_image = $filename;
+        $course->save();
+    }
+
+    return redirect()->back()->with('success', 'Course image updated successfully.');
+}
+
+
 
     public function outlineDelete($id)
     {
@@ -384,7 +442,7 @@ class AdminController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'imgfile' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'imgfile' => 'nullable|image|mimes:jpeg,png,jpg|max:5120',
         ]);
 
         $chooseUs = ChooseUs::findOrFail($id);
