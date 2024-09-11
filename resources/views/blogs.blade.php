@@ -5,7 +5,7 @@
         <div class="row">
             @foreach($blogs as $blog)
             <div class="col-lg-6 mb-4">
-                <div class="card h-100 shadow-sm d-flex flex-column">
+                <div class="card h-100 shadow d-flex flex-column">
                     <div class="row g-0 flex-grow-1">
                         <div class="col-md-6">
                             <img src="{{ asset('uploads/' . $blog->image) }}" class="img-fluid rounded-start" alt="{{ $blog->title }}">

@@ -12,7 +12,7 @@
         @if($images->count() > 0)
             <div class="row" id="lightgallery">
                 @foreach($images as $image)
-                    <div class="col-md-4 col-sm-4" data-aos="fade" data-src="{{ asset('uploads/' . $image->image) }}" data-sub-html="<h2>{{ $image->caption }}</h2>">
+                    <div class="col-md-4 col-sm-4 shadow mt-2" data-aos="fade" data-src="{{ asset('uploads/' . $image->image) }}" data-sub-html="<h2>{{ $image->caption }}</h2>">
                         <a href="#"><img src="{{ asset('uploads/' . $image->image) }}" alt="{{ $image->caption }}" class="img-fluid rounded" style="margin-bottom: 10px;"></a>
                     </div>
                 @endforeach

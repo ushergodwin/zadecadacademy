@@ -127,7 +127,7 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <label style="color: white;">Select Software(s)</label>
+                            <label>Select Software(s)</label>
                             <input  name="total_fee" type="number" hidden value="0" id="total_fee"/>
                             @if($program->soft->count())
                                 <div class="row">

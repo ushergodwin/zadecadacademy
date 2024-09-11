@@ -132,7 +132,7 @@
             </div>
             <div class="row">
                 @foreach($chzn as $val)
-                <div class="col-md-3 wow fadeInUp mt-2" data-wow-delay="0.1s">
+                <div class="col-md-4 wow fadeInUp mt-2" data-wow-delay="0.1s">
                     <div class="product-item card h-100">
                         <div class="position-relative">
                             <img class="img-fluid" src="{{ asset('uploads/' . $val->image) }}" style="width: 100%; height: 100px; object-fit: cover;" alt="">
@@ -169,7 +169,7 @@
                     </div>
                 </div>
                 @endforeach
-                <div class="d-flex justify-content-center mt-4">
+                <div class="d-flex justify-content-end mt-4">
                     <button onclick="window.location.href='{{ route('courses.index') }}'" class="btn btn-secondary btn-sm" style="background-color:#ff7900;color:#fff">
                         <i class="fa fa-book"></i> VIEW ALL COURSES
                     </button>
@@ -180,7 +180,7 @@
         <!-- Sidebar (Recent Articles) -->
         <div class="col-md-3">
             <div class="text-center mx-auto pb-4 wow fadeInUp mt-3" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h4 class="recent-articles-heading">Recent Articles</h4>
+                <h4>Recent Articles</h4>
                 @if($blogs->isNotEmpty())
                     <div class="row">
                         @foreach($blogs as $blog)
@@ -203,7 +203,7 @@
                         @endforeach
                     </div>
                 @else
-                    <div class="card text-center">
+                    <div class="alert alert-info shadow">
                         <i class="fa fa-info-circle fa-3x"></i>
                         <p>There are currently no blogs posted. Please check back later.</p>
                     </div>

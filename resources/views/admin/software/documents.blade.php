@@ -11,7 +11,7 @@
         <div class="row g-4">
             @foreach($documents as $document)
             <div class="col-lg-4 col-md-6">
-                <div class="card shadow-sm h-100">
+                <div class="card shadow h-100">
                     <div class="card-header text-white text-center" style="padding: 10px 15px; height: 60px;">
                         <h5 class="card-title mb-0">{{ $document->document_name }}</h5>
                     </div>
