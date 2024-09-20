@@ -758,17 +758,16 @@ body {
 
 /* Background styling */
 
-.bg-orange,
-.card,
+
+/* General body styling */
+
 .main-body {
-    background: rgb(2, 0, 36);
-    background: -moz-radial-gradient( circle, rgba(2, 0, 36, 1) 0%, rgba(255, 121, 0, 1) 35%, rgba(2, 0, 36, 1) 100%);
-    background: -webkit-radial-gradient( circle, rgba(2, 0, 36, 1) 0%, rgba(255, 121, 0, 1) 35%, rgba(2, 0, 36, 1) 100%);
-    background: radial-gradient( circle, rgba(2, 0, 36, 1) 0%, rgba(255, 121, 0, 1) 35%, rgba(2, 0, 36, 1) 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#020024", endColorstr="#020024", GradientType=1);
-    color: #ffffff;
-    /* Set the default text color to white for visibility */
-    font-family: Arial, sans-serif;
+    background-color: #f4f9f9;
+    /* Soft light background */
+    color: #2c3e50;
+    /* Dark grayish-blue for text */
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
 }
 
 
@@ -780,28 +779,30 @@ h3,
 h4,
 h5,
 h6 {
-    color: #fff;
+    color: #2c3e50;
+    /* Dark gray-blue */
 }
 
 
 /* Paragraphs */
 
 p {
-    color: #f1f1f1;
+    color: #34495e;
+    /* Slightly lighter dark blue */
 }
 
 
 /* Links */
 
 a {
-    color: #ffd700;
-    /* Use a golden yellow for links to contrast well with the background */
+    color: #4aa397;
+    /* Muted teal */
     text-decoration: none;
 }
 
 a:hover {
-    color: #ff4500;
-    /* Darker orange for hover effect */
+    color: #ef8275;
+    /* Soft coral */
 }
 
 
@@ -809,20 +810,20 @@ a:hover {
 
 button,
 .btn {
-    background-color: #ff7a00;
-    /* Bright orange for buttons */
+    background-color: #4aa397;
+    /* Muted teal for buttons */
     color: #ffffff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
-    cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover,
 .btn:hover {
-    background-color: #cc6300;
-    /* Darker shade on hover */
+    background-color: #357d71;
+    /* Darker teal on hover */
 }
 
 
@@ -831,11 +832,12 @@ button:hover,
 input,
 textarea,
 select {
-    background-color: #f1f1f1;
-    /* Light background for inputs */
-    color: #000;
+    background-color: #ffffff;
+    /* Clean white for input fields */
+    color: #34495e;
     /* Dark text inside form elements */
-    border: 1px solid #ffffff;
+    border: 1px solid #dfe6e9;
+    /* Light border */
     padding: 10px;
     border-radius: 5px;
     width: 100%;
@@ -846,32 +848,62 @@ input:focus,
 textarea:focus,
 select:focus {
     outline: none;
-    border-color: #ff7a00;
+    border-color: #4aa397;
 }
 
 
-/* Navigation */
+/* Bootstrap Card Styling */
 
-.navbar {
-    background-color: rgba(0, 0, 0, 0.7);
-    /* Semi-transparent dark background */
-    color: #ffffff;
+.card {
+    background-color: #ffffff;
+    /* Clean white background */
+    border: 1px solid #dfe6e9;
+    /* Light gray border */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Soft shadow for depth */
 }
 
-.navbar a {
+.card-header {
+    background-color: #4aa397;
+    /* Teal header */
     color: #ffffff;
+    border-bottom: 1px solid #dfe6e9;
+}
+
+.card-body {
+    color: #2c3e50;
+}
+
+.card-footer {
+    background-color: #f8f9fa;
+    /* Light footer background */
+    border-top: 1px solid #dfe6e9;
 }
 
 
 /* Footer */
 
 footer {
-    background-color: rgba(2, 0, 36, 0.8);
-    color: #ffffff;
+    background-color: #f0f0f0;
+    /* Very light gray */
+    color: #2c3e50;
     padding: 20px;
     text-align: center;
 }
 
 footer a {
-    color: #ff7a00;
+    color: #4aa397;
+}
+
+
+/* Navbar */
+
+.navbar {
+    background-color: #4aa397;
+    color: #ffffff;
+}
+
+.navbar a {
+    color: #ffffff;
 }

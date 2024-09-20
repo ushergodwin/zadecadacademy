@@ -10,7 +10,7 @@
         <div class="row gy-5 gx-4">
             @foreach($courses as $course)
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="product-item">
+                <div class="product-item h-100 shadow">
                     <div class="position-relative">
                         <a href="{{ route('course.details', ['id' => $course->id]) }}">
                             <img class="img-fluid" src="{{ asset('uploads/' . $course->pg_image) }}" style="width: 100%;height: 300px" alt="">
