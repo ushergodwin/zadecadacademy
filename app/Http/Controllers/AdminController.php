@@ -294,7 +294,7 @@ class AdminController extends Controller
 
         $course->delete();
 
-        return redirect()->route('view-courses')->with('success', 'Message deleted successfully.');
+        return redirect()->route('view-courses')->with('success', 'Course deleted successfully.');
     }
 
     public function viewAttachments()
