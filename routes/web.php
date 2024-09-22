@@ -161,6 +161,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/why-choose-us/update/{id}', [AdminController::class, 'updateWhyChooseUs'])->name('why-choose-us.update');
 
+    route::delete('/admin/why-choose-us/{id}', [AdminController::class, 'deleteWhyChooseUs'])->name('delete-why-choose-us');
+
     Route::get('/add-course', function () {
         return view('admin.add_course');
     })->name('add-course');

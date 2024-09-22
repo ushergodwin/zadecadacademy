@@ -58,6 +58,7 @@
                                 <th>Image <i>(Click to update info)</i></th>
                                 <th>Title</th>
                                 <th>Description</th>
+                                <th>Actions</th> <!-- New actions column -->
                             </tr>
                         </thead>
                         <tbody>
@@ -66,6 +67,16 @@
                                     <td>@include('admin.prv_modal', ['prt' => $prt])</td>
                                     <td>{{ $prt->title }}</td>
                                     <td>{{ $prt->description }}</td>
+                                    <td>
+                                        <!-- Delete Button -->
+                                        <form action="{{ route('delete-why-choose-us', $prt->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm">
+                                                <i class="fa fa-trash"></i> Delete
+                                            </button>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

@@ -255,6 +255,24 @@ class AdminController extends Controller
         return redirect()->route('why-choose-us')->with('error', 'Failed to upload image.');
     }
 
+
+    public function deleteWhyChooseUs($id)
+    {
+        $item = ChooseUs::findOrFail($id);
+
+        // Optionally, delete the image file
+        if ($item->imgfile && file_exists(public_path('uploads/' . $item->imgfile))) {
+            unlink(public_path('uploads/' . $item->imgfile));
+        }
+
+        // Delete the item from the database
+        $item->delete();
+
+        // Redirect back with success message
+        return redirect()->back()->with('success', 'Item deleted successfully.');
+    }
+
+
     public function contactMessages()
     {
         $contact_messages = Contact::all();
