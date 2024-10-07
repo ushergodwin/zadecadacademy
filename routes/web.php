@@ -183,7 +183,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/view-attachments', [AdminController::class, 'viewAttachments'])->name('view-attachments');
 
-    Route::post('/add-outline', [AdminController::class, 'addCourseOutline'])->name('admin.add_outline');
+    Route::post('/add-outline', [AdminController::class, 'addDownloadFile'])->name('admin.add_outline');
 
     Route::get('/outline/delete/{id}', [AdminController::class, 'outlineDelete'])->name('outline.delete');
 
@@ -200,13 +200,13 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/update-profile', [AdminController::class, 'updateProfile'])->name('admin.update_profile');
 
-    Route::get('blogs', [BlogController::class , 'index'])->name('admin.blogs');
+    Route::get('blogs', [BlogController::class, 'index'])->name('admin.blogs');
 
-    Route::post('blogs', [BlogController::class , 'store'])->name('admin.blogs.store');
+    Route::post('blogs', [BlogController::class, 'store'])->name('admin.blogs.store');
 
-    Route::post('blogs/{id}', [BlogController::class , 'update'])->name('admin.blogs.edit');
+    Route::post('blogs/{id}', [BlogController::class, 'update'])->name('admin.blogs.edit');
 
-    Route::get('blogs/{id}', [BlogController::class , 'destroy'])->name('admin.blogs.destroy');
+    Route::get('blogs/{id}', [BlogController::class, 'destroy'])->name('admin.blogs.destroy');
 
     Route::get('blogs/{id}/comments', [BlogController::class, 'showComments'])->name('admin.blogs.comments');
 
@@ -233,7 +233,7 @@ Route::middleware(['auth'])->group(function () {
 
     // PARTNERS
 
-    
+
     Route::get('/admin/partners', [PartnerController::class, 'index'])->name('admin.partners');
 
     Route::post('admin/partners/add', [PartnerController::class, 'store'])->name('admin.partners.store');
@@ -243,9 +243,9 @@ Route::middleware(['auth'])->group(function () {
 
     // Software documents
 
-    Route::get('software-documents', [SoftwareDocumentController::class , 'index'])->name('admin.software_documents.index');
+    Route::get('software-documents', [SoftwareDocumentController::class, 'index'])->name('admin.software_documents.index');
 
-    Route::post('software-documents/add', [SoftwareDocumentController::class , 'store'])->name('admin.software_documents.store');
+    Route::post('software-documents/add', [SoftwareDocumentController::class, 'store'])->name('admin.software_documents.store');
 
     Route::get('software-documents/delete/{id}', [SoftwareDocumentController::class, 'destroy'])->name('admin.software_documents.destroy');
 
@@ -258,5 +258,4 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/system/operations', function () {
         return view('admin.systems');
     })->name('admin.system.operations');
-
 });

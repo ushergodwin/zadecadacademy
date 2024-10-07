@@ -11,13 +11,13 @@ class Course extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'cs_name', 
-        'attachment'
+        'cs_name',
+        'attachment',
+        'thumbnail'
     ];
 
     public function trainingCalendars()
-        {
-            return $this->hasMany(TrainingCalendar::class);
-        }
-
+    {
+        return $this->hasMany(TrainingCalendar::class);
+    }
 }

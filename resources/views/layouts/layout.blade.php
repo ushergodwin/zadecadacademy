@@ -86,7 +86,7 @@
                         <li><a href="{{ route('admin.software_documents.index') }}"><i class="fa fa-file fa-fw" style="margin-right: 5px;"></i>Software documents</a></li>
 
                         <li>
-                            <a href="#"><i class="fa fa-download fa-fw"></i> Course Outlines<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-download fa-fw"></i> Downloads <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li><a href="{{ route('new-attachment') }}"><i class="fa fa-arrow-right fa-fw"></i> New Attachment </a></li>
                                 <li><a href="{{ route('view-attachments') }}"><i class="fa fa-arrow-right fa-fw"></i> View Attachments </a></li>

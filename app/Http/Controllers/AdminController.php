@@ -332,7 +332,7 @@ class AdminController extends Controller
         return view('admin.view_attachments', compact('outlines'));
     }
 
-    public function addCourseOutline(Request $request)
+    public function addDownloadFile(Request $request)
     {
         // Validate the incoming request
         $request->validate([
@@ -342,16 +342,23 @@ class AdminController extends Controller
 
         // Handle the file upload
         if ($request->hasFile('imgfile')) {
-            $filename = time() . '.' . $request->imgfile->getClientOriginalExtension();
+            $filename = strtolower(time() . '.' . $request->imgfile->getClientOriginalExtension());
             $request->imgfile->move(public_path('uploads'), $filename);
 
+            $thumbnail = "";
+            if ($request->hasFile('thumbnail')) {
+                //thumbnail
+                $thumbnail = strtolower(time() . '.' . $request->thumbnail->getClientOriginalExtension());
+                $request->thumbnail->move(public_path('uploads'), $thumbnail);
+            }
             // Create a new record in the database
             Course::create([
                 'cs_name' => $request->cs_name,
                 'attachment' => $filename,
+                'thumbnail' => $thumbnail
             ]);
 
-            return redirect()->route('view-attachments')->with('success', 'Course outline added successfully.');
+            return redirect()->route('view-attachments')->with('success', 'Download file added successfully.');
         }
 
         return redirect()->route('new-attachment')->with('error', 'Failed to upload file.');

@@ -16,13 +16,13 @@ class CourseController extends Controller
 
     public function indexFunc()
     {
-        $courses = Course::orderBy('id')->get();
+        $courses = Course::orderBy('id', 'desc')->get();
         return view('course-outlines', compact('courses'));
     }
 
     public function downloads()
     {
-        $courses = Course::orderBy('id')->paginate(6); // Paginate with 6 items per page
+        $courses = Course::orderBy('id', 'desc')->paginate(6); // Paginate with 6 items per page
         return view('downloads', compact('courses'));
     }
 
@@ -31,7 +31,7 @@ class CourseController extends Controller
     {
         // $id = base64_decode($request->input('read-more'));
         $program = Program::findOrFail($id);
-        $outline = Program::orderBy('id')->get();
+        $outline = Program::orderBy('id', 'desc')->get();
 
         return view('details', compact('program', 'outline'));
     }

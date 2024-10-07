@@ -7,7 +7,7 @@
             <div class="panel-heading">
                 <h3 class="panel-title">
                     <i class="fa fa-upload fa-fw"></i> 
-                    <b> Add Course Outline</b>
+                    <b> Add Download Files</b>
                 </h3>
             </div>
             <div class="panel-body">
@@ -23,6 +23,13 @@
                         <div class="form-group">
                             <label>Attachment:</label>
                             <input class="form-control" name="imgfile" type="file" accept="application/pdf" required />
+                        </div>
+                    </div>
+                    <!-- thumbnail -->
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Thumbnail:</label>
+                            <input class="form-control" name="thumbnail" type="file" required />
                         </div>
                     </div>
                     <div class="col-md-4">
