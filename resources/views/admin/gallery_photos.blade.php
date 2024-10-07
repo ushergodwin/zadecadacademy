@@ -13,26 +13,37 @@
             <div class="panel-body">
                 <form role="form" method="post" action="{{ route('add-gallery-photo') }}" enctype="multipart/form-data">
                     @csrf
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label> Image: </label>
                             <input class="form-control" name="imgfile" type="file" accept="image/*" required />
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label> Caption: </label>
                             <input class="form-control" name="caption" type="text" />
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
+                        <input name="status" value="yes" hidden/>
                         <div class="form-group">
-                            <label>Status:</label>
-                            <select name="status" class="form-control" required>
-                                <option value="">--- Select ---</option>
-                                <option value="yes">Yes</option>
-                                <option value="no">No</option>
+                            <label>Category:</label>
+                            <select name="category" class="form-control" required>
+                                @if ($sections->count())
+                                    @foreach ($sections as $item)
+                                        <option value="{{ $item->id }}">{{ $item->section_name }}</option>
+                                    @endforeach
+                                @else
+                                    <option value="0">--- Select Category ---</option>
+                                @endif
                             </select>
+                        </div>
+                    </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Type New Category If Not Exits</label>
+                            <input class="form-control" name="new_category" type="text" />
                         </div>
                     </div>
                     <div class="col-md-4">

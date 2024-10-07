@@ -9,12 +9,37 @@
     <div class="container">
         <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
         </div>
-        @if($images->count() > 0)
+        @if($categories->count() > 0)
             <div class="row" id="lightgallery">
-                @foreach($images as $image)
-                    <div class="col-md-4 col-sm-4 shadow mt-2" data-aos="fade" data-src="{{ asset('uploads/' . $image->image) }}" data-sub-html="<h2>{{ $image->caption }}</h2>">
-                        <a href="#"><img src="{{ asset('uploads/' . $image->image) }}" alt="{{ $image->caption }}" class="img-fluid rounded" style="margin-bottom: 10px;"></a>
+                @foreach($categories as $category)
+                    <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+                        <h4>{{ $category->section_name }}</h4>
+                        <div class="carousel-inner">
+                            @foreach($category->images as $index => $gk)
+                            <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                                <img class="w-100" src="{{ asset('uploads/' . $gk->image) }}" alt="Image" style="width: 100%;">
+                                <div class="carousel-caption">
+                                    <div class="container">
+                                        <div class="row justify-content-start">
+                                            <div class="col-lg-12 text-start">
+                                                <h1 class="display-1 text-white mb-5 animated slideInRight w-100">{{ $gk->caption }}</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                        <a class="carousel-control-prev no-hover" href="javascript:void(0)" data-bs-target="#header-carousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </a>
+                        <a class="carousel-control-next no-hover" href="javascript:void(0)" data-bs-target="#header-carousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </a>
                     </div>
+                    <hr class="mt-3"/>
                 @endforeach
             </div>
         @endif

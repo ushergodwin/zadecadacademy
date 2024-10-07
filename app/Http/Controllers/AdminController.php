@@ -7,6 +7,7 @@ use App\Models\Contact;
 use App\Models\Course;
 use App\Models\Enrollment;
 use App\Models\Gallery;
+use App\Models\GallerySection;
 use App\Models\Image;
 use App\Models\Program;
 use App\Models\User;
@@ -125,7 +126,7 @@ class AdminController extends Controller
 
         // if ($user && $user->role == 'admin') {
         $enrollmentCount = Enrollment::count();
-        $contactCount = Contact::count(); 
+        $contactCount = Contact::count();
         $programCount = Program::count();
         $galleryCount = Gallery::count();
 
@@ -147,7 +148,7 @@ class AdminController extends Controller
     {
         // Validate the incoming request
         $request->validate([
-            'imgfile' => 'required|image|mimes:jpeg,png,jpg|max:80000',
+            'imgfile' => 'required|image|mimes:jpeg,png,jpg',
             'caption' => 'nullable|string|max:255',
         ]);
 
@@ -155,12 +156,12 @@ class AdminController extends Controller
         if ($request->hasFile('imgfile')) {
             $filename = time() . '.' . $request->imgfile->getClientOriginalExtension();
             $request->imgfile->move(public_path('uploads'), $filename);
-
             // Create a new record in the database
             Gallery::create([
                 'image' => $filename,
                 'caption' => $request->caption,
-                'status' => 'yes', // Set a default status or make this dynamic
+                'status' => $request->status, // Set status as provided in the form,
+                'section_id' => 1
             ]);
 
             return redirect()->route('slider-photos')->with('success', 'Slider photo added successfully.');
@@ -180,16 +181,17 @@ class AdminController extends Controller
 
     public function galleryPhotos()
     {
-        $gallery_photos = Image::all();
+        $gallery_photos = Gallery::all();
+        $sections = GallerySection::all();
 
-        return view('admin.gallery_photos', compact('gallery_photos'));
+        return view('admin.gallery_photos', compact('gallery_photos', 'sections'));
     }
 
     public function addGalleryPhoto(Request $request)
     {
         // Validate the incoming request
         $request->validate([
-            'imgfile' => 'required|image|mimes:jpeg,png,jpg|max:80000',
+            'imgfile' => 'required|image|mimes:jpeg,png,jpg',
             'caption' => 'nullable|string|max:255',
             'status' => 'required|string|max:3', // Validating status field
         ]);
@@ -198,12 +200,19 @@ class AdminController extends Controller
         if ($request->hasFile('imgfile')) {
             $filename = time() . '.' . $request->imgfile->getClientOriginalExtension();
             $request->imgfile->move(public_path('uploads'), $filename);
+            $category = $request->category;
 
+            if ($request->new_category) {
+                $section = new GallerySection(['section_name' => $request->new_category]);
+                $section->save();
+                $category = $section->id;
+            }
             // Create a new record in the database
-            Image::create([
+            Gallery::create([
                 'image' => $filename,
                 'caption' => $request->caption,
-                'status' => $request->status, // Set status as provided in the form
+                'status' => $request->status, // Set status as provided in the form,
+                'section_id' => $category
             ]);
 
             return redirect()->route('gallery-photos')->with('success', 'Gallery photo added successfully.');
@@ -232,7 +241,7 @@ class AdminController extends Controller
     {
         // Validate the incoming request
         $request->validate([
-            'imgfile' => 'required|image|mimes:jpeg,png,jpg|max:80000',
+            'imgfile' => 'required|image|mimes:jpeg,png,jpg',
             'title' => 'required|string|max:255',
             'description' => 'required|string',
         ]);
@@ -328,7 +337,7 @@ class AdminController extends Controller
         // Validate the incoming request
         $request->validate([
             'cs_name' => 'required|string|max:255',
-            'imgfile' => 'required|mimes:pdf|max:80000',
+            'imgfile' => 'required|mimes:pdf',
         ]);
 
         // Handle the file upload
@@ -350,59 +359,59 @@ class AdminController extends Controller
 
 
     public function updateCourse(Request $request, $id)
-{
-    $course = Program::findOrFail($id);
+    {
+        $course = Program::findOrFail($id);
 
-    $request->validate([
-        'pg_name' => 'required|string|max:255',
-        'software' => 'required|string|max:255',
-        'editor' => 'required|string',
-        'imgfile' => 'nullable|image|mimes:jpeg,png,jpg|max:80000',
-    ]);
+        $request->validate([
+            'pg_name' => 'required|string|max:255',
+            'software' => 'required|string|max:255',
+            'editor' => 'required|string',
+            'imgfile' => 'nullable|image|mimes:jpeg,png,jpg',
+        ]);
 
-    // Update course details
-    $course->pg_name = $request->pg_name;
-    $course->software = $request->software;
-    $course->description = $request->editor;
+        // Update course details
+        $course->pg_name = $request->pg_name;
+        $course->software = $request->software;
+        $course->description = $request->editor;
 
-    // Handle file upload
-    if ($request->hasFile('imgfile')) {
-        $filename = time() . '.' . $request->imgfile->extension();
-        $request->imgfile->move(public_path('uploads'), $filename);
-        $course->pg_image = $filename;
-    }
-
-    $course->save();
-
-    return redirect()->back()->with('success', 'Course updated successfully.');
-}
-
-public function updateCourseImage(Request $request, $id)
-{
-    $course = Program::findOrFail($id);
-
-    $request->validate([
-        'imgfile' => 'required|image|mimes:jpeg,png,jpg|max:80000',
-    ]);
-
-    // Handle file upload
-    if ($request->hasFile('imgfile')) {
-        // Delete the old image if it exists
-        if ($course->pg_image && file_exists(public_path('uploads/' . $course->pg_image))) {
-            unlink(public_path('uploads/' . $course->pg_image));
+        // Handle file upload
+        if ($request->hasFile('imgfile')) {
+            $filename = time() . '.' . $request->imgfile->extension();
+            $request->imgfile->move(public_path('uploads'), $filename);
+            $course->pg_image = $filename;
         }
 
-        // Store the new image
-        $filename = time() . '.' . $request->imgfile->extension();
-        $request->imgfile->move(public_path('uploads'), $filename);
-
-        // Update the course image
-        $course->pg_image = $filename;
         $course->save();
+
+        return redirect()->back()->with('success', 'Course updated successfully.');
     }
 
-    return redirect()->back()->with('success', 'Course image updated successfully.');
-}
+    public function updateCourseImage(Request $request, $id)
+    {
+        $course = Program::findOrFail($id);
+
+        $request->validate([
+            'imgfile' => 'required|image|mimes:jpeg,png,jpg',
+        ]);
+
+        // Handle file upload
+        if ($request->hasFile('imgfile')) {
+            // Delete the old image if it exists
+            if ($course->pg_image && file_exists(public_path('uploads/' . $course->pg_image))) {
+                unlink(public_path('uploads/' . $course->pg_image));
+            }
+
+            // Store the new image
+            $filename = time() . '.' . $request->imgfile->extension();
+            $request->imgfile->move(public_path('uploads'), $filename);
+
+            // Update the course image
+            $course->pg_image = $filename;
+            $course->save();
+        }
+
+        return redirect()->back()->with('success', 'Course image updated successfully.');
+    }
 
 
 
@@ -460,7 +469,7 @@ public function updateCourseImage(Request $request, $id)
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'imgfile' => 'nullable|image|mimes:jpeg,png,jpg|max:5120',
+            'imgfile' => 'nullable|image|mimes:jpeg,png,jpg',
         ]);
 
         $chooseUs = ChooseUs::findOrFail($id);

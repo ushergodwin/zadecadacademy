@@ -67,10 +67,10 @@
                 <div class="carousel-caption">
                     <div class="container">
                         <div class="row justify-content-start">
-                            <div class="col-lg-8 text-start">
+                            <div class="col-lg-12 text-start">
                                 <p class="fs-4 text-white">WELCOME TO ZADECAD ACADEMY</p>
                                 <p class="fs-4 text-white"> Leading CADD Training company in Uganda </p>
-                                <h1 class="display-1 text-white mb-5 animated slideInRight">Engineering, Architecture & Surveying</h1>
+                                <h1 class="display-1 text-white mb-5 animated slideInRight w-100">Engineering, Architecture & Surveying</h1>
                             </div>
                         </div>
                     </div>
@@ -78,14 +78,14 @@
             </div>
             @endforeach
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
+        <a class="carousel-control-prev no-hover" href="javascript:void(0)" data-bs-target="#header-carousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
+        </a>
+        <a class="carousel-control-next no-hover" href="javascript:void(0)" data-bs-target="#header-carousel" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
-        </button>
+        </a>
     </div>
 </div>
 
@@ -94,32 +94,20 @@
     <div class="row">
         <!-- Main content (2/3 of the width) -->
         <div class="col-md-9">
-            <div class="row g-5 align-items-end">
+            <div class="row">
                 <div class="col-lg-6">
                     <!-- About Section -->
-                    <div class="row g-2">
-                        <div class="col-6 position-relative wow fadeIn" data-wow-delay="0.7s">
-                            <div class="about-experience bg-secondary rounded">
-                                <span style="float:left;color:#fff"><b>#5 Star CADD Solutions </b></span>
-                            </div>
-                        </div>
-                        <div class="col-6 wow fadeIn" data-wow-delay="0.1s">
-                            <img class="img-fluid rounded" src="{{ asset('img/abt1.jpg') }}">
-                        </div>
-                        <div class="col-6 wow fadeIn" data-wow-delay="0.3s">
-                            <img class="img-fluid rounded" src="{{ asset('img/abt2.jpg') }}">
-                        </div>
-                        <div class="col-6 wow fadeIn" data-wow-delay="0.5s">
-                            <img class="img-fluid rounded" src="{{ asset('img/abt3.jpg') }}">
-                        </div>
-                    </div>
+                    <img class="img-fluid rounded" src="{{ asset('img/abt3.jpg') }}">
+                    <h2 class="mt-3">About ZadeCAD Academy</h2>
+                      <blockquote>
+                            ZadeCAD Limited is registered as a limited liability company with shares. It was established in 2020 to impart quality in-
+                        </blockquote>
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <h2>About ZadeCAD Academy</h2>
-                    <p class="mb-4">
                         <blockquote>
-                            ZadeCAD Limited is registered as a limited liability company with shares. It was established in 2020 to impart quality industry-specific Computer-Aided Design (CAD) skills training. Since its inception, ZadeCAD Ltd through its initiative ZadeCAD Academy, continues to expand and focus on providing critical professional and technical skills training in engineering and project management.
-                            <br/><br/>
+                            dustry-specific Computer-Aided Design (CAD) skills training. Since its inception, ZadeCAD Ltd through its initiative ZadeCAD Academy, continues to expand and focus on providing critical professional and technical skills training in engineering and project management.
+                        </blockquote>
+                        <blockquote>
                             To date, we have trained over 300+ professionals from different backgrounds. Our trained students are now employed in key positions in large and small companies both locally and internationally.
                         </blockquote>
                     </p>
@@ -132,7 +120,7 @@
             </div>
             <div class="row">
                 @foreach($chzn as $val)
-                <div class="col-md-4 wow fadeInUp mt-2" data-wow-delay="0.1s">
+                <div class="col-md-4 wow fadeInUp mt-3" data-wow-delay="0.1s">
                     <div class="product-item card h-100">
                         <div class="position-relative">
                             <img class="img-fluid" src="{{ asset('uploads/' . $val->image) }}" style="width: 100%; height: 100px; object-fit: cover;" alt="">
@@ -145,39 +133,8 @@
                 </div>
                 @endforeach
             </div>
-
-            <!-- Courses Section -->
-            <div class="text-center mx-auto pb-4 wow fadeInUp mt-3" data-wow-delay="0.1s" style="max-width: 500px;">
-                <h3>Our Courses</h3>
-            </div>
-            <div class="row">
-                @foreach($courses as $row)
-                <div class="col-md-4 wow fadeInUp mt-2" data-wow-delay="0.1s">
-                    <div class="product-item card h-100">
-                        <div class="position-relative" style="flex-grow: 1;">
-                            <a href="{{ route('course.details', ['id' => $row->id]) }}">
-                                <img class="img-fluid" src="{{ asset('uploads/' . $row->pg_image) }}" style="width: 100%; height: 300px; object-fit: cover;" alt="">
-                            </a>
-                        </div>
-                        <div class="text-center p-4" style="padding: 20px; border-bottom: 2px solid #ddd;">
-                            <h6>{{ $row->pg_name }}</h6>
-                            <p>{{ Str::limit($row->description, 150) }}</p>
-                            <a href="{{ route('course.details', ['id' => $row->id]) }}">
-                                Read More <i class="fa fa-angle-double-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-                <div class="d-flex justify-content-end mt-4">
-                    <button onclick="window.location.href='{{ route('courses.index') }}'" class="btn btn-secondary btn-sm" style="background-color:#ff7900;color:#fff">
-                        <i class="fa fa-book"></i> VIEW ALL COURSES
-                    </button>
-                </div>
-            </div>
         </div>
-
-        <!-- Sidebar (Recent Articles) -->
+                <!-- Sidebar (Recent Articles) -->
         <div class="col-md-3">
             <div class="text-center mx-auto pb-4 wow fadeInUp mt-3" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h4>Recent Articles</h4>
@@ -203,11 +160,41 @@
                         @endforeach
                     </div>
                 @else
-                    <div class="alert alert-info shadow">
-                        <i class="fa fa-info-circle fa-3x"></i>
-                        <p>There are currently no blogs posted. Please check back later.</p>
-                    </div>
+                    <p class="text-info">No blogs articles yet!</p>
                 @endif
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Courses Section -->
+            <div class="text-center mx-auto pb-4 wow fadeInUp mt-3" data-wow-delay="0.1s" style="max-width: 500px;">
+                <h3>Our Courses</h3>
+            </div>
+            <div class="row">
+                @foreach($courses as $row)
+                <div class="col-md-4 wow fadeInUp mt-2" data-wow-delay="0.1s">
+                    <div class="product-item card h-100">
+                        <div class="position-relative" style="flex-grow: 1;">
+                            <a href="{{ route('course.details', ['id' => $row->id]) }}">
+                                <img class="img-fluid" src="{{ asset('uploads/' . $row->pg_image) }}" style="width: 100%; height: 300px; object-fit: cover;" alt="">
+                            </a>
+                        </div>
+                        <div class="text-center p-4" style="padding: 20px; border-bottom: 2px solid #ddd;">
+                            <h6>{{ $row->pg_name }}</h6>
+                            <p>{{ Str::limit($row->description, 150) }}</p>
+                            <a href="{{ route('course.details', ['id' => $row->id]) }}">
+                                Read More <i class="fa fa-angle-double-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+                <div class="d-flex justify-content-center mt-4">
+                    <button onclick="window.location.href='{{ route('courses.index') }}'" class="btn btn-secondary btn-sm" style="background-color:#ff7900;color:#fff">
+                        <i class="fa fa-book"></i> VIEW ALL COURSES
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -224,10 +211,8 @@
     <div class="row g-5 align-items-center video-section">
         <!-- Text Section -->
         <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-            <h4>About Our Academy</h4>
-            <p>ZadeCAD Academy has been at the forefront of CAD training in Uganda, offering comprehensive courses tailored to industry needs. Our commitment to excellence has helped shape the careers of over 300 professionals in various fields such as engineering, architecture, and surveying.</p>
-            <p>Our students come from diverse backgrounds and have gone on to work in key positions in both local and international companies. We believe in providing hands-on training that equips our students with the skills they need to succeed in a competitive job market.</p>
-            <p>Join us at ZadeCAD Academy and be part of a community that values learning, growth, and professional development.</p>
+            <h4>Student Testimonials</h4>
+            <p>ZadeCAD Academy offers an exceptional learning environment for anyone looking to sharpen their technical skills. The hands-on training approach, combined with knowledgeable instructors, ensures that every student gets the support they need. I particularly loved the practical sessions where we worked directly on CAD projects, which helped me gain real-world experience. The facility is well-equipped, and the small class sizes make it easy to interact with the trainer and other students. ZadeCAD has definitely boosted my confidence in my field!</p>
         </div>
         <!-- Video Section -->
         <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">

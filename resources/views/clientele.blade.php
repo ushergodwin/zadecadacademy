@@ -6,9 +6,12 @@
     </div>
 </div>
 <div class="container-xxl py-5">
-    <div class="container card">
+    <div class="container">
         <div class="card-body row g-5 align-items-end">
-            <div class="col-lg-12">
+            <div class="col-md-6">
+                <img class="img-fluid rounded" src="{{ asset('img/79.jpg') }}">
+            </div>
+            <div class="col-lg-6">
                 <p>The ZadeCAD Academy program is mainly useful for and targets both graduates and professionals in the following fields/careers to develop their job-based skills:</p>
                 <p>a) Construction-related students and professionals such as engineers, architects, surveyors, technicians, and property developers.</p>
                 <p>b) The Business Community for identifying and implementing marketable and profitable projects; and to generate adequate employment opportunities.</p>

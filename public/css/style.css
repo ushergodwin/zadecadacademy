@@ -1,6 +1,5 @@
 /********** Template CSS **********/
 
-
 /* ===================================== Import Less ================================== */
 
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400,600,700);
@@ -44,7 +43,6 @@ h6 {
     font-weight: 500 !important;
 }
 
-
 /*** Spinner ***/
 
 #spinner {
@@ -59,7 +57,6 @@ h6 {
     visibility: visible;
     opacity: 1;
 }
-
 
 /*** Button ***/
 
@@ -102,7 +99,6 @@ h6 {
     justify-content: center;
     font-weight: normal;
 }
-
 
 /*** Navbar ***/
 
@@ -162,7 +158,6 @@ h6 {
     }
 }
 
-
 /*** Header ***/
 
 .carousel-caption {
@@ -209,7 +204,7 @@ h6 {
     background-size: cover;
 }
 
-.page-header .breadcrumb-item+.breadcrumb-item::before {
+.page-header .breadcrumb-item + .breadcrumb-item::before {
     color: var(--light);
 }
 
@@ -218,7 +213,6 @@ h6 {
     font-size: 18px;
     color: var(--light);
 }
-
 
 /*** Section Title ***/
 
@@ -261,7 +255,6 @@ h6 {
     left: 0;
 }
 
-
 /*** About ***/
 
 .about-experience {
@@ -275,7 +268,6 @@ h6 {
     align-items: center;
     justify-content: center;
 }
-
 
 /*** Service ***/
 
@@ -368,7 +360,6 @@ h6 {
     background: var(--secondary);
 }
 
-
 /*** Product ***/
 
 .product-item {
@@ -398,7 +389,6 @@ h6 {
     padding-top: 0;
 }
 
-
 /*** Team ***/
 
 .team-item {
@@ -412,7 +402,6 @@ h6 {
     border-color: transparent;
     box-shadow: 0 0 45px rgba(0, 0, 0, 0.2);
 }
-
 
 /*** Testimonial ***/
 
@@ -496,7 +485,6 @@ h6 {
     background: var(--secondary);
     color: var(--dark);
 }
-
 
 /*** Footer ***/
 
@@ -755,9 +743,7 @@ body {
     color: #ff7900;
 }
 
-
 /* Background styling */
-
 
 /* General body styling */
 
@@ -769,7 +755,6 @@ body {
     font-family: "Helvetica Neue", Arial, sans-serif;
     line-height: 1.6;
 }
-
 
 /* Headings */
 
@@ -783,7 +768,6 @@ h6 {
     /* Dark gray-blue */
 }
 
-
 /* Paragraphs */
 
 p {
@@ -791,11 +775,10 @@ p {
     /* Slightly lighter dark blue */
 }
 
-
 /* Links */
 
 a {
-    color: #4aa397;
+    color: #ff7900;
     /* Muted teal */
     text-decoration: none;
 }
@@ -805,12 +788,11 @@ a:hover {
     /* Soft coral */
 }
 
-
 /* Buttons */
 
 button,
 .btn {
-    background-color: #4aa397;
+    /* background-color: #4aa397; */
     /* Muted teal for buttons */
     color: #ffffff;
     border: none;
@@ -822,10 +804,19 @@ button,
 
 button:hover,
 .btn:hover {
-    background-color: #357d71;
+    background-color: #ef8275;
     /* Darker teal on hover */
 }
 
+button.no-hover:hover {
+    background-color: none !important;
+    /* Disable hover */
+}
+
+a.no-hover:hover {
+    background-color: none !important;
+    /* Disable hover */
+}
 
 /* Form Inputs */
 
@@ -848,9 +839,8 @@ input:focus,
 textarea:focus,
 select:focus {
     outline: none;
-    border-color: #4aa397;
+    border-color: #ff7900;
 }
-
 
 /* Bootstrap Card Styling */
 
@@ -865,7 +855,7 @@ select:focus {
 }
 
 .card-header {
-    background-color: #4aa397;
+    background-color: #ff7900;
     /* Teal header */
     color: #ffffff;
     border-bottom: 1px solid #dfe6e9;
@@ -881,7 +871,6 @@ select:focus {
     border-top: 1px solid #dfe6e9;
 }
 
-
 /* Footer */
 
 footer {
@@ -895,7 +884,6 @@ footer {
 footer a {
     color: #4aa397;
 }
-
 
 /* Navbar */
 

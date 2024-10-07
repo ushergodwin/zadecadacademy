@@ -23,7 +23,7 @@
 
     <!-- FullCalendar CSS -->
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css" rel="stylesheet">
-
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <!-- Custom Styles (optional) -->
     <style>
         .fc-event {
@@ -62,6 +62,9 @@
 
     .dropdown:hover .dropdown-menu {
         display: block; 
+    }
+    body {
+        font-family: 'Poppins';font-size: 18px;
     }
     </style>
 </head>

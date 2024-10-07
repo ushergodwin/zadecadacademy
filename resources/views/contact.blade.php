@@ -56,7 +56,7 @@
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                 <h3 class="mb-4">Contact Details</h3>
                 <div class="d-flex border-bottom pb-3 mb-3">
-                    <div class="flex-shrink-0 btn-square bg-secondary rounded-circle">
+                    <div class="flex-shrink-0 btn-square bg-secondary text-dark  rounded-circle">
                         <i class="fa fa-map-marker-alt text-body"></i>
                     </div>
                     <div class="ms-3">
@@ -67,7 +67,7 @@
                     </div>
                 </div>
                 <div class="d-flex border-bottom pb-3 mb-3">
-                    <div class="flex-shrink-0 btn-square bg-secondary rounded-circle">
+                    <div class="flex-shrink-0 btn-square bg-secondary text-dark  rounded-circle">
                         <i class="fa fa-phone-alt text-body"></i>
                     </div>
                     <div class="ms-3">
@@ -77,7 +77,7 @@
                     </div>
                 </div>
                 <div class="d-flex border-bottom-0 pb-3 mb-3">
-                    <div class="flex-shrink-0 btn-square bg-secondary rounded-circle">
+                    <div class="flex-shrink-0 btn-square bg-secondary text-dark  rounded-circle">
                         <i class="fa fa-envelope text-body"></i>
                     </div>
                     <div class="ms-3">
