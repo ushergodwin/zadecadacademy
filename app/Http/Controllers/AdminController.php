@@ -10,6 +10,7 @@ use App\Models\Gallery;
 use App\Models\GallerySection;
 use App\Models\Image;
 use App\Models\Program;
+use App\Models\Testimonial;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -201,12 +202,6 @@ class AdminController extends Controller
             $filename = time() . '.' . $request->imgfile->getClientOriginalExtension();
             $request->imgfile->move(public_path('uploads'), $filename);
             $category = $request->category;
-
-            if ($request->new_category) {
-                $section = new GallerySection(['section_name' => $request->new_category]);
-                $section->save();
-                $category = $section->id;
-            }
             // Create a new record in the database
             Gallery::create([
                 'image' => $filename,
@@ -502,5 +497,66 @@ class AdminController extends Controller
         $chooseUs->save();
 
         return redirect()->route('why-choose-us')->with('success', 'Item updated successfully.');
+    }
+
+    public function manageCategories(Request $request)
+    {
+
+        $is_edit = $request->boolean('is_edit');
+        $section_name = "";
+        $section_id = $request->query('id');
+
+        //is_edit_request
+        if ($request->post('is_edit_request')) {
+            $category = $request->post('category_name');
+            $section_id = $request->post('section_id');
+            GallerySection::where('id', $section_id)->update(['section_name' => $category]);
+            return redirect()->route('add-categories')->with('success', 'Category Updated successfully.');
+        }
+        if ($request->post('category_name')) {
+            $category = $request->post('category_name');
+            GallerySection::updateOrCreate(['section_name' => $category], ['section_name' => $category]);
+            return redirect()->back()->with('success', 'Category Saved successfully.');
+        }
+        if ($request->query('category_id')) {
+            $category_id = $request->query('category_id');
+            GallerySection::where('id', $category_id)->delete();
+            // delete corresponding galley photos 
+            Gallery::where('section_id', $category_id)->delete();
+            return redirect()->back()->with('success', 'Category Deleted successfully.');
+        }
+
+        if ($is_edit) {
+            $section_name = GallerySection::find($section_id)->section_name;
+        }
+        $categories = GallerySection::orderBy('created_at', 'desc')->get();
+        return view('admin.view_gallery_categories', compact('categories', 'is_edit', 'section_name', 'section_id'));
+    }
+
+    public function testimonials(Request $request)
+    {
+
+        if ($request->post('content')) {
+            //dd($request->all());
+
+            // Handle the file upload
+            if ($request->hasFile('video')) {
+                $filename = time() . '.' . $request->video->getClientOriginalExtension();
+                $request->video->move(public_path('uploads'), $filename);
+
+                // Create a new record in the database
+                Testimonial::updateOrCreate(['id' => 1], [
+                    'video_link' => $filename,
+                    'video_caption' => $request->video_caption,
+                    'content' => $request->content,
+                ]);
+
+                return redirect()->back()->with('success', 'Testimonial changes saved successfully.');
+            }
+            dd('hshs');
+        } else {
+            $testimonial = Testimonial::where('id', 1)->first();
+            return view('admin.testimonial', compact('testimonial'));
+        }
     }
 }

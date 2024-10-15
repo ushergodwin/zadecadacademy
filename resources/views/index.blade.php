@@ -211,14 +211,14 @@
     <div class="row g-5 align-items-center video-section">
         <!-- Text Section -->
         <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-            <h4>Student Testimonials</h4>
-            <p>ZadeCAD Academy offers an exceptional learning environment for anyone looking to sharpen their technical skills. The hands-on training approach, combined with knowledgeable instructors, ensures that every student gets the support they need. I particularly loved the practical sessions where we worked directly on CAD projects, which helped me gain real-world experience. The facility is well-equipped, and the small class sizes make it easy to interact with the trainer and other students. ZadeCAD has definitely boosted my confidence in my field!</p>
+            <h4>{{ $testimonial?->video_caption }}</h4>
+            <p>{{ $testimonial->content }}</p>
         </div>
         <!-- Video Section -->
         <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
             <div class="position-relative h-100">
                 <video id="testimonial-video" width="100%" height="400" controls muted>
-                    <source src="{{ asset('videos/August Alsina - Benediction ft. Rick Ross (Official Music Video).mp4') }}" class="rounded" type="video/mp4">
+                    <source src="{{ asset('uploads/'.$testimonial->video_link) }}" class="rounded" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>

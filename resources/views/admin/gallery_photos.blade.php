@@ -40,13 +40,7 @@
                             </select>
                         </div>
                     </div>
-                      <div class="col-md-3">
-                        <div class="form-group">
-                            <label>Type New Category If Not Exits</label>
-                            <input class="form-control" name="new_category" type="text" />
-                        </div>
-                    </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <br/>
                             <label> &nbsp; </label>

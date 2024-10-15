@@ -10,34 +10,38 @@
         <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
         </div>
         @if($categories->count() > 0)
-            <div class="row" id="lightgallery">
+            <div class="row">
                 @foreach($categories as $category)
-                    <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
-                        <h4>{{ $category->section_name }}</h4>
-                        <div class="carousel-inner">
-                            @foreach($category->images as $index => $gk)
-                            <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                                <img class="w-100" src="{{ asset('uploads/' . $gk->image) }}" alt="Image" style="width: 100%;">
-                                <div class="carousel-caption">
-                                    <div class="container">
-                                        <div class="row justify-content-start">
-                                            <div class="col-lg-12 text-start">
-                                                <h1 class="display-1 text-white mb-5 animated slideInRight w-100">{{ $gk->caption }}</h1>
+                    <div class="container-fluid px-0 mb-5">
+                        <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+                             <h4>{{ $category->section_name }}</h4>
+                            <div class="carousel-inner">
+                                @foreach($category->images as $index => $gk)
+                                <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                                    <img class="w-100" src="{{ asset('uploads/' . $gk->image) }}" alt="Image" style="width: 100%;">
+                                    <div class="carousel-caption">
+                                        <div class="container">
+                                            <div class="row justify-content-start">
+                                                <div class="col-lg-12 text-start">
+                                                    <p class="fs-4 text-white">WELCOME TO ZADECAD ACADEMY</p>
+                                                    <p class="fs-4 text-white"> Leading CADD Training company in Uganda </p>
+                                                    <h1 class="display-1 text-white mb-5 animated slideInRight w-100">Engineering, Architecture & Surveying</h1>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
-                            @endforeach
+                            <a class="carousel-control-prev no-hover" href="javascript:void(0)" data-bs-target="#header-carousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </a>
+                            <a class="carousel-control-next no-hover" href="javascript:void(0)" data-bs-target="#header-carousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </a>
                         </div>
-                        <a class="carousel-control-prev no-hover" href="javascript:void(0)" data-bs-target="#header-carousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </a>
-                        <a class="carousel-control-next no-hover" href="javascript:void(0)" data-bs-target="#header-carousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </a>
                     </div>
                     <hr class="mt-3"/>
                 @endforeach

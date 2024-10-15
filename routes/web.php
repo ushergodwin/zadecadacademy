@@ -251,7 +251,11 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('get-softwares-by-program/{program}', [SoftwareDocumentController::class, 'getSoftwaresByProgram'])->name('software_documents.get_softwares_by_program');
 
-
+    Route::get('/admin/gallery/categories', [AdminController::class, 'manageCategories'])->name('add-categories');
+    Route::post('/admin/gallery/categories', [AdminController::class, 'manageCategories'])->name('save-gallery-category');
+    Route::get('/admin/gallery/categories/delete', [AdminController::class, 'manageCategories'])->name('delete-gallery-category');
+    Route::get('/admin/testimonial', [AdminController::class, 'testimonials'])->name('testimonial.index');
+    Route::post('/admin/testimonial', [AdminController::class, 'testimonials'])->name('testimonial.store');
     // SYSTEM ROUTES
     Route::get('/admin/system-task/{task}', [SystemController::class, 'handleSystemTask'])->name('admin.system-task');
 

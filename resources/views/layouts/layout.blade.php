@@ -66,8 +66,17 @@
                     <ul class="nav" id="side-menu">
                         <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard </a></li>
                         <li><a href="{{ route('slider-photos') }}"><i class="fa fa-camera fa-fw"></i> Slider Photos </a></li>
-                        <li><a href="{{ route('gallery-photos') }}"><i class="fa fa-camera fa-fw"></i> Gallery Photos </a></li>
+
+                         <li>
+                            <a href="#"><i class="fa fa-database fa-fw"></i> Gallery<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="{{ route('add-categories') }}"><i class="fa fa-arrow-right fa-fw"></i> Categories</a></li>
+                                <li><a href="{{ route('gallery-photos') }}"><i class="fa fa-arrow-right fa-fw"></i>Photos </a></li>
+                            </ul>
+                        </li>
+
                         <li><a href="{{ route('why-choose-us') }}"><i class="fa fa-tasks fa-fw"></i> Why Choose Us </a></li>
+                         <li><a href="{{ route('testimonial.index') }}"><i class="fa fa-tasks fa-fw"></i> Testimonial</a></li>
                         <li>
                             <a href="#"><i class="fa fa-database fa-fw"></i> Course Management<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
