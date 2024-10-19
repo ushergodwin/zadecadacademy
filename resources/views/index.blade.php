@@ -67,11 +67,11 @@
                 <div class="carousel-caption">
                     <div class="container">
                         <div class="row justify-content-start">
-                            <div class="col-lg-12 text-start">
+                            {{-- <div class="col-lg-12 text-start">
                                 <p class="fs-4 text-white">WELCOME TO ZADECAD ACADEMY</p>
                                 <p class="fs-4 text-white"> Leading CADD Training company in Uganda </p>
                                 <h1 class="display-1 text-white mb-5 animated slideInRight w-100">Engineering, Architecture & Surveying</h1>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -151,7 +151,7 @@
                                     </div>
                                     <div class="col-md-6 d-flex flex-column">
                                         <div class="card-body flex-grow-1">
-                                            <a href="{{ route('blog.show', $blog->id) }}" class="text-light">{{ $blog->title }}</a>
+                                            <a href="{{ route('blog.show', $blog->id) }}" style="font-size: 14px">{{ $blog->title }}</a>
                                         </div>
                                     </div>
                                 </div>

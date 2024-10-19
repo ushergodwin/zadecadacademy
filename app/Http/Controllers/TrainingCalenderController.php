@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CompanyAddress;
 use App\Models\Course;
+use App\Models\PaymentOption;
 use App\Models\TrainingCalendar;
 use Illuminate\Http\Request;
 
@@ -12,18 +14,19 @@ class TrainingCalenderController extends Controller
     public function index()
     {
         $calendars = TrainingCalendar::with('course')->get();
-        $courses = Course::all(); 
+        $courses = Course::all();
         return view('admin.calendar.training_calendar', compact('calendars', 'courses'));
-
     }
 
     public function fetchCalendars()
     {
         // Fetch all training calendar entries with associated course data
         $calendars = TrainingCalendar::with('course')->get();
+        $companyAddress = CompanyAddress::where('id', 1)->first();
+        $paymentOptions = PaymentOption::where('id', 1)->first();
 
         // Pass the data to the view
-        return view('view_training_calendar', compact('calendars'));
+        return view('view_training_calendar', compact('calendars', 'companyAddress', 'paymentOptions'));
     }
 
     public function create()
@@ -80,5 +83,4 @@ class TrainingCalenderController extends Controller
 
         return redirect()->route('admin.training_calendar.index')->with('success', 'Training calendar entry deleted successfully.');
     }
-
 }

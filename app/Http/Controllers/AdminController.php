@@ -69,7 +69,7 @@ class AdminController extends Controller
             'imgfile' => 'required|image|mimes:jpeg,png,jpg|max:80000',
         ]);
 
-        $filename = time() . '.' . $request->imgfile->extension();
+        $filename = uniqid() . '.' . $request->imgfile->extension();
         $request->imgfile->move(public_path('uploads'), $filename);
 
         Program::create([
@@ -94,7 +94,7 @@ class AdminController extends Controller
 
         // Handle the file upload
         if ($request->hasFile('imgfile')) {
-            $filename = time() . '.' . $request->imgfile->getClientOriginalExtension();
+            $filename = uniqid() . '.' . $request->imgfile->getClientOriginalExtension();
             $request->imgfile->move(public_path('uploads'), $filename);
 
             // Remove all HTML tags from the description
@@ -155,7 +155,7 @@ class AdminController extends Controller
 
         // Handle the file upload
         if ($request->hasFile('imgfile')) {
-            $filename = time() . '.' . $request->imgfile->getClientOriginalExtension();
+            $filename = uniqid() . '.' . $request->imgfile->getClientOriginalExtension();
             $request->imgfile->move(public_path('uploads'), $filename);
             // Create a new record in the database
             Gallery::create([
@@ -199,7 +199,7 @@ class AdminController extends Controller
 
         // Handle the file upload
         if ($request->hasFile('imgfile')) {
-            $filename = time() . '.' . $request->imgfile->getClientOriginalExtension();
+            $filename = uniqid() . '.' . $request->imgfile->getClientOriginalExtension();
             $request->imgfile->move(public_path('uploads'), $filename);
             $category = $request->category;
             // Create a new record in the database
@@ -243,7 +243,7 @@ class AdminController extends Controller
 
         // Handle the file upload
         if ($request->hasFile('imgfile')) {
-            $filename = time() . '.' . $request->imgfile->getClientOriginalExtension();
+            $filename = uniqid() . '.' . $request->imgfile->getClientOriginalExtension();
             $request->imgfile->move(public_path('uploads'), $filename);
 
             // Create a new record in the database
@@ -337,13 +337,13 @@ class AdminController extends Controller
 
         // Handle the file upload
         if ($request->hasFile('imgfile')) {
-            $filename = strtolower(time() . '.' . $request->imgfile->getClientOriginalExtension());
+            $filename = strtolower(uniqid() . '.' . $request->imgfile->getClientOriginalExtension());
             $request->imgfile->move(public_path('uploads'), $filename);
 
             $thumbnail = "";
             if ($request->hasFile('thumbnail')) {
                 //thumbnail
-                $thumbnail = strtolower(time() . '.' . $request->thumbnail->getClientOriginalExtension());
+                $thumbnail = strtolower(uniqid() . '.' . $request->thumbnail->getClientOriginalExtension());
                 $request->thumbnail->move(public_path('uploads'), $thumbnail);
             }
             // Create a new record in the database
@@ -378,7 +378,7 @@ class AdminController extends Controller
 
         // Handle file upload
         if ($request->hasFile('imgfile')) {
-            $filename = time() . '.' . $request->imgfile->extension();
+            $filename = uniqid() . '.' . $request->imgfile->extension();
             $request->imgfile->move(public_path('uploads'), $filename);
             $course->pg_image = $filename;
         }
@@ -404,7 +404,7 @@ class AdminController extends Controller
             }
 
             // Store the new image
-            $filename = time() . '.' . $request->imgfile->extension();
+            $filename = uniqid() . '.' . $request->imgfile->extension();
             $request->imgfile->move(public_path('uploads'), $filename);
 
             // Update the course image
@@ -478,7 +478,7 @@ class AdminController extends Controller
 
         if ($request->hasFile('imgfile')) {
             // Handle the file upload
-            $filename = time() . '.' . $request->imgfile->getClientOriginalExtension();
+            $filename = uniqid() . '.' . $request->imgfile->getClientOriginalExtension();
             $request->imgfile->move(public_path('uploads'), $filename);
 
             // Delete the old image if it exists
@@ -541,7 +541,7 @@ class AdminController extends Controller
 
             // Handle the file upload
             if ($request->hasFile('video')) {
-                $filename = time() . '.' . $request->video->getClientOriginalExtension();
+                $filename = uniqid() . '.' . $request->video->getClientOriginalExtension();
                 $request->video->move(public_path('uploads'), $filename);
 
                 // Create a new record in the database
@@ -553,7 +553,6 @@ class AdminController extends Controller
 
                 return redirect()->back()->with('success', 'Testimonial changes saved successfully.');
             }
-            dd('hshs');
         } else {
             $testimonial = Testimonial::where('id', 1)->first();
             return view('admin.testimonial', compact('testimonial'));

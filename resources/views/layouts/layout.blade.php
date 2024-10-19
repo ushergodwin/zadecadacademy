@@ -78,6 +78,17 @@
                         <li><a href="{{ route('why-choose-us') }}"><i class="fa fa-tasks fa-fw"></i> Why Choose Us </a></li>
                          <li><a href="{{ route('testimonial.index') }}"><i class="fa fa-tasks fa-fw"></i> Testimonial</a></li>
                         <li>
+                            <a href="#"><i class="fa fa-database fa-fw"></i> About Us <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="{{ route('about-us.profile') }}"><i class="fa fa-arrow-right fa-fw"></i> ZadeCAD Profile </a></li>
+                                <li><a href="{{ route('about-us.clientele') }}"><i class="fa fa-arrow-right fa-fw"></i> Clientele </a></li>
+                                <li><a href="{{ route('about-us.deliverables') }}"><i class="fa fa-arrow-right fa-fw"></i> Deliverables </a></li>
+                                <li><a href="{{ route('payment-options.create') }}"><i class="fa fa-arrow-right fa-fw"></i> Payment Options </a></li>
+                                <li><a href="{{ route('company-address.create') }}"><i class="fa fa-arrow-right fa-fw"></i> Company Address </a></li>
+                            </ul>
+                        </li>
+
+                        <li>
                             <a href="#"><i class="fa fa-database fa-fw"></i> Course Management<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li><a href="{{ route('add-course') }}"><i class="fa fa-arrow-right fa-fw"></i> Add Course </a></li>

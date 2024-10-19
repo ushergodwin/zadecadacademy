@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
@@ -25,23 +26,12 @@ Route::get('/profile', function () {
     return view('profile');
 });
 
-Route::get('/clientele', function () {
-    return view('clientele');
-});
-
 Route::get('/downloads', [CourseController::class, 'downloads'])->name('downloads');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/clientele', [HomeController::class, 'clientele'])->name('clientele');
+Route::get('/deliverables', [HomeController::class, 'deliverables'])->name('deliverables');
 
-Route::get('/about', function () {
-    return view('about');
-});
-
-Route::get('/deliverables', function () {
-    return view('deliverables');
-});
-
-Route::get('/contact', function () {
-    return view('contact');
-});
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
 Route::get('/payment-details', function () {
     return view('payment-details');
@@ -256,6 +246,20 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/gallery/categories/delete', [AdminController::class, 'manageCategories'])->name('delete-gallery-category');
     Route::get('/admin/testimonial', [AdminController::class, 'testimonials'])->name('testimonial.index');
     Route::post('/admin/testimonial', [AdminController::class, 'testimonials'])->name('testimonial.store');
+
+    // about us admin 
+    Route::get('admin/about-us/profile', [AboutUsController::class, 'profile'])->name('about-us.profile');
+    Route::post('admin/about-us/profile', [AboutUsController::class, 'profile'])->name('about-us.profile');
+    Route::get('admin/about-us/clientele', [AboutUsController::class, 'clientele'])->name('about-us.clientele');
+    Route::post('admin/about-us/clientele', [AboutUsController::class, 'clientele'])->name('about-us.clientele');
+    Route::get('admin/about-us/deliverables', [AboutUsController::class, 'deliverables'])->name('about-us.deliverables');
+    Route::post('admin/about-us/deliverables', [AboutUsController::class, 'deliverables'])->name('about-us.deliverables');
+    // payment options 
+    Route::get('admin/payment-options', [AboutUsController::class, 'paymentOptions'])->name('payment-options.create');
+    Route::post('admin/payment-options', [AboutUsController::class, 'paymentOptions'])->name('payment-options.save');
+    // company address 
+    Route::get('admin/company-address', [AboutUsController::class, 'companyAddress'])->name('company-address.create');
+    Route::post('admin/company-address', [AboutUsController::class, 'companyAddress'])->name('company-address.save');
     // SYSTEM ROUTES
     Route::get('/admin/system-task/{task}', [SystemController::class, 'handleSystemTask'])->name('admin.system-task');
 

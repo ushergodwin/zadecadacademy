@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\BlogComment;
+use App\Models\CompanyAddress;
+use App\Models\PaymentOption;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -12,19 +14,26 @@ class BlogController extends Controller
     public function index()
     {
         $blogs = Blog::all();
-        return view('admin.blog_mgt', compact('blogs'));
+        $companyAddress = CompanyAddress::where('id', 1)->first();
+        $paymentOptions = PaymentOption::where('id', 1)->first();
+
+        return view('admin.blog_mgt', compact('blogs','companyAddress', 'paymentOptions'));
     }
 
     public function show($id)
     {   
         $blog = Blog::findOrFail($id);
-        return view('blog-details', compact('blog'));
+        $companyAddress = CompanyAddress::where('id', 1)->first();
+        $paymentOptions = PaymentOption::where('id', 1)->first();
+        return view('blog-details', compact('blog','companyAddress', 'paymentOptions'));
     }
 
     public function fetchBlogs()
     {
         $blogs = Blog::all();
-        return view('blogs', compact('blogs'));
+        $companyAddress = CompanyAddress::where('id', 1)->first();
+        $paymentOptions = PaymentOption::where('id', 1)->first();
+        return view('blogs', compact('blogs', 'companyAddress', 'paymentOptions'));
     }
 
     public function create()

@@ -61,9 +61,9 @@
                     </div>
                     <div class="ms-3">
                         <h6>Head Office</h6>
-                        <span>ZadeCAD Limited</span><br>
-                        <span>Plot 8 Wamala Avenue Bukoto-Kissasi Road</span><br>
-                        <span>P.O Box 109370, Kampala (Uganda)</span>
+                        <span>{{ $companyAddress?->office_name }}</span><br>
+                        <span>{{ $companyAddress?->office_address }}</span><br>
+                        <span>{{ $companyAddress?->office_po_box }}</span>
                     </div>
                 </div>
                 <div class="d-flex border-bottom pb-3 mb-3">
@@ -72,8 +72,9 @@
                     </div>
                     <div class="ms-3">
                         <h6>Call Us</h6>
-                        <span>+256-705-233-210</span><br>
-                        <span>+256-785-941-415</span>
+                        <span>{{ $companyAddress?->office_line1 }}</span><br>
+                        <span>{{ $companyAddress?->office_line2 }}</span><br/>
+                        <span>{{ $companyAddress?->office_line3 }}</span>
                     </div>
                 </div>
                 <div class="d-flex border-bottom-0 pb-3 mb-3">
@@ -82,18 +83,19 @@
                     </div>
                     <div class="ms-3">
                         <h6>Mail Us</h6>
-                        <span>info@zadecadacademy.com</span>
+                        <span>{{ $companyAddress?->office_email }}</span>
                     </div>
                 </div>
-
-                <!--<iframe class="w-100 rounded"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
-                    frameborder="0" style="min-height: 300px; border:0;" allowfullscreen="" aria-hidden="false"
-                    tabindex="0">
-				</iframe>-->
             </div>
         </div>
     </div>
+    <iframe class="w-100 rounded"
+    src="https://maps.google.com/maps?q=ZadeCAD%20Academy%20&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+    frameborder="0" 
+    style="min-height: 300px; border:0;" 
+    allowfullscreen="" 
+    aria-hidden="false" 
+     tabindex="0"> </iframe>
 </div>
 
 @include('footer')
