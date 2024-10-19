@@ -27,7 +27,7 @@
         <div class="col-md-8 mx-auto">
             <h1 class="mb-4">{{ $blog->title }}</h1>
             <img src="{{ asset('uploads/' . $blog->image) }}" class="img-fluid rounded mb-4" alt="{{ $blog->title }}">
-            <p class="lead">{{ $blog->content }}</p>
+            <p class="lead">{!! $blog->content !!}</p>
 
             <hr class="my-4">
 

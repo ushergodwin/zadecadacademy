@@ -28,7 +28,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label> Content: </label>
-                            <textarea name="content" class="form-control" rows="5" required></textarea>
+                            <textarea name="content" class="form-control" id="editor" rows="5" required></textarea>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -66,7 +66,7 @@
                                 <tr class="odd gradeX">
                                     <td>@include('admin.blogs_prv_modal', ['blog' => $blog])</td>
                                     <td>{{ $blog->title }}</td>
-                                    <td>{{ Str::limit($blog->content, 100) }}</td>
+                                    <td>{!! Str::limit($blog->content, 100) !!}</td>
                                     <td>
                                         <a href="{{ route('admin.blogs.destroy', ['id' => $blog->id]) }}" onclick="return confirm('Are you sure you want to delete this message?');" class="btn btn-danger btn-xs">
                                             <i class="fa fa-remove"></i> Delete
