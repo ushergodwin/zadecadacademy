@@ -19,17 +19,7 @@
                                 @foreach($category->images as $index => $gk)
                                 <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
                                     <img class="w-100" src="{{ asset('uploads/' . $gk->image) }}" alt="Image" style="width: 100%;">
-                                    <div class="carousel-caption">
-                                        <div class="container">
-                                            <div class="row justify-content-start">
-                                                <div class="col-lg-12 text-start">
-                                                    <p class="fs-4 text-white">WELCOME TO ZADECAD ACADEMY</p>
-                                                    <p class="fs-4 text-white"> Leading CADD Training company in Uganda </p>
-                                                    <h1 class="display-1 text-white mb-5 animated slideInRight w-100">Engineering, Architecture & Surveying</h1>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                          
                                 </div>
                                 @endforeach
                             </div>
