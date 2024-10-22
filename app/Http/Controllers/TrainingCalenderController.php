@@ -21,7 +21,7 @@ class TrainingCalenderController extends Controller
     public function fetchCalendars()
     {
         // Fetch all training calendar entries with associated course data
-        $calendars = TrainingCalendar::with('course')->get();
+        $calendars = TrainingCalendar::with('course')->where('start_date', '>=', date('Y-m-d'))->get();
         $companyAddress = CompanyAddress::where('id', 1)->first();
         $paymentOptions = PaymentOption::where('id', 1)->first();
 
